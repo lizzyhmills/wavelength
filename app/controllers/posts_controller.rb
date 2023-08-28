@@ -26,4 +26,16 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:song_name, :content)
   end
+
+  def create
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+  end
 end
