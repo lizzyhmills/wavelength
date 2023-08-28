@@ -1,2 +1,8 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<div class="container">
+  <h1 class="mt-5 mb-4">Post a song for the day</h1>
+  <%= simple_form_for [@post] do |f| %>
+    <%= f.input :song_name %>
+    <%= f.input :caption %>
+    <%= f.submit class: "btn btn-outline-info border-1"%>
+  <% end %>
+</div>
