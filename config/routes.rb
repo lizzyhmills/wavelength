@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
-  get 'posts/index'
-  get 'posts/new'
+  get 'friendships/create'
+  get 'friendships/destroy'
+  get 'favourite_posts/create'
+  get 'favourite_posts/destroy'
+  get 'likes/create'
+  get 'likes/destroy'
+  get 'comments/create'
+  get 'comments/update'
+  get 'comments/destroy'
+  get "posts/index"
+  get "posts/new"
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -16,4 +25,4 @@ Rails.application.routes.draw do
   resources :users do
     resources :friendships
   end
-
+end
