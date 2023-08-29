@@ -1,1 +1,14 @@
 // Specific CSS for your home-page
+
+
+
+.box{
+
+  background-color: #E2E2E2;
+  border: 2px solid var(--BACKGROUND-SECONDARY-PINK);
+  border-radius: 30px;
+  color:white;
+  width: 385px;
+  height: 253px;
+  flex-shrink: 0;
+}
