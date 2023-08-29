@@ -7,12 +7,23 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @song = RSpotify::Track.find('2ezQq2qWhGO6J6q5JwC50d')
   end
 
   def create
     @user = current_user
     @post = Post.new(post_params)
+    #https://open.spotify.com/track/1z6WtY7X4HQJvzxC4UgkSf?si=7bed3c6456414f87
+    @link_id = @post.link.split('/').last.split('?').first #this should be a method in the model post
+    @song = RSpotify::Track.find(@link_id) #this can also be in model
+    @song_title = @song.name
+    @song_artists = @song.artists
+    @artist = @song_artists.map { |artist| artist.name }.pop
+    @album_art = @song.album.images.first["url"]
+    @post.song_name = @song_title
+    @post.artist = @artist
     @post.user = @user
+    @post.image_url = @album_art
     if @post.save!
       redirect_to posts_path
     else
@@ -43,6 +54,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:song_name, :artist, :content)
+    params.require(:post).permit(:link, :caption)
   end
 end
