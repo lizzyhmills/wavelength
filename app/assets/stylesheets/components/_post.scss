@@ -1,16 +1,31 @@
-.post{
-  height: 400px;
-  width: auto;
+.post {
+  width: 372px;
+  height: 383px;
   margin: 20px;
   padding: 15px;
-  border-radius: 10px;
-  border: 2px solid red;
+  border-radius: 40px;
   display: flex;
   align-items: end;
   position: relative;
+
 }
 
-.post-top{
+.current-user-post {
+  flex-shrink: 0;
+  border-radius: 40px;
+  border: 0px solid #61A54E;
+  background: #030F00;
+  box-shadow: 3px 3px 0px 0px #61A54E;
+}
+
+.other-user-post {
+  border: 0px solid #BF2C71;
+  background: #0E0006;
+  box-shadow: 3px 3px 0px 0px #BF2C71;
+}
+
+
+.post-top {
   position: absolute;
   top: 5%;
   left: 5%;
