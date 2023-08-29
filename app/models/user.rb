@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_one_attached :photo
   # friendships_as_follower is for the people that the user follows.
   has_many :friendships_as_follower, class_name: "Friendship", foreign_key: :follower_id
   # friendships_as_followee is for the people that follow the user.

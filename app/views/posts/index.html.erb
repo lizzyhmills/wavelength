@@ -3,7 +3,9 @@
   <% @posts.each do |post| %>
     <div class="post">
       <div class="post-top">
-        <img src="" alt="" class="avatar-bordered"> <%= post.user.username %> <br>
+        <%= cl_image_tag post.user.photo.key, class: "avatar-bordered" %>
+        <%= post.user.username %> <br>
+
       </div>
 
       <div class="song-info">
