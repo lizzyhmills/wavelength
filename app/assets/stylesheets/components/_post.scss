@@ -1,0 +1,25 @@
+.post{
+  height: 400px;
+  width: auto;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid red;
+  display: flex;
+  align-items: end;
+  position: relative;
+}
+
+.post-top{
+  position: absolute;
+  top: 5%;
+  left: 5%;
+}
+
+.album-artwork {
+  background-color: blue;
+  height: 200px;
+  width: 250px;
+  border-radius: 4px;
+  margin: 5px;
+}
