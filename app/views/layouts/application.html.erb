@@ -10,9 +10,13 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
-
-    <%= yield %>
+  <body class="vh-100">
+    <%= render "shared/navbar" %>
+    <%= render "shared/flashes" %>
+    <main style="padding-bottom: 49px;">
+      <%= yield %>
+    </main>
+    <%# TODO: Add logic to not show this on the homepage / devise pages %>
+    <%= render 'shared/footer' %>
   </body>
 </html>
