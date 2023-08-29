@@ -1,2 +1,19 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="page-container">
+<div class="image-box">
+<%= image_tag "home-logo.svg"  %>
+</div>
+
+  <h1>wavelength</h1>
+
+
+  <div class="box">
+    <div class="inner-box">
+        <h3>sharing the music you like with the people you love</h3>
+        <div class="buttons-center">
+        <%= link_to "Sign-up ", new_user_registration_path, class: "big-button-green" %>
+          <%= link_to "Login", new_user_session_path, class: "big-button-pink" %>
+
+        </div>
+    </div>
+   </div>
+  </div>
