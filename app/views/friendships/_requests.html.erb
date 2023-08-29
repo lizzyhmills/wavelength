@@ -6,12 +6,12 @@
         <div class="flex-grow-1">
           <div class="d-flex">
             <div class="av">
-              <%= cl_image_tag request.followee.photo.key, class: "avatar-bordered" %>
+              <%= cl_image_tag request.follower.photo.key, class: "avatar-bordered" %>
             </div>
             <div class="names mx-2">
-              <%= request.followee.first_name %>
-              <%= request.followee.last_name %> <br>
-              <%= request.followee.username %>
+              <%= request.follower.first_name %>
+              <%= request.follower.last_name %> <br>
+              <%= request.follower.username %>
             </div>
           </div>
         </div>
