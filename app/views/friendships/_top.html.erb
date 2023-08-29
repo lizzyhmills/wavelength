@@ -1,0 +1,11 @@
+<div class="d-flex m-3">
+  <%= cl_image_tag @user.photo.key, class: "avatar-bordered" %>
+  <h2 class="mx-3"><%= @user.username %></h2>
+</div>
+<div class="friend-options">
+  <div class="d-flex justify-content-around">
+    <p class="medium-button-white">suggestions</p>
+    <p class="medium-button-white">my friends</p>
+    <p class="medium-button-white">requests</p>
+  </div>
+</div>
