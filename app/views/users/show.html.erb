@@ -1,0 +1,16 @@
+<%= @user.avatar_url %>
+<%= @user.username %>
+
+<h2>My posts</h2>
+  <% @posts.each do |post| %>
+      <%= post.image_url %>
+      <%= post.song_name %>
+      <%= post.artist %>
+  <% end %>
+
+<h2>My love list</h2>
+  <% @favourite_posts.each do |post| %>
+      <%= post.image_url %>
+      <%= post.song_name %>
+      <%= post.artist %>
+  <% end %>
