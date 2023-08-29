@@ -1,0 +1,48 @@
+<div>
+  <%= @user.avatar_url %>
+  <%= @user.username %>
+</div>
+
+<div>
+  <p>suggestions</p>
+  <p>my friends</p>
+  <p>requests</p>
+</div>
+
+<%# SUGGESTIONS %>
+<div>
+  <% @users.each do |user| %>
+    <%= user.avatar_url %>
+    <%= user.first_name %>
+    <%=user.last_name %>
+    <%= user.username %>
+    <a href="#">add</a>
+    <p>x</p>
+  <% end %>
+</div>
+
+<%# MY FRIENDS %>
+<div>
+  <% @myfriends.each do |friend| %>
+    <%= friend.followee.avatar_url %>
+    <%= friend.followee.first_name %>
+    <%= friend.followee.last_name %>
+    <%= friend.followee.username %>
+    <a href="#">nudge?</a>
+    <p>x</p>
+  <% end %>
+</div>
+
+<%# REQUESTS %>
+<div>
+  <% @myrequests.each do |request| %>
+    <%= request.follower.avatar_url %>
+    <%= request.follower.first_name %>
+    <%= request.follower.last_name %>
+    <%= request.follower.username %>
+    <a href="#">follow back?</a>
+    <p>x</p>
+  <% end %>
+</div>
+
+<%= link_to "Home", posts_path %>
