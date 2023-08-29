@@ -11,9 +11,9 @@
 
       <div class="song-info">
         <img src="<%= post.image_url%>" alt="" class="album-artwork">
-        Title: <%= post.song_name %> <br>
-        Artist: <%= post.artist %> <br>
-        Caption: <%= post.caption %> <br>
+       <%= post.song_name %> <br>
+        <%= post.artist %> <br>
+        <%= post.caption %> <br>
       </div>
       <%= link_to "edit post", edit_post_path(post) %>
     </div>
