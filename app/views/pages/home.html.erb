@@ -11,11 +11,13 @@
     <div class="inner-box">
         <h3>sharing the music you like with the people you love</h3>
         <div class="buttons-center">
-        <%= link_to "Sign-up ", new_user_registration_path, class: "big-button-green" %>
+        <% if current_user %>
+          <%= link_to "Post a Song", new_post_path, class: "big-button-pink" %>
+        <% else %>
+          <%= link_to "Sign-up ", new_user_registration_path, class: "big-button-green" %>
           <%= link_to "Login", new_user_session_path, class: "big-button-pink" %>
-
+        <% end %>
         </div>
     </div>
    </div>
   </div>
-
