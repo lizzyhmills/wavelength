@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
   def index
     @user = current_user
-    @posts = Post.where(user_id: @user.friendships_as_follower.map { |friend| friend.followee.id })
+    @posts = Post.friend_posts(current_user)
     @myposts = Post.where(user_id: @user.id)
   end
 
   def new
     @post = Post.new
-    @song = RSpotify::Track.find('2ezQq2qWhGO6J6q5JwC50d')
+    @song = RSpotify::Track.find('7KA4W4McWYRpgf0fWsJZWB')
   end
 
   def create
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     @song = RSpotify::Track.find(@link_id) #this can also be in model
     @song_title = @song.name
     @song_artists = @song.artists
-    @artist = @song_artists.map { |artist| artist.name }.pop
+    @artist = @song_artists.map { |artist| artist.name }.join(', ')
     @album_art = @song.album.images.first["url"]
     @post.song_name = @song_title
     @post.artist = @artist
@@ -36,13 +36,24 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
-    @post.update(post_params)
-    if @post
-      redirect_to posts_path
-    else
-      render :new, status: :unprocessable_entity
-    end
+        # #https://open.spotify.com/track/1z6WtY7X4HQJvzxC4UgkSf?si=7bed3c6456414f87
+        # @post = Post.find(params[:id])
+        # @post.update!(post_params)
+        # @link_id = @post.link.split('/').last.split('?').first #this should be a method in the model post
+        # @song = RSpotify::Track.find(@link_id) #this can also be in model
+        # @song_title = @song.name
+        # @song_artists = @song.artists
+        # @artist = @song_artists.map { |artist| artist.name }.join(', ')
+        # @album_art = @song.album.images.first["url"]
+        # @post.song_name = @song_title
+        # @post.artist = @artist
+        # @post.user = @user
+        # @post.image_url = @album_art
+        # if @post.update!
+        #   redirect_to posts_path
+        # else
+        #   render :new, status: :unprocessable_entity
+        # end
   end
 
   def destroy

@@ -1,0 +1,10 @@
+<div>
+  <% @myfollowrequests.each do |request| %>
+    <%= request.follower.avatar_url %>
+    <%= request.follower.first_name %>
+    <%= request.follower.last_name %>
+    <%= request.follower.username %>
+    <a href="#">follow back?</a>
+    <p>x</p>
+  <% end %>
+</div>

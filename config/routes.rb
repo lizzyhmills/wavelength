@@ -23,6 +23,15 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resources :friendships
+    resources :friendships, only: [:create]
+  end
+  resources :friendships, only: [:index, :destroy]
+
+
+  resources :friendships, only: [] do
+    member do
+      patch :accept
+      patch :reject
+    end
   end
 end

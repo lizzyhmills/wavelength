@@ -13,7 +13,6 @@ Post.destroy_all
 User.destroy_all
 puts "DB cleaned"
 
-
 tom = User.new(email: "tom@lw.org", password: "123456", first_name: "Tom", last_name: "Fallis", bio: "Music lover of genres", username: "tom")
 file1 = File.open("app/assets/images/tom profile pic.png")
 tom.photo.attach(io: file1, filename: "profile.png", content_type: "image/png")
@@ -40,10 +39,37 @@ tereza.photo.attach(io: file5, filename: "profile.png", content_type: "image/png
 tereza.save!
 puts " Tereza  created"
 
+puts "creating Toms post"
+post1 = Post.new(song_name: "Yesterday", artist: "The Beatles", image_url: "https://i.scdn.co/image/ab67616d0000b273e3e3b64cea45265469d4cafa", caption: "I love this song")
+post1.user = tom
+post1.save!
+puts "created Toms post"
+
+puts "creating Lizs post"
+post2 = Post.new(song_name: "White Mercedes", artist: "Charlie XCX", image_url: "https://i.scdn.co/image/ab67616d0000b273cee4acc7bfe23bc75461a66c", caption: "Women in stem!")
+post2.user = liz
+post2.save!
+puts "created Lizs post"
+
+puts "creating Nicos post"
+post3 = Post.new(song_name: "Gasoline", artist: "The Weekend", image_url: "https://i.scdn.co/image/ab67616d0000b2734ab2520c2c77a1d66b9ee21d", caption: "That 80s sound")
+post3.user = nico
+post3.save!
+puts "created Nicos post"
+
+puts "creating Barks post"
+post4 = Post.new(song_name: "Redbone", artist: "Childish Gambino", image_url: "https://i.scdn.co/image/ab67616d0000b2737582716b3666a5235d5af4ea", caption: "Just an amazing tune")
+post4.user = bark
+post4.save!
+puts "created Barks post"
+
+puts "creating Terezas post"
+post5 = Post.new(song_name: "See you Again", artist: "Tyler the Creator", image_url: "https://i.scdn.co/image/ab67616d0000b2738940ac99f49e44f59e6f7fb3", caption: "Top tune")
+post5.user = tereza
+post5.save!
+puts "created Terezas post"
+
 User.all.each do |user|
-  post = Post.new(song_name: Faker::Music::PearlJam.song, artist: "Pearl Jam", caption: Faker::Music::Prince.lyric)
-  post.user = user
-  post.save
   if User.first == user
     User.where.not(id: user.id).each do |other_user|
      friendship = Friendship.new
