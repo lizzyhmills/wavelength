@@ -1,10 +1,25 @@
-<div>
-  <% @myfollowrequests.each do |request| %>
-    <%= request.follower.avatar_url %>
-    <%= request.follower.first_name %>
-    <%= request.follower.last_name %>
-    <%= request.follower.username %>
-    <a href="#">follow back?</a>
-    <p>x</p>
-  <% end %>
+ <div class="d-none mt-3" data-friends-target="requests">
+  <h2>Requests</h2>
+    <div>
+      <% @myrequests.each do |request| %>
+      <div class="d-flex">
+        <div class="flex-grow-1">
+          <div class="d-flex">
+            <div class="av">
+              <%= cl_image_tag request.followee.photo.key, class: "avatar-bordered" %>
+            </div>
+            <div class="names mx-2">
+              <%= request.followee.first_name %>
+              <%= request.followee.last_name %> <br>
+              <%= request.followee.username %>
+            </div>
+          </div>
+        </div>
+        <div>
+          <%= button_to "Accept", accept_friendship_path(request), method: :patch, class:"small-button-pink mx-2" %>
+          <%= button_to "Reject", reject_friendship_path(request), method: :patch, class:"small-button-pink mx-2"%>
+        </div>
+      </div>
+      <% end %>
+    </div>
 </div>
