@@ -1,0 +1,27 @@
+.big-button-pink{
+  background-color: var(--BACKGROUND-PRIMARY-EMPHASIS);
+  color:var(--BACKGROUND-PRIMARY-TEXT);
+  width: 162px;
+  height: 51px;
+  flex-shrink: 0;
+  border-radius: 40px;
+  box-shadow: 3px 4px 0px 0px var(--BACKGROUND-SECONDARY-PINK);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.big-green{
+  background-color: var(--BACKGROUND-PRIMARY-EMPHASIS);
+  color:var(--BACKGROUND-PRIMARY-TEXT);
+  width: 162px;
+  height: 51px;
+  flex-shrink: 0;
+  border-radius: 40px;
+  box-shadow: 3px 4px 0px 0px var(--BACKGROUND-SECONDARY-GREEN);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
