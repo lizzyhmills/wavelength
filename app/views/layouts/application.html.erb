@@ -13,7 +13,8 @@
   <body class="vh-100">
     <%# <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-    <main style="padding-bottom: 49px;">
+
+    <main class="<%= params[:controller].start_with?("devise") || params[:controller] == "pages" ? "background" : "" %>">
       <%= yield %>
     </main>
     <%# TODO: Add logic to not show this on the homepage / devise pages %>
