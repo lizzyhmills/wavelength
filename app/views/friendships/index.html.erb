@@ -24,7 +24,6 @@
 <%# MY FRIENDS %>
 <div>
   <% @myfriends.each do |friend| %>
-    <%= friend.followee.avatar_url %>
     <%= friend.followee.first_name %>
     <%= friend.followee.last_name %>
     <%= friend.followee.username %>
@@ -36,11 +35,12 @@
 <%# REQUESTS %>
 <div>
   <% @myrequests.each do |request| %>
-    <%= request.follower.avatar_url %>
-    <%= request.follower.first_name %>
-    <%= request.follower.last_name %>
+
+
     <%= request.follower.username %>
-    <a href="#">follow back?</a>
+    <%= request.accepted %>
+    <%= button_to "Accept", accept_friendship_path(request), method: :patch, class:"btn btn-outline-success d-block mx-auto" %>
+     <%= button_to "Reject", reject_friendship_path(request), method: :patch, class:"btn btn-outline-danger d-block mx-auto"%>
     <p>x</p>
   <% end %>
 </div>

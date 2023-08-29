@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_29_094119) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_29_143823) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,6 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_094119) do
     t.bigint "followee_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "accepted"
     t.index ["followee_id"], name: "index_friendships_on_followee_id"
     t.index ["follower_id"], name: "index_friendships_on_follower_id"
   end
