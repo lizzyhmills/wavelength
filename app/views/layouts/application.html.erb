@@ -11,7 +11,7 @@
   </head>
 
   <body class="vh-100">
-    <%= render "shared/navbar" %>
+    <%# <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
 
     <main class="<%= params[:controller].start_with?("devise") || params[:controller] == "pages" ? "background" : "" %>">

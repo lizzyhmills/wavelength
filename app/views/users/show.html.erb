@@ -16,7 +16,6 @@
 
 <h2>My posts</h2>
   <% @posts.each do |post| %>
-      <%= post.image_url %>
       <%= post.song_name %>
       <%= post.artist %>
   <% end %>
@@ -25,8 +24,9 @@
 <% if @user == current_user %>
   <h2>My love list</h2>
     <% @favourite_posts.each do |post| %>
-        <%= post.image_url %>
         <%= post.song_name %>
         <%= post.artist %>
     <% end %>
 <% end %>
+
+<%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
