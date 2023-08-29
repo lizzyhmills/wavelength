@@ -1,6 +1,17 @@
 <%= @user.avatar_url %>
 <%= @user.username %>
 
+<!-- IN CASE WE WANT AN EDIT USER FORM
+<%= simple_form_for [@user] do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :bio %>
+  <%= f.input :avatar_url %>
+  <%= f.submit class: "btn btn-outline-info border-1"%>
+  <% end %>
+</div>
+-->
+
 <h2>My posts</h2>
   <% @posts.each do |post| %>
       <%= post.image_url %>
