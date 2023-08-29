@@ -1,14 +1,61 @@
 // Specific CSS for your home-page
 
+body {
+  display: block;
+  justify-content: center;
+  align-content: center;
+  height: 100%; /* Make sure the body takes up the full viewport height */
 
+}
+
+.image-box{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 28px 44px 28px 44px;;
+}
 
 .box{
 
   background-color: #E2E2E2;
-  border: 2px solid var(--BACKGROUND-SECONDARY-PINK);
+  box-shadow: 4px 4px 0px 0px var(--BACKGROUND-SECONDARY-PINK);
   border-radius: 30px;
-  color:white;
-  width: 385px;
-  height: 253px;
+  color:#0c0c0c;
+  width: 370px;
+  height: 260px;
   flex-shrink: 0;
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+
+}
+
+.buttons-center{
+   display: flex;
+    align-content: center;
+    justify-content: space-evenly;
+
+
+
+}
+h1{
+  color: #E2E2E2;
+  font-family: 'IBM Plex Mono', monospace;
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  padding: 28px 44px 28px 44px;
+}
+
+h3{
+  color: #000;
+text-align: center;
+font-family: 'IBM Plex Mono', monospace;
+font-size: 20px;
+font-weight: 400;
+padding: 53px 53px 32px 53px;
+
+
 }
