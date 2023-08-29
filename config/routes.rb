@@ -22,8 +22,10 @@ Rails.application.routes.draw do
     resources :favourite_posts
   end
 
-  resources :users
-  resources :friendships
+  resources :users do
+    resources :friendships, only: [:create]
+  end
+  resources :friendships, only: [:index, :destroy]
 
 
   resources :friendships, only: [] do

@@ -10,18 +10,20 @@
 </div>
 
 <%# SUGGESTIONS %>
+<h2>Suggestions</h2>
 <div>
   <% @users.each do |user| %>
     <%= user.avatar_url %>
     <%= user.first_name %>
     <%=user.last_name %>
     <%= user.username %>
-    <a href="#">add</a>
+    <%= button_to "Add", user_friendships_path(user), method: :post, class:"btn btn-outline-primary d-block mx-auto" %>
     <p>x</p>
   <% end %>
 </div>
 
 <%# MY FRIENDS %>
+<h2>My Friends</h2>
 <div>
   <% @myfriends.each do |friend| %>
     <%= friend.followee.first_name %>
@@ -33,6 +35,7 @@
 </div>
 
 <%# REQUESTS %>
+<h2>Requests</h2>
 <div>
   <% @myrequests.each do |request| %>
 

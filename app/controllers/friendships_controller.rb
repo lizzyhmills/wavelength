@@ -9,11 +9,12 @@ class FriendshipsController < ApplicationController
 
   def create
     @user = current_user
-    @friend = User.find(params[:id])
+    @friend = User.find(params[:user_id])
     @friendship = Friendship.new
     @friendship.follower = @user
     @friendship.followee = @friend
     @friendship.save!
+    redirect_to friendships_path
   end
 
   def destroy
