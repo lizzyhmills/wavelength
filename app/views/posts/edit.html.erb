@@ -1,8 +1,7 @@
 <div class="container">
   <h1 class="mt-5 mb-4">Edit your post</h1>
   <%= simple_form_for [@post] do |f| %>
-    <%= f.input :song_name %>
-    <%= f.input :artist %>
+    <%= f.input :link %>
     <%= f.input :caption %>
     <%= f.submit class: "btn btn-outline-info border-1"%>
   <% end %>
