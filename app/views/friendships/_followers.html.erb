@@ -1,0 +1,24 @@
+ <div class="d-none mt-3" data-friends-target="friends">
+  <h2>My Friends</h2>
+    <div>
+      <% @myfriends.each do |friend| %>
+      <div class="d-flex">
+        <div class="flex-grow-1">
+          <div class="d-flex">
+            <div class="av">
+              <%= cl_image_tag friend.followee.photo.key, class: "avatar-bordered" %>
+            </div>
+            <div class="names mx-2">
+              <%= friend.followee.first_name %>
+              <%= friend.followee.last_name %> <br>
+              <%= friend.followee.username %>
+            </div>
+          </div>
+        </div>
+        <div>
+          <a href="#" class="small-button-pink mx-2">nudge?</a>
+        </div>
+      </div>
+      <% end %>
+    </div>
+</div>
