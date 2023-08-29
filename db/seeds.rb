@@ -6,21 +6,38 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require "faker"
-# require "open-uri"
+require "open-uri"
 
+Friendship.destroy_all
+Post.destroy_all
 User.destroy_all
-
 puts "DB cleaned"
 
-User.create!(email: "tom@lw.org", password: "123456", first_name: "Tom", last_name: "Fallis", bio: "Music lover of genres", username: "tom")
+
+tom = User.new(email: "tom@lw.org", password: "123456", first_name: "Tom", last_name: "Fallis", bio: "Music lover of genres", username: "tom")
+file1 = File.open("app/assets/images/tom profile pic.png")
+tom.photo.attach(io: file1, filename: "profile.png", content_type: "image/png")
+tom.save!
 puts " Tom created"
-User.create!(email: "liz@lw.org", password: "123456", first_name: "Liz", last_name: "Mills", bio: "I like songs", username: "liz")
+liz = User.new(email: "liz@lw.org", password: "123456", first_name: "Liz", last_name: "Mills", bio: "I like songs", username: "liz")
+file2 = File.open("app/assets/images/liz profile pic.png")
+liz.photo.attach(io: file2, filename: "profile.png", content_type: "image/png")
+liz.save!
 puts "Liz created"
-User.create!(email: "nico@lw.org", password: "123456", first_name: "Nico", last_name: "Grubi", bio: "Music is life", username: "nico")
+nico = User.new(email: "nico@lw.org", password: "123456", first_name: "Nico", last_name: "Grubi", bio: "Music is life", username: "nico")
+file3 = File.open("app/assets/images/nicoleta profile pic.png")
+nico.photo.attach(io: file3, filename: "profile.png", content_type: "image/png")
+nico.save!
 puts " Nico created"
-User.create!(email: "bark@lw.org", password: "123456", first_name: "Barkhadle", last_name: "Yusuf", bio: "Love me a good tune I do", username: "barkhadle")
+bark = User.new(email: "bark@lw.org", password: "123456", first_name: "Barkhadle", last_name: "Yusuf", bio: "Love me a good tune I do", username: "barkhadle")
+file4 = File.open("app/assets/images/barkhadle profile pic.png")
+bark.photo.attach(io: file4, filename: "profile.png", content_type: "image/png")
+bark.save!
 puts " Barkhadle created"
-User.create!(email: "tereza@lw.org", password: "123456", first_name: "Tereza", last_name: "Dragoti", bio: "Wooooooo music!!!", username: "tereza")
+tereza = User.new(email: "tereza@lw.org", password: "123456", first_name: "Tereza", last_name: "Dragoti", bio: "Wooooooo music!!!", username: "tereza")
+file5 = File.open("app/assets/images/tereza profile pic.png")
+tereza.photo.attach(io: file5, filename: "profile.png", content_type: "image/png")
+tereza.save!
 puts " Tereza  created"
 
 User.all.each do |user|
