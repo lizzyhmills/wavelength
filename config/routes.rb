@@ -22,7 +22,14 @@ Rails.application.routes.draw do
     resources :favourite_posts
   end
 
-  resources :users do
-    resources :friendships
+  resources :users
+  resources :friendships
+
+
+  resources :friendships, only: [] do
+    member do
+      patch :accept
+      patch :reject
+    end
   end
 end
