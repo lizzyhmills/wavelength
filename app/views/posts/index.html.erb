@@ -10,7 +10,7 @@
       </div>
 
       <div class="song-info">
-        <img src="" alt="" class="album-artwork">
+        <img src="<%= post.image_url%>" alt="" class="album-artwork">
         Title: <%= post.song_name %> <br>
         Artist: <%= post.artist %> <br>
         Caption: <%= post.caption %> <br>
@@ -21,10 +21,11 @@
   <% @myposts.each do |post| %>
     <div class="post <%= post.user == current_user ? "current-user-post" : "other-user-post" %>">
       <div class="post-top">
-        <img src="" alt="" class="avatar-bordered"> <%= post.user.username %> <br>
+      <%= cl_image_tag post.user.photo.key, class: "avatar-bordered" %>
+        <%= post.user.username %> <br>
       </div>
       <div class="song-info">
-        <img src="" alt="" class="album-artwork">
+        <img src="<%= post.image_url%>" alt="" class="album-artwork">
         <em>Title:</em> <%= post.song_name %> <br>
         <em>Artist:</em> <%= post.artist %> <br>
         <em>Caption:</em> <%= post.caption %> <br>
