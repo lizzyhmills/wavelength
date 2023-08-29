@@ -1,13 +1,17 @@
 .post {
-  width: 372px;
   height: 383px;
-  margin: 20px;
+  margin-bottom: 20px;
   padding: 15px;
   border-radius: 40px;
   display: flex;
-  align-items: end;
+  flex-direction: column;
+
   position: relative;
 
+  .album-artwork {
+    width: 100%;
+    border-radius: 30px;
+  }
 }
 
 .current-user-post {
@@ -28,9 +32,14 @@
 
 
 .post-top {
-  position: absolute;
-  top: 5%;
-  left: 5%;
+  // position: absolute;
+  // top: 5%;
+  // left: 5%;
+
+}
+
+.username {
+  padding-left: 7px;
 }
 
 .album-artwork {
@@ -42,6 +51,55 @@
 }
 
 
+
 // here is the way we call the two fonts i have imported for the project
 //font-family: 'IBM Plex Mono', monospace;
 // font-family: 'Montserrat', sans-serif;
+
+h3 {
+  color: var(--BACKGROUND-PRIMARY-TEXT);
+  font-family: monsarat;
+}
+
+.song-info {
+  width: 100%;
+  color: var(--BACKGROUND-PRIMARY-TEXT)
+}
+
+.song-body-info {
+  padding-top: 9px;
+}
+
+
+#message-icon {
+  color: #ffffff;
+  position: absolute;
+  top: 247px;
+  right: 288px;
+  font-size: 25px;
+}
+
+#heart-icon {
+  color: #fafcff;
+  position: absolute;
+  top: 246px;
+  right: 326px;
+  font-size: 25px;
+}
+
+#save-icon {
+  color: #fafcff;
+  position: absolute;
+  top: 246px;
+  right: 19px;
+  font-size: 25px;
+}
+
+#edit-icon {
+  color: #fafcff;
+  position: absolute;
+  top: 288px;
+  right: 15px;
+  font-size: 25px;
+}
+
