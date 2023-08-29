@@ -17,5 +17,7 @@
     <main class="<%= params[:controller].start_with?("devise") || params[:controller] == "pages" ? "background" : "" %>">
       <%= yield %>
     </main>
+    <%# TODO: Add logic to not show this on the homepage / devise pages %>
+    <%= render 'shared/footer' %>
   </body>
 </html>

@@ -10,21 +10,22 @@
 </div>
 
 <%# SUGGESTIONS %>
+<h2>Suggestions</h2>
 <div>
   <% @users.each do |user| %>
     <%= user.avatar_url %>
     <%= user.first_name %>
     <%=user.last_name %>
     <%= user.username %>
-    <a href="#">add</a>
+    <%= button_to "Add", user_friendships_path(user), method: :post, class:"btn btn-outline-primary d-block mx-auto" %>
     <p>x</p>
   <% end %>
 </div>
 
 <%# MY FRIENDS %>
+<h2>My Friends</h2>
 <div>
   <% @myfriends.each do |friend| %>
-    <%= friend.followee.avatar_url %>
     <%= friend.followee.first_name %>
     <%= friend.followee.last_name %>
     <%= friend.followee.username %>
@@ -34,13 +35,15 @@
 </div>
 
 <%# REQUESTS %>
+<h2>Requests</h2>
 <div>
   <% @myrequests.each do |request| %>
-    <%= request.follower.avatar_url %>
-    <%= request.follower.first_name %>
-    <%= request.follower.last_name %>
+
+
     <%= request.follower.username %>
-    <a href="#">follow back?</a>
+    <%= request.accepted %>
+    <%= button_to "Accept", accept_friendship_path(request), method: :patch, class:"btn btn-outline-success d-block mx-auto" %>
+     <%= button_to "Reject", reject_friendship_path(request), method: :patch, class:"btn btn-outline-danger d-block mx-auto"%>
     <p>x</p>
   <% end %>
 </div>

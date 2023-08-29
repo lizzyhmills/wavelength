@@ -1,0 +1,24 @@
+.footer{
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 49px;
+  flex-shrink: 0;
+  border: 5px solid #000;
+  position: fixed;
+  bottom: 0;
+  padding-left: 17px;
+  padding-right: 17px;
+  img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+  }
+  a{
+    margin-bottom: 3px;
+  }
+}

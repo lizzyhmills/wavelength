@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @user = current_user
-    @posts = Post.where(user_id: @user.friendships_as_follower.map { |friend| friend.followee.id })
+    @posts = Post.friend_posts(current_user)
     @myposts = Post.where(user_id: @user.id)
   end
 
