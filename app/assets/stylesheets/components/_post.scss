@@ -30,14 +30,6 @@
   color: white;
 }
 
-
-.post-top {
-  // position: absolute;
-  // top: 5%;
-  // left: 5%;
-
-}
-
 .username {
   padding-left: 7px;
 }
@@ -54,11 +46,25 @@
 
 // here is the way we call the two fonts i have imported for the project
 //font-family: 'IBM Plex Mono', monospace;
-// font-family: 'Montserrat', sans-serif;
-
+// font-family: 'Montserrat', sans-serif;  body
 h3 {
-  color: var(--BACKGROUND-PRIMARY-TEXT);
-  font-family: monsarat;
+  color: white;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+h4 {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h4 {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h5 {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .song-info {
@@ -70,36 +76,40 @@ h3 {
   padding-top: 9px;
 }
 
-
-#message-icon {
-  color: #ffffff;
+.offset-song-icons {
   position: absolute;
-  top: 247px;
-  right: 288px;
+  bottom: -7px;
+  drop-shadow:
+}
+
+.offset-icon {
+  color: #ffffff;
+  // position: absolute;
+  // bottom: 0px;
+  // right: 288px;
   font-size: 25px;
 }
 
 #heart-icon {
   color: #fafcff;
-  position: absolute;
-  top: 246px;
-  right: 326px;
+  // position: absolute;
+  // top: 246px;
+  // right: 326px;
   font-size: 25px;
 }
 
 #save-icon {
   color: #fafcff;
-  position: absolute;
-  top: 246px;
-  right: 19px;
+  // position: absolute;
+  // top: 246px;
+  // right: 19px;
   font-size: 25px;
 }
 
 #edit-icon {
   color: #fafcff;
-  position: absolute;
-  top: 288px;
-  right: 15px;
+  // position: absolute;
+  // top: 288px;
+  // right: 15px;
   font-size: 25px;
 }
-
