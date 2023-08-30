@@ -23,13 +23,13 @@
   </div>
 </div>
 
-<div class="show-page-background-pink">
-  <% @posts.each do |post| %>
-      <img src="<%= post.image_url %>" alt="" class="album-artwork">
-      <%= post.song_name %>
-      <%= post.artist %>
-  <% end %>
-  <div class="arrow-right"><%= image_tag "arrow.svg" %></div>
+<div class="show-page-background-pink" data-controller="scroll">
+  <div class="post-cards" data-scroll-target="cards">
+    <% @posts.each do |post| %>
+      <%= render 'shared/mini-card', post: post %>
+    <% end %>
+  </div>
+  <div class="arrow-right" data-action="click->scroll#move"><%= image_tag "arrow.svg" %></div>
 </div>
 
 <div class="title-and-filter">
