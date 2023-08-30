@@ -1,16 +1,26 @@
-.mini-card{
+.mini-card {
   width: 105px;
   height: 152px;
-  // color:black;
- .img-div{
-  width: 105px;
-  height: 109px;
-  // background-color: blue;
-  border-radius: 14px;
- }
- .description-div{
-  width: 105px;
-  height: 43px;
-  // background-color: green;
- }
+  margin-left: 10px;
+
+  img {
+    width: 105px;
+    height: 109px;
+    border-radius: 14px;
+  }
+  span {
+    font-family: IBM Plex Mono;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  p {
+    font-family: Montserrat;
+    font-size: 10px;
+    font-weight: 400;
+  }
+  .description-div {
+    width: 105px;
+    height: 43px;
+    color: var(--BACKGROUND-PRIMARY-TEXT);
+  }
 }
