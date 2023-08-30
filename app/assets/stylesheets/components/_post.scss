@@ -24,6 +24,8 @@
   background: #0E0006;
   box-shadow: 3px 3px 0px 0px #BF2C71;
   color: white;
+
+
 }
 
 .other-user-post {
@@ -77,6 +79,13 @@ h5 {
   color: var(--BACKGROUND-PRIMARY-TEXT)
 }
 
+.song-info h3,
+.song-info h4,
+.song-info h5 {
+  margin-left: 10px;
+
+}
+
 .song-body-info {
   padding-top: 9px;
 }
@@ -89,34 +98,21 @@ h5 {
 
 .offset-icon {
   color: #ffffff;
-  // position: absolute;
-  // bottom: 0px;
-  // right: 288px;
   font-size: 25px;
-  // box-shadow: 7px 4px 4px 0px rgba(0, 0, 0, 0.3);
   filter: drop-shadow(2px -3px 3px rgb(51, 51, 51));
 }
 
 #heart-icon {
   color: #fafcff;
-  // position: absolute;
-  // top: 246px;
-  // right: 326px;
   font-size: 25px;
 }
 
 #save-icon {
   color: #fafcff;
-  // position: absolute;
-  // top: 246px;
-  // right: 19px;
   font-size: 25px;
 }
 
 #edit-icon {
   color: #fafcff;
-  // position: absolute;
-  // top: 288px;
-  // right: 15px;
-  font-size: 25px;
+  font-size: 20px;
 }
