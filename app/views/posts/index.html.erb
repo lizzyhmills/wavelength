@@ -7,7 +7,6 @@
   <% end %>
   <% @myposts.each do |post| %>
     <%= render "post", post: post   %>
-      <%= link_to "edit post", edit_post_path(post) %>
   <% end %>
 
 </div>
