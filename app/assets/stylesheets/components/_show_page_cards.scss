@@ -5,6 +5,7 @@
   background: #000;
   box-shadow: 10px 8px 0px 0px #BF2C71;
   display: flex;
+  gap: 2px;
   align-items: flex-end;
   justify-content: flex-end;
 }
@@ -18,4 +19,16 @@
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+}
+
+.post-cards {
+  display: flex; /* Display cards in a row */
+  gap: 80px; /* Gap between cards */
+  padding: 20px; /* Padding for better visualization */
+}
+
+.mini-card {
+  flex: 0 0 auto; /* Maintain card size, don't grow or shrink */
+  width: 30px; /* Adjust the width as needed */
+  /* Card styling */
 }
