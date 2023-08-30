@@ -4,23 +4,25 @@ body {
   display: block;
   justify-content: center;
   align-content: center;
-  height: 100%; /* Make sure the body takes up the full viewport height */
+  height: 100%;
+  /* Make sure the body takes up the full viewport height */
 
 }
 
-.image-box{
+.image-box {
   display: flex;
   justify-content: center;
   align-content: center;
-  padding: 28px 44px 28px 44px;;
+  padding: 28px 44px 28px 44px;
+  ;
 }
 
-.box{
+.box {
 
   background-color: #E2E2E2;
   box-shadow: 4px 4px 0px 0px var(--BACKGROUND-SECONDARY-PINK);
   border-radius: 30px;
-  color:#0c0c0c;
+  color: #0c0c0c;
   width: 370px;
   height: 260px;
   flex-shrink: 0;
@@ -32,15 +34,16 @@ body {
 
 }
 
-.buttons-center{
-   display: flex;
-    align-content: center;
-    justify-content: space-evenly;
+.buttons-center {
+  display: flex;
+  align-content: center;
+  justify-content: space-evenly;
 
 
 
 }
-h1{
+
+h1 {
   color: #E2E2E2;
   font-family: 'IBM Plex Mono', monospace;
   display: flex;
@@ -49,13 +52,13 @@ h1{
   padding: 28px 44px 28px 44px;
 }
 
-h3{
+.h3 {
   color: #000;
-text-align: center;
-font-family: 'IBM Plex Mono', monospace;
-font-size: 20px;
-font-weight: 400;
-padding: 53px 53px 32px 53px;
+  text-align: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 53px 53px 32px 53px;
 
 
 }

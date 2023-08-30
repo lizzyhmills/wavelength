@@ -30,14 +30,6 @@
   color: white;
 }
 
-
-.post-top {
-  // position: absolute;
-  // top: 5%;
-  // left: 5%;
-
-}
-
 .username {
   padding-left: 7px;
 }
@@ -54,10 +46,24 @@
 
 // here is the way we call the two fonts i have imported for the project
 //font-family: 'IBM Plex Mono', monospace;
-// font-family: 'Montserrat', sans-serif;
-
+// font-family: 'Montserrat', sans-serif;  body
 h3 {
-  color: var(--BACKGROUND-PRIMARY-TEXT);
+  color: white;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+h4 {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h4 {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h5 {
+  color: white;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -73,7 +79,7 @@ h3 {
 .offset-song-icons {
   position: absolute;
   bottom: -7px;
-  border: lightgray;
+  drop-shadow:
 }
 
 .offset-icon {
