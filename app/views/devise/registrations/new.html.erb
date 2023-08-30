@@ -1,7 +1,7 @@
-<div class=page>
-  <div class=" form-box ">
+<div class=page-signup>
+  <div class=" form-box-signup ">
     <div>
-    <h3 class="create-account-text">Create an account</h3>
+    <h3 class="create-account-text-signup">Create an account</h3>
     </div>
 
 
@@ -12,46 +12,51 @@
     <%= f.input :first_name,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "first name", style: "border-radius: 20px;" } %>
+                  input_html: { autocomplete: "first name", style: "border-radius: 20px; height: 45px;" } %>
       <%= f.input :last_name,
                   autofocus: true,
-                  input_html: { autocomplete: "last name", style: "border-radius: 20px;"  }%>
+                  input_html: { autocomplete: "last name", style: "border-radius: 20px; height: 45px;"  }%>
       <%= f.input :username,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "username", style: "border-radius: 20px;"  }%>
+                  input_html: { autocomplete: "username", style: "border-radius: 20px; height: 45px;"  }%>
       <%= f.input :email,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "email", style: "border-radius: 20px;"  }%>
+                  input_html: { autocomplete: "email", style: "border-radius: 20px; height: 45px;"  }%>
       <%= f.input :password,
                   required: true,
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password", style: "border-radius: 20px;"  } %>
+                  input_html: { autocomplete: "new-password", style: "border-radius: 20px; height: 45px;"  } %>
       <%= f.input :password_confirmation,
                   required: true,
-                  input_html: { autocomplete: "new-password", style: "border-radius: 20px;"  } %>
+                  input_html: { autocomplete: "new-password", style: "border-radius: 20px; height: 45px;"  } %>
       <%= f.input :bio,
                   autofocus: true,
-                  input_html: { autocomplete: "bio", style: "border-radius: 20px;"  }%>
+                  input_html: { autocomplete: "bio", style: "border-radius: 20px; height: 65px;"  }%>
       <%= f.input :photo, as: :file %>
+
     </div>
 
-    <div class="form-actions btn-center ">
+    <div class="form-actions btn-center-signup ">
       <%= f.button :submit, "Sign up", class:" big-button-pink" %>
 
     </div>
-  <% end %>
 
-  <%= render "devise/shared/links" %>
+  <% end %>
+  <div class="signup-link-align">
+    <%= render "devise/shared/links" %>
   </div>
+
+  </div>
+
 </div>
 
 <style>
-.page{
+.page-signup{
   padding: 4%;
 }
-.form-box{
+.form-box-signup{
    background-color: #E2E2E2;
   box-shadow: 4px 4px 0px 0px var(--BACKGROUND-SECONDARY-PINK);
   border-radius: 30px;
@@ -71,17 +76,22 @@
 }
 
 
-.btn-center{
+.btn-center-signup{
   display:flex;
    justify-content: center;
    align-content:center;
+   margin:50px;
 }
 
-.create-account-text{
+.create-account-text-signup{
   color: #0c0c0c;
   align-items: center;
   margin:20px;
 
+}
+
+.signup-link-align{
+margin:-38px 1px 12px 15px;
 }
 
 </style>
