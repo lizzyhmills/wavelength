@@ -1,7 +1,13 @@
 .title-and-filter {
-  .profile-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
+  margin-left: 20px;
+
+  h2 {
     color: #FFF;
-    font-family: IBM Plex Mono;
+    font-family: "IBM Plex Mono", "monospace";
     font-size: 23px;
     font-style: normal;
     font-weight: 600;
