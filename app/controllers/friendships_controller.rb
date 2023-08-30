@@ -1,9 +1,9 @@
 class FriendshipsController < ApplicationController
   def index
-    @users = User.where.not(id: current_user)
+    @users = User.where.not(id: current_user.friendships_as_follower.where(accepted: true).pluck(:followee_id) + [current_user.id])
     # @user = User.find(params[:user_id])
     @user = current_user
-    @myfriends = @user.friendships_as_follower.where(accepted: true)
+    @myfollowers = @user.friendships_as_follower.where(accepted: true)
     @myrequests = @user.friendships_as_followed
   end
 

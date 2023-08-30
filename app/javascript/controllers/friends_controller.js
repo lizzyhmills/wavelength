@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["suggestions", "friends", "requests", "nudge", "suggestionButton", "friendsButton", "requestsButton"]
+  static targets = ["suggestions", "followers", "requests", "nudge", "suggestionButton", "followersButton", "requestsButton"]
 
   connect() {
     console.log('hello from friends controller')
@@ -11,12 +11,12 @@ export default class extends Controller {
 
   setActive(target, button) {
     this.suggestionsTarget.classList.add('d-none')
-    this.friendsTarget.classList.add('d-none')
+    this.followersTarget.classList.add('d-none')
     this.requestsTarget.classList.add('d-none')
     this.suggestionButtonTarget.classList.add('medium-button-white')
     this.suggestionButtonTarget.classList.remove('medium-button-green')
-    this.friendsButtonTarget.classList.add('medium-button-white')
-    this.friendsButtonTarget.classList.remove('medium-button-green')
+    this.followersButtonTarget.classList.add('medium-button-white')
+    this.followersButtonTarget.classList.remove('medium-button-green')
     this.requestsButtonTarget.classList.add('medium-button-white')
     this.requestsButtonTarget.classList.remove('medium-button-green')
 
@@ -30,7 +30,7 @@ export default class extends Controller {
   }
 
   showFriends() {
-    this.setActive(this.friendsTarget, this.friendsButtonTarget);
+    this.setActive(this.followersTarget, this.followersButtonTarget);
   }
 
   showRequests() {
@@ -43,6 +43,8 @@ export default class extends Controller {
     this.nudgeTarget.classList.remove('small-button-pink');
     this.nudgeTarget.classList.add('small-button-green');
   }
+
+
 
 // old code to help understand the refactoring
 

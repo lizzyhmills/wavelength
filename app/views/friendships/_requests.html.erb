@@ -16,8 +16,12 @@
           </div>
         </div>
         <div>
-          <%= button_to "Accept", accept_friendship_path(request), method: :patch, class:"small-button-pink mx-2" %>
+          <% if request.accepted != true %>
+          <%= button_to "Accept", accept_friendship_path(request), method: :patch, class:"small-button-green mx-2" %>
           <%= button_to "Reject", reject_friendship_path(request), method: :patch, class:"small-button-pink mx-2"%>
+          <% elsif request.accepted == true %>
+          <%= button_to "Remove", reject_friendship_path(request), method: :patch, class:"small-button-red mx-2"%>
+          <% end %>
         </div>
       </div>
       <% end %>
