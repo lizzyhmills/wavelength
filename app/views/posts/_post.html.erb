@@ -12,7 +12,15 @@
             <i class="offset-icon fa-solid fa-bookmark" style="margin-left: auto;" id="save-icon"></i>
           </div>
         </div>
-        <h3><%= post.song_name.slice(0, 20)%></h3>
+        <div class="d-flex justify-content-between">
+          <h3><%= post.song_name.slice(0, 20)%></h3>
+          <% if current_user == post.user %>
+            <%= link_to edit_post_path(post), id:"edit-icon" do %>
+              <i class="fa-solid fa-pen"></i>
+            <%end %>
+          <% end %>
+        </div>
+
         <h4><%= post.artist %></h4>
         <h5><%= post.caption.slice(0, 40)%><%= post.caption.length > 40 ? "..." : "" %></h5><br>
       </div>
