@@ -1,4 +1,5 @@
 .background {
   background-image: asset-url("background.svg");
-  height: 100%;
+  // height: 100%;
+  object-fit: cover;
 }
