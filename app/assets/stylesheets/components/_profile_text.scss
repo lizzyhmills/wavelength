@@ -1,0 +1,17 @@
+.title-and-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
+  margin-left: 20px;
+
+  h2 {
+    color: #FFF;
+    font-family: "IBM Plex Mono", "monospace";
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.094px;
+  }
+}

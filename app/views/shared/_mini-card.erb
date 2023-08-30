@@ -1,0 +1,11 @@
+<div class="mini-card">
+  <img src="<%= post.image_url %>" alt="">
+  <div class="description-div">
+    <span><%= post.song_name.truncate(11)%></span>
+    <p>By <%= post.artist.truncate(20) %></p>
+  </div>
+</div>
+
+  <%# @posts.each do |post| %>
+      <%#= render 'shared/mini-card', post: post %>
+    <%# end %>
