@@ -1,0 +1,13 @@
+<div class="d-none" data-friends-target="friends" data-controller="follow">
+  <div class="mt-3">
+    <div class="d-flex justify-content-around">
+      <button class="small-button-pink" data-action="click->follow#showFollowers" data-follow-target="followersButton">following</button>
+      <button class="small-button-pink" data-action="click->follow#showFollowing" data-follow-target="followingButton">followers</button>
+    </div>
+  </div>
+ <%# MY FOLLOWERS %>
+ <%= render partial: "followers" %>
+ <%# FOLLOWING %>
+ <%= render partial: "following" %>
+
+</div>

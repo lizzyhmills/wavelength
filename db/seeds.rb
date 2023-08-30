@@ -69,14 +69,14 @@ post5.user = tereza
 post5.save!
 puts "created Terezas post"
 
-User.all.each do |user|
-  if User.first == user
-    User.where.not(id: user.id).each do |other_user|
-     friendship = Friendship.new
-     friendship.follower = user
-     friendship.followee = other_user
-     friendship.save!
-     p friendship
-    end
-  end
-end
+# User.all.each do |user|
+#   if User.first == user
+#     User.where.not(id: user.id).each do |other_user|
+#      friendship = Friendship.new
+#      friendship.follower = user
+#      friendship.followee = other_user
+#      friendship.save!
+#      p friendship
+#     end
+#   end
+# end
