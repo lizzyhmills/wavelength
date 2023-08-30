@@ -58,7 +58,7 @@
 
 h3 {
   color: var(--BACKGROUND-PRIMARY-TEXT);
-  font-family: monsarat;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .song-info {
@@ -70,36 +70,40 @@ h3 {
   padding-top: 9px;
 }
 
-
-#message-icon {
-  color: #ffffff;
+.offset-song-icons {
   position: absolute;
-  top: 247px;
-  right: 288px;
+  bottom: -7px;
+  border: lightgray;
+}
+
+.offset-icon {
+  color: #ffffff;
+  // position: absolute;
+  // bottom: 0px;
+  // right: 288px;
   font-size: 25px;
 }
 
 #heart-icon {
   color: #fafcff;
-  position: absolute;
-  top: 246px;
-  right: 326px;
+  // position: absolute;
+  // top: 246px;
+  // right: 326px;
   font-size: 25px;
 }
 
 #save-icon {
   color: #fafcff;
-  position: absolute;
-  top: 246px;
-  right: 19px;
+  // position: absolute;
+  // top: 246px;
+  // right: 19px;
   font-size: 25px;
 }
 
 #edit-icon {
   color: #fafcff;
-  position: absolute;
-  top: 288px;
-  right: 15px;
+  // position: absolute;
+  // top: 288px;
+  // right: 15px;
   font-size: 25px;
 }
-

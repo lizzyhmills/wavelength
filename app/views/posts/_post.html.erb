@@ -1,0 +1,19 @@
+    <div class="post <%= post.user == current_user ? "current-user-post" : "other-user-post" %>">
+      <div class="post-top">
+      <%= cl_image_tag post.user.photo.key, class: "avatar-bordered" %>
+        <%= post.user.username %> <br>
+      </div>
+      <div class="song-info">
+        <div class="position-relative mb-3">
+          <img src="<%= post.image_url %>" alt="" class="album-artwork">
+          <div class="offset-song-icons d-flex justify-content-start w-100" style="gap: 1rem;">
+            <i class="offset-icon fa-solid fa-heart" id="heart-icon"></i>
+            <i class="offset-icon fa-solid fa-comment" id="message-icon"></i>
+            <i class="offset-icon fa-solid fa-bookmark" style="margin-left: auto;" id="save-icon"></i>
+          </div>
+        </div>
+        <p><%= post.song_name.slice(0, 20) %> </p>
+        <em><%= post.artist %> </em><br>
+        <em><%= post.caption.slice(0, 40) %>... </em><br>
+      </div>
+    </div>
