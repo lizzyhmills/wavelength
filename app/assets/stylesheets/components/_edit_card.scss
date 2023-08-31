@@ -1,0 +1,35 @@
+
+.edit-title {
+  color:var(--BACKGROUND-PRIMARY-TEXT);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 23px;
+  font-weight: 400;
+  letter-spacing: -0.094px;
+  font-style: normal;
+  line-height: normal;
+}
+
+.edit-body {
+  padding:0px 10px 0px 10px;
+}
+
+.song-link-div {
+  background-color: white;
+  width: 100%;
+  align-self: center;
+  height: 31px;
+  border-radius: 30px;
+  box-shadow: 4px 4px 0px 0px var(--BACKGROUND-PRIMARY-COLOR);
+  color:black;
+  margin-top: 13px;
+}
+.caption-div{
+  background-color: var(--BACKGROUND-PRIMARY-TEXT);
+  width: 100%;
+  align-self: center;
+  height: 31px;
+  border-radius: 30px;
+  box-shadow: 4px 4px 0px 0px var(--BACKGROUND-PRIMARY-COLOR);
+  color:black;
+  margin-top: 13px;
+}

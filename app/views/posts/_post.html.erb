@@ -41,5 +41,6 @@
 
         <h4><%= post.artist %></h4>
         <h5><%= post.caption.slice(0, 40) %><%= post.caption.length > 40 ? "..." : "" %></h5><br>
+        <%= render 'shared/edit_card',  post: post %>
       </div>
     </div>
