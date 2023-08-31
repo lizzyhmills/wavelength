@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="text-center">My Feed</h1>
+  <p class="text-center">My Feed</p>
 
   <% @posts.each do |post| %>
     <%= render "post", post: post   %>
@@ -10,3 +10,17 @@
   <% end %>
 
 </div>
+
+<style>
+
+
+.text-center{
+  margin: 5%;
+  color: var(--BACKGROUND-PRIMARY-TEXT);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+
+
+}
+</style>
