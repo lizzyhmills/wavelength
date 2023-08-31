@@ -1,8 +1,9 @@
 .top-center-text {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  margin-top: 56px;
+  margin-top: 40px;
+  margin-bottom: 10px;
 
   .avatar-largest {
     align-items: center;
@@ -12,4 +13,17 @@
   .h2 {
     align-items: center;
   }
+}
+
+
+
+.user-name{
+  color:var(--BACKGROUND-PRIMARY-TEXT);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: -0.084px;
+  text-transform: capitalize;
+
+
 }

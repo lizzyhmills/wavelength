@@ -1,7 +1,12 @@
 <div class="top-center-text">
+    <div class="avatar-div">
     <%= image_tag @user.photo, class: "avatar-largest" %>
-      <h2><%= @user.username %></h2>
+    </div>
+      <div class="name-div">
+      <p class="user-name"><%= @user.username %></p>
+      </div>
 </div>
+
 
 <!-- IN CASE WE WANT AN EDIT USER FORM
 <%= simple_form_for [@user] do |f| %>
