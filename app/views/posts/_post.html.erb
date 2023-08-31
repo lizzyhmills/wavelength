@@ -18,9 +18,13 @@
                 </button>
               <% end %>
             <% end %>
+            <span><%= post.likes.count %></span>
             <i class="offset-icon fa-solid fa-comment" id="message-icon"></i>
             <% if post.favourite_posts.where(user: current_user).any? %>
-                <i class="offset-icon fa-solid fa-bookmark text-dark"  style="margin-left: auto;"></i>
+                <%= link_to post_favourite_post_path(post, post.favourite_posts.where(user: current_user).first), style:"margin-left: auto;", data: {turbo_method: :delete} do %>
+                <i class="offset-icon fa-solid fa-bookmark blue" ></i>
+              <% end %>
+
             <% else %>
               <%= form_with(url: post_favourite_posts_path(post), method: :post, local: true, html: { class: "bookmark-form", style: "margin-left: auto;" }) do |form| %>
                     <button type="submit" class="bookmark-button">
