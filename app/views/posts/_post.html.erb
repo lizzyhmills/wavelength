@@ -8,7 +8,15 @@
           <img src="<%= post.image_url %>" alt="" class="album-artwork">
           <audio src="<%= post.preview_url %>" controls></audio>
           <div class="offset-song-icons d-flex justify-content-start w-100" style="gap: 1rem;">
-            <i class="offset-icon fa-solid fa-heart" id="heart-icon"></i>
+          <% if post.likes.where(user: current_user).any? %>
+              <i class="offset-icon fa-solid fa-heart text-danger" id="heart-icon"></i>
+            <% else %>
+              <%= form_with(url: post_likes_path(post), method: :post, local: true, html: { class: "bookmark-form" }) do |form| %>
+                <button type="submit" class="bookmark-button">
+                  <i class="offset-icon fa-solid fa-heart" id="heart-icon"></i>
+                </button>
+              <% end %>
+            <% end %>
             <i class="offset-icon fa-solid fa-comment" id="message-icon"></i>
             <% if post.favourite_posts.where(user: current_user).any? %>
                 <i class="offset-icon fa-solid fa-bookmark text-dark"  style="margin-left: auto;"></i>
@@ -22,15 +30,15 @@
           </div>
         </div>
         <div class="d-flex justify-content-between">
-          <h3><%= post.song_name.slice(0, 20)%></h3>
+          <h3><%= post.song_name.slice(0, 20) %></h3>
           <% if current_user == post.user %>
-            <%= link_to edit_post_path(post), id:"edit-icon" do %>
+            <%= link_to edit_post_path(post), id: "edit-icon" do %>
               <i class="fa-solid fa-pen"></i>
-            <%end %>
+            <% end %>
           <% end %>
         </div>
 
         <h4><%= post.artist %></h4>
-        <h5><%= post.caption.slice(0, 40)%><%= post.caption.length > 40 ? "..." : "" %></h5><br>
+        <h5><%= post.caption.slice(0, 40) %><%= post.caption.length > 40 ? "..." : "" %></h5><br>
       </div>
     </div>
