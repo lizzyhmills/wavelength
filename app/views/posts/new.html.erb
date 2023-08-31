@@ -1,9 +1,79 @@
-<div class="container">
-  <h1 class="mt-5 mb-4">Post a song for the day</h1>
-  <%= simple_form_for [@post] do |f| %>
-    <%= f.input :link %>
-    <%= f.input :caption %>
-    <%= f.submit class: "btn btn-outline-info border-1"%>
-  <% end %>
+<div class="share-song-page">
+  <div class="text-box">
+    <h6 class="text-post-song">share</h6>
+  </div>
+  <div class="form-box-share">
+    <%= simple_form_for [@post] do |f| %>
+      <%= f.input :link,
+        input_html: { style: "border-radius: 20px; height: 50px;" } %>
 
+      <%= f.input :caption,
+        input_html: { style: "border-radius: 20px; height: 150px;" } %>
+
+      <div class="form-actions btn-center-share-song">
+        <%= f.submit "share", class: "big-button-blue-black" %>
+      </div>
+    <% end %>
+  </div>
 </div>
+
+<style>
+
+body {
+  /* position: relative; */
+  background-image: url("<%= asset_path "share-bckground.png" %> ");
+  backdrop-filter: grayscale(100%) blur(10px);
+  min-height: 100vh;
+  object-fit:fill;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+body {
+  min-height: 100vh;
+  margin: 0;
+
+}
+
+.share-song-page{
+  padding:80px 0px 30px 0px
+}
+
+.form-box-share{
+  background-color: #E2E2E2;
+  box-shadow: 4px 4px 0px 0px var(--BACKGROUND-PRIMARY-EMPHASIS);
+  border-radius: 30px;
+  color:#0c0c0c;
+  margin: 0 auto;
+  width: 340px;
+  height: 100%;
+  flex-shrink: 0;
+
+
+  display: block;
+  justify-content: center;
+  align-items: center; /* Center horizontally */
+  margin: 5% auto; /* 5% margin on top and bottom, auto margin left and right */
+  padding: 6%;
+
+}
+.btn-center-share-song{
+  display:flex;
+   justify-content: center;
+   padding: 22px 0 10px 0;
+}
+
+.text-post-song{
+  display:flex;
+  color: var(--BACKGROUND-PRIMARY-TEXT);
+  align-items: center;
+  justify-content:center;
+  font-size: 3rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  padding: 0px 0 20px 0;
+
+}
+
+</style>
