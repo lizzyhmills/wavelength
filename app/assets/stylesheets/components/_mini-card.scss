@@ -1,23 +1,28 @@
 .mini-card {
   width: 105px;
   height: 152px;
-  margin-right: 0px;
+
+  margin-right: 83px;
+
 
   img {
     width: 105px;
     height: 109px;
     border-radius: 14px;
   }
+
   span {
     font-family: IBM Plex Mono;
     font-size: 14px;
     font-weight: 700;
   }
+
   p {
     font-family: Montserrat;
     font-size: 10px;
     font-weight: 400;
   }
+
   .description-div {
     width: 105px;
     height: 43px;

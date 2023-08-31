@@ -1,0 +1,31 @@
+<div class="pink-div">
+  <div class="content">
+    <div class="comments-title">Comments</div>
+    <div class="comments-body">
+      <%= simple_form_for [post, Comment.new],
+        html: {class: "d-flex white-bar"} do |f|
+      %>
+        <%= f.input :content,
+          as: :string,
+          label: false,
+          placeholder: "Leave your Comment",
+          wrapper_html: {class: "flex-grow-1", style: "margin-bottom: 0 !important; margin-left: 16px; border: none;"},
+          input_html: {class: "h-100 bg-white"}
+        %>
+        <%= f.button :button do %>
+          <i class="fa-solid fa-check"></i>
+        <% end %>
+      <% end %>
+      <div class="friend-comment">
+        <% post.comments.each do |comment| %>
+          <div class="single-comment">
+            <a href="/posts"><%= cl_image_tag comment.user.photo.key %> </a>
+            <span><%= comment.content %></span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# <%= render 'shared/comment',  post: post %>
