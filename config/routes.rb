@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  get 'friendships/create'
-  get 'friendships/destroy'
-  get 'favourite_posts/create'
-  get 'favourite_posts/destroy'
-  get 'likes/create'
-  get 'likes/destroy'
-  get 'comments/create'
-  get 'comments/update'
-  get 'comments/destroy'
+  get "friendships/create"
+  get "friendships/destroy"
+  # get 'favourite_posts/create'
+  # get 'favourite_posts/destroy'
+  # get 'likes/create'
+  # get 'likes/destroy'
+  get "comments/create"
+  get "comments/update"
+  get "comments/destroy"
   get "posts/index"
   get "posts/new"
   devise_for :users
@@ -18,15 +18,14 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :posts, except: :show do
     resources :comments
-    resources :likes
-    resources :favourite_posts
+    resources :likes, only: [:create, :destroy]
+    resources :favourite_posts, only: [:create, :destroy]
   end
 
   resources :users do
     resources :friendships, only: [:create]
   end
   resources :friendships, only: [:index, :destroy]
-
 
   resources :friendships, only: [] do
     member do

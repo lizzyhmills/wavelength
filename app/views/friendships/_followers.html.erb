@@ -1,4 +1,4 @@
- <div class="d-none mt-3 container" data-friends-target="followers">
+ <div class="d-none mt-3 container" data-follow-target="followers">
   <h2>My Followers</h2>
     <div>
       <% @myfollowers.each do |follower| %>
@@ -16,7 +16,7 @@
           </div>
         </div>
         <div>
-          <a href="#" class="small-button-pink mx-2" data-friends-target="nudge" data-action="click->friends#nudge">nudge?</a>
+          <%= button_to "unfollow", reject_friendship_path(follower), method: :patch, class:"small-button-pink mx-2"%>
         </div>
       </div>
       <% end %>

@@ -8,6 +8,7 @@
             <div class="av">
               <%= cl_image_tag request.follower.photo.key, class: "avatar-bordered" %>
             </div>
+
             <div class="names mx-2 text-white">
               <%= request.follower.first_name %>
               <%= request.follower.last_name %> <br>
@@ -17,8 +18,8 @@
         </div>
         <div>
           <% if request.accepted != true %>
-          <%= button_to "Accept", accept_friendship_path(request), method: :patch, class:"small-button-green mx-2" %>
-          <%= button_to "Reject", reject_friendship_path(request), method: :patch, class:"small-button-pink mx-2"%>
+          <%= button_to "Accept", accept_friendship_path(request), method: :patch, class:"small-button-green m-2" %>
+          <%= button_to "Reject", reject_friendship_path(request), method: :patch, class:"small-button-pink m-2"%>
           <% elsif request.accepted == true %>
           <%= button_to "Remove", reject_friendship_path(request), method: :patch, class:"small-button-red mx-2"%>
           <% end %>

@@ -1,0 +1,25 @@
+ <div class="d-none mt-3 container" data-follow-target="following">
+  <h2>Following</h2>
+    <div>
+      <% @followings.each do |follower| %>
+      <div class="d-flex mb-3">
+        <div class="flex-grow-1">
+          <div class="d-flex">
+            <div class="av">
+              <%= cl_image_tag follower.follower.photo.key, class: "avatar-bordered" %>
+            </div>
+            <div class="names mx-2 text-white">
+              <%= follower.follower.first_name %>
+              <%= follower.follower.last_name %> <br>
+              <%= follower.follower.username %>
+            </div>
+          </div>
+        </div>
+        <div>
+          <%= button_to "remove", reject_friendship_path(follower), method: :patch, class:"small-button-red mx-2"%>
+
+        </div>
+      </div>
+      <% end %>
+    </div>
+</div>

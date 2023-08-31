@@ -1,11 +1,11 @@
 <div class="d-flex m-4">
   <%= cl_image_tag @user.photo.key, class: "avatar-bordered" %>
-  <h2 class="mx-3 text-white"><%= @user.username %></h2>
+  <h3 class="mx-3 text-white"><%= @user.username %></h3>
 </div>
 <div class="friend-options">
   <div class="d-flex justify-content-around">
     <button class="medium-button-white" data-action="click->friends#showSuggestions" data-friends-target="suggestionButton">suggestions</button>
-    <button class="medium-button-white" data-action="click->friends#showFriends" data-friends-target="followersButton">my followers</button>
+    <button class="medium-button-white" data-action="click->friends#showFriends" data-friends-target="friendsButton">friends</button>
     <button class="medium-button-white" data-action="click->friends#showRequests" data-friends-target="requestsButton">requests</button>
   </div>
 </div>
