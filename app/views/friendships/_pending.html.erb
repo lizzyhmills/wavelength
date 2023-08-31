@@ -1,0 +1,25 @@
+ <div class="d-none mt-3 container" data-follow-target="pending">
+  <h2>Pending requests</h2>
+    <div>
+      <% @pendings.each do |request| %>
+      <div class="d-flex mb-3">
+        <div class="flex-grow-1">
+          <div class="d-flex">
+            <div class="av">
+              <%= cl_image_tag request.followee.photo.key, class: "avatar-bordered" %>
+            </div>
+            <div class="names mx-2 text-white">
+              <%= request.followee.first_name %>
+              <%= request.followee.last_name %> <br>
+              <%= request.followee.username %>
+            </div>
+          </div>
+        </div>
+        <div>
+          <%= button_to "cancel", reject_friendship_path(request), method: :patch, class:"small-button-red mx-2"%>
+
+        </div>
+      </div>
+      <% end %>
+    </div>
+</div>
