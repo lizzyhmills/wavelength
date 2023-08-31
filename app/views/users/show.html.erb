@@ -51,9 +51,9 @@
   <% if @user == current_user %>
     <h2>My love list</h2>
       <% @favourite_posts.each do |post| %>
-         <img src="<%= post.image_url %>" alt="" class="album-artwork">
-          <%= post.song_name %>
-          <%= post.artist %>
+         <img src="<%= post.post.image_url %>" alt="" class="album-artwork">
+          <%= post.post.song_name %>
+          <%= post.post.artist %>
       <% end %>
   <% end %>
   <div class="arrow-right"><%= image_tag "arrow.svg" %></div>
