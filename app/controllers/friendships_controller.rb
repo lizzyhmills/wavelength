@@ -17,7 +17,7 @@ class FriendshipsController < ApplicationController
     @friendship.follower = @user
     @friendship.followee = @friend
     @friendship.save!
-    redirect_to friendships_path
+    redirect_to posts_path
   end
 
   def destroy
