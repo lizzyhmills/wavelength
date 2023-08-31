@@ -1,11 +1,14 @@
-    <div class="post <%= post.user == current_user ? "current-user-post" : "other-user-post" %>">
+    <div class="post <%= post.user == current_user ? "current-user-post" : "other-user-post" %>"  data-controller="play-button">
       <div class="post-top d-flex">
       <%= cl_image_tag post.user.photo.key, class: "avatar-bordered" %>
-        <%= post.user.username.capitalize %>  <audio controls src="<%= post.genre %>" class="mx-2"></audio> <br>
+        <%= post.user.username.capitalize %>  <audio data-play-button-target="audio" controls src="<%= post.genre %>" class="mx-2 d-none"></audio> <br>
       </div>
       <div class="song-info">
         <div class="position-relative mb-3">
-          <img src="<%= post.image_url %>" alt="" class="album-artwork">
+          <div class="play-song">
+             <div class=" ms-2" data-action="click->play-button#play" ><i class="fa-solid fa-play" style="color: #f5f5f5;"></i></div>
+             <img src="<%= post.image_url %>" alt="" class="album-artwork">
+          </div>
           <div class="offset-song-icons d-flex justify-content-start w-100" style="gap: 1rem;">
           <% if post.likes.where(user: current_user).any? %>
               <i class="offset-icon fa-solid fa-heart text-danger" id="heart-icon"></i>
@@ -41,3 +44,22 @@
         <h5><%= post.caption.slice(0, 40) %><%= post.caption.length > 40 ? "..." : "" %></h5><br>
       </div>
     </div>
+
+<style>
+
+  .play-song{
+  width:100%;
+
+    .fa-solid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size:40px;
+    padding: 66px;
+ filter: drop-shadow(0 0 0.80rem var(--BACKGROUND-SECONDARY-PINK));
+    }
+  }
+
+
+</style>
