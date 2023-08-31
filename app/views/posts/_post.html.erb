@@ -7,11 +7,14 @@
         <div class="position-relative mb-3">
           <img src="<%= post.image_url %>" alt="" class="album-artwork">
           <div class="offset-song-icons d-flex justify-content-start w-100" style="gap: 1rem;">
-            <i class="offset-icon fa-solid fa-heart" id="heart-icon"></i>
-            <%= form_with(url: post_favourite_posts_path(post), method: :post, local: true, html: { class: "bookmark-form", style: "margin-left: auto;" }) do |form| %>
-              <button type="submit" class="bookmark-button">
-              <i class="offset-icon fa-solid fa-bookmark" id="save-icon" style="margin-left: auto;"></i>
-              </button>
+          <% if post.likes.where(user: current_user).any? %>
+              <i class="offset-icon fa-solid fa-heart text-danger" id="heart-icon"></i>
+            <% else %>
+              <%= form_with(url: post_likes_path(post), method: :post, local: true, html: { class: "bookmark-form" }) do |form| %>
+                <button type="submit" class="bookmark-button">
+                  <i class="offset-icon fa-solid fa-heart" id="heart-icon"></i>
+                </button>
+              <% end %>
             <% end %>
             <i class="offset-icon fa-solid fa-comment" id="message-icon"></i>
             <%= form_with(url: post_favourite_posts_path(post), method: :post, local: true, html: { class: "bookmark-form", style: "margin-left: auto;" }) do |form| %>
