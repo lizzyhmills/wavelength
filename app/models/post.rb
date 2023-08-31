@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :favouritePosts, dependent: :destroy
+  has_many :favourite_posts, dependent: :destroy
 
   def self.friend_posts(user)
     friend_ids = user.friendships_as_follower.where(accepted: true).pluck(:followee_id)
