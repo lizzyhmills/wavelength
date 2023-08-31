@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts
     @favourite_posts = @user.favourite_posts
+    # @favourite_posts = Post.where(user_id: @user.id)
   end
 
   def update
@@ -18,6 +19,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:bio, :avatar_url, :first_name, :last_name)
+    params.require(:user).permit(:bio, :avatar_url, :first_name, :last_name, :photo)
   end
 end

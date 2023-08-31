@@ -1,7 +1,14 @@
+<%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}%>
 <div class="top-center-text">
+
+    <div class="avatar-div">
     <%= image_tag @user.photo, class: "avatar-largest" %>
-      <h2><%= @user.username %></h2>
+    </div>
+      <div class="name-div">
+      <p class="user-name"><%= @user.username %></p>
+      </div>
 </div>
+
 
 <!-- IN CASE WE WANT AN EDIT USER FORM
 <%= simple_form_for [@user] do |f| %>
@@ -10,9 +17,9 @@
   <%= f.input :bio %>
   <%= f.input :avatar_url %>
   <%= f.submit class: "btn btn-outline-info border-1"%>
-  <% end %>
+  <% end %> -->
+
 </div>
--->
 
 <div class="title-and-filter">
   <div class="profile-title">
@@ -22,6 +29,10 @@
     <%= image_tag "filter.svg" %>
   </div>
 </div>
+
+
+
+
 
 <div class="show-page-background-pink carousel slide" data-interval="false" data-bs-ride="carousel" id="myCarousel">
   <div class="post-cards carousel-inner">
@@ -82,15 +93,15 @@
 </div>
   <div class="show-page-background-green carousel slide" data-interval="false" data-bs-ride="carousel" id="myCarousel">
     <div class="post-cards carousel-inner">
-      <% @favourite_posts.each_with_index do |post, index| %>
+      <% @favourite_posts.each_with_index do |favourite, index| %>
         <% if index % 3 == 0  %>
           <div class="carousel-item <%= index == 0 ? "active" : "" %>">
             <div class="d-flex">
               <div class="mini-card" data-scroll-target="card">
-                <img src="<%= post.image_url %>" alt="">
+                <img src="<%= favourite.post.image_url %>" alt="">
                 <div class="description-div">
-                  <span><%= post.song_name.truncate(11)%></span>
-                  <p>By <%= post.artist.truncate(20) %></p>
+                  <span><%= favourite.post.song_name.truncate(11)%></span>
+                  <p>By <%= favourite.post.artist.truncate(20) %></p>
                 </div>
               </div>
               <% if (index + 1) < @favourite_posts.length %>
@@ -129,5 +140,5 @@
   </div>
 <% end %>
 
+
 <br>
-<%# <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
