@@ -15,6 +15,24 @@
   align-items: center;
   text-decoration: none;
 }
+.big-button-blue-black{
+  background-color: var(--BACKGROUND-PRIMARY-EMPHASIS);
+  color:var(--BACKGROUND-PRIMARY-TEXT);
+    font-family: 'IBM Plex Mono', monospace;
+  font-weight: 700;
+  font-size: 20px;
+  font-style: normal;
+  width: 162px;
+  height: 51px;
+  flex-shrink: 0;
+  border-radius: 40px;
+  box-shadow: 3px 4px 0px 0px var( --BACKGROUND-PRIMARY-COLOR);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border: none;
+}
 
 .big-button-green{
   background-color: var(--BACKGROUND-PRIMARY-EMPHASIS);

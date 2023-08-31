@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   get "friendships/create"
   get "friendships/destroy"
-  get "favourite_posts/create"
-  get "favourite_posts/destroy"
-  get "likes/create"
-  get "likes/destroy"
+  # get 'favourite_posts/create'
+  # get 'favourite_posts/destroy'
+  # get 'likes/create'
+  # get 'likes/destroy'
   get "comments/create"
   get "comments/update"
   get "comments/destroy"
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :posts, except: :show do
     resources :comments
     resources :likes, only: [:create, :destroy]
-    resources :favourite_posts
+    resources :favourite_posts, only: [:create, :destroy]
   end
 
   resources :users do
