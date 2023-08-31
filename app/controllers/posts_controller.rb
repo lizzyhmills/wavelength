@@ -3,6 +3,7 @@ class PostsController < ApplicationController
     @user = current_user
     @posts = Post.friend_posts(current_user)
     @myposts = Post.where(user_id: @user.id)
+    @favourites = FavouritePost.all
   end
 
   def new
