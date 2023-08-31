@@ -39,35 +39,86 @@ tereza.photo.attach(io: file5, filename: "profile.png", content_type: "image/png
 tereza.save!
 puts " Tereza  created"
 
+# START OF USER UPDATES
+
+
+hen = User.new(email: "hen@lw.org", password: "123456", first_name: "Henry", last_name: "Ireland", bio: "Music lover of genres", username: "henners")
+file6 = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1688723707/qdadpbapkht2mrcnqcnw.jpg")
+hen.photo.attach(io: file6, filename: "profile.png", content_type: "image/png")
+hen.save!
+puts " Henry created"
+max = User.new(email: "max@lw.org", password: "123456", first_name: "Max", last_name: "Lana", bio: "I like songs", username: "maximus")
+file7 = URI.open("https://avatars.githubusercontent.com/u/139062226?v=4")
+max.photo.attach(io: file7, filename: "profile.png", content_type: "image/png")
+max.save!
+puts "Max created"
+oli = User.new(email: "oli@lw.org", password: "123456", first_name: "Ollie", last_name: "Pugh", bio: "Music is life", username: "olliep")
+file8 = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1688748199/deoankppdkifpak0btxz.jpg")
+oli.photo.attach(io: file8, filename: "profile.png", content_type: "image/png")
+oli.save!
+puts " Oli created"
+dav = User.new(email: "david@lw.org", password: "123456", first_name: "David", last_name: "Whitehead", bio: "Love me a good tune I do", username: "bigdav")
+file9 = URI.open("https://avatars.githubusercontent.com/u/122481391?v=4")
+dav.photo.attach(io: file9, filename: "profile.png", content_type: "image/png")
+dav.save!
+puts " Dav created"
+
+
+# END OF USERS
+
 puts "creating Toms post"
-post1 = Post.new(song_name: "Kids", artist: "MGMT", image_url: "https://i.scdn.co/image/ab67616d0000b2738b32b139981e79f2ebe005eb", caption: "I love this song", genre: "https://p.scdn.co/mp3-preview/efb065069d22384206b0fc703c6f99734d33411d?cid=468c7327294c4d6dbe2b2d6fc3821b38")
+post1 = Post.new(link: "https://open.spotify.com/track/1jJci4qxiYcOHhQR247rEU?si=43213acad65f4242", caption: "I love this song")
 post1.user = tom
 post1.save!
 puts "created Toms post"
 
 puts "creating Lizs post"
-post2 = Post.new(song_name: "Crazy, Classic, Life!", artist: "Janelle Monae", image_url: "https://i.scdn.co/image/ab67616d0000b2730a60fb0deda858270cca82ee", caption: "Women in stem!", genre: "https://p.scdn.co/mp3-preview/181bc4250d9cedd3ce0a6bcbae6cc21e95955d0d?cid=468c7327294c4d6dbe2b2d6fc3821b38https://p.scdn.co/mp3-preview/181bc4250d9cedd3ce0a6bcbae6cc21e95955d0d?cid=468c7327294c4d6dbe2b2d6fc3821b38")
+post2 = Post.new(link: "https://open.spotify.com/track/06EAtSDu3KSoi4fbA3ZjoB?si=6afc548948744bdd", caption: "What a queen")
 post2.user = liz
 post2.save!
 puts "created Lizs post"
 
 puts "creating Nicos post"
-post3 = Post.new(song_name: "Gasoline", artist: "The Weekend", image_url: "https://i.scdn.co/image/ab67616d0000b2734ab2520c2c77a1d66b9ee21d", caption: "That 80s sound")
+post3 = Post.new(link: "https://open.spotify.com/track/3KyKxJ4P3pVCgaZwaq2rUC?si=c8889c7c991d49ba", caption: "Soooo good")
 post3.user = nico
 post3.save!
 puts "created Nicos post"
 
 puts "creating Barks post"
-post4 = Post.new(song_name: "Redbone", artist: "Childish Gambino", image_url: "https://i.scdn.co/image/ab67616d0000b2737582716b3666a5235d5af4ea", caption: "Just an amazing tune", genre: "https://p.scdn.co/mp3-preview/14918511e11a9e46fa170413821e5f89bd31872a?cid=468c7327294c4d6dbe2b2d6fc3821b38")
+post4 = Post.new(link: "https://open.spotify.com/track/0WtDGnWL2KrMCk0mI1Gpwz?si=140467dabd844a27", caption: "What a queen")
 post4.user = bark
 post4.save!
 puts "created Barks post"
 
 puts "creating Terezas post"
-post5 = Post.new(song_name: "See you Again", artist: "Tyler the Creator", image_url: "https://i.scdn.co/image/ab67616d0000b2738940ac99f49e44f59e6f7fb3", caption: "Top tune", genre: "https://p.scdn.co/mp3-preview/c703198293891e3b276800ea6b187cf7951d3d7d?cid=468c7327294c4d6dbe2b2d6fc3821b38")
+post5 = Post.new(link: "https://open.spotify.com/track/7KA4W4McWYRpgf0fWsJZWB?si=24cc8cecae9a4b4d", caption: "Amaaaze")
 post5.user = tereza
 post5.save!
 puts "created Terezas post"
+
+puts "creating Hens post"
+post6 = Post.new(link: "https://open.spotify.com/track/6IZvVAP7VPPnsGX6bvgkqg?si=c4be4fa92cff4f1a", caption: "The king")
+post6.user = hen
+post6.save!
+puts "created Henss post"
+
+puts "creating Max post"
+post7 = Post.new(link: "https://open.spotify.com/track/4wajJ1o7jWIg62YqpkHC7S?si=6a6a22dcb9fb47ae", caption: "RADIOOO HEEAAD")
+post7.user = max
+post7.save!
+puts "created Max post"
+
+puts "creating Olis post"
+post8 = Post.new(link: "https://open.spotify.com/track/5LIwaG8Wl9LfExcmiRQm7J?si=8791ad40883f4d07", caption: "D'anglo swagg")
+post8.user = oli
+post8.save!
+puts "created Oli post"
+
+puts "creating Daves post"
+post9 = Post.new(link: "https://open.spotify.com/track/5TDZyWDfbQFQJabbPwImVY?si=3195ec49652a4a0b", caption: "Let the fleet out")
+post9.user = dav
+post9.save!
+puts "created Daves post"
 
 # User.all.each do |user|
 #   if User.first == user

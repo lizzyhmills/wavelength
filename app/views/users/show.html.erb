@@ -1,4 +1,5 @@
 <div class="top-center-text">
+
     <div class="avatar-div">
     <%= image_tag @user.photo, class: "avatar-largest" %>
     </div>
@@ -16,8 +17,8 @@
   <%= f.input :avatar_url %>
   <%= f.submit class: "btn btn-outline-info border-1"%>
   <% end %>
+
 </div>
--->
 
 <div class="title-and-filter">
   <div class="profile-title">
@@ -27,6 +28,10 @@
     <%= image_tag "filter.svg" %>
   </div>
 </div>
+
+
+
+
 
 <div class="show-page-background-pink carousel slide" data-interval="false" data-bs-ride="carousel" id="myCarousel">
   <div class="post-cards carousel-inner">
@@ -133,6 +138,7 @@
     </button>
   </div>
 <% end %>
+
 
 <br>
 <%# <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
