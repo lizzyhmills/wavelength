@@ -82,15 +82,15 @@
 </div>
   <div class="show-page-background-green carousel slide" data-interval="false" data-bs-ride="carousel" id="myCarousel">
     <div class="post-cards carousel-inner">
-      <% @favourite_posts.each_with_index do |post, index| %>
+      <% @favourite_posts.each_with_index do |favourite, index| %>
         <% if index % 3 == 0  %>
           <div class="carousel-item <%= index == 0 ? "active" : "" %>">
             <div class="d-flex">
               <div class="mini-card" data-scroll-target="card">
-                <img src="<%= post.image_url %>" alt="">
+                <img src="<%= favourite.post.image_url %>" alt="">
                 <div class="description-div">
-                  <span><%= post.song_name.truncate(11)%></span>
-                  <p>By <%= post.artist.truncate(20) %></p>
+                  <span><%= favourite.post.song_name.truncate(11)%></span>
+                  <p>By <%= favourite.post.artist.truncate(20) %></p>
                 </div>
               </div>
               <% if (index + 1) < @favourite_posts.length %>
