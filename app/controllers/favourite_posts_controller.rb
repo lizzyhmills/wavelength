@@ -2,7 +2,7 @@ class FavouritePostsController < ApplicationController
   def create
     @favourite_post = FavouritePost.new
     @user = current_user
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:post_id])
     @favourite_post.post = @post
     @favourite_post.user = @user
     if @favourite_post.save!
