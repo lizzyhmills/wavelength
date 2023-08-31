@@ -8,7 +8,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    # @song = RSpotify::Track.find('7KA4W4McWYRpgf0fWsJZWB')
+    @song = RSpotify::Track.find('7KA4W4McWYRpgf0fWsJZWB')
   end
 
   def create
@@ -19,10 +19,12 @@ class PostsController < ApplicationController
     @song = RSpotify::Track.find(@link_id) #this can also be in model
     @song_title = @song.name
     @song_artists = @song.artists
+    @preview = @song.preview_url
     @artist = @song_artists.map { |artist| artist.name }.join(', ')
     @album_art = @song.album.images.first["url"]
     @post.song_name = @song_title
     @post.artist = @artist
+    @post.genre = @preview
     @post.user = @user
     @post.image_url = @album_art
     if @post.save!

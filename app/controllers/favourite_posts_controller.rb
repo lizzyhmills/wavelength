@@ -15,6 +15,7 @@ class FavouritePostsController < ApplicationController
   def destroy
     @favourite_post = FavouritePost.find(params[:id])
     @favourite_post.destroy
+    redirect_to posts_path
     # Have left out redirect as not sure where to redirect to yet
   end
 end
