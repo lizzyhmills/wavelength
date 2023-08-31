@@ -1,3 +1,4 @@
+  <div data-controller="comments">
     <div class="post <%= post.user == current_user ? "current-user-post" : "other-user-post" %>">
       <div class="post-top d-flex">
       <%= cl_image_tag post.user.photo.key, class: "avatar-bordered" %>
@@ -18,9 +19,13 @@
                 </button>
               <% end %>
             <% end %>
-            <i class="offset-icon fa-solid fa-comment" id="message-icon"></i>
+            <span><%= post.likes.count %></span>
+            <i class="offset-icon fa-solid fa-comment" id="message-icon" data-action="click->comments#toggle"></i>
             <% if post.favourite_posts.where(user: current_user).any? %>
-                <i class="offset-icon fa-solid fa-bookmark text-dark"  style="margin-left: auto;"></i>
+                <%= link_to post_favourite_post_path(post, post.favourite_posts.where(user: current_user).first), style:"margin-left: auto;", data: {turbo_method: :delete} do %>
+                <i class="offset-icon fa-solid fa-bookmark blue" ></i>
+              <% end %>
+
             <% else %>
               <%= form_with(url: post_favourite_posts_path(post), method: :post, local: true, html: { class: "bookmark-form", style: "margin-left: auto;" }) do |form| %>
                     <button type="submit" class="bookmark-button">
@@ -43,3 +48,5 @@
         <h5><%= post.caption.slice(0, 40) %><%= post.caption.length > 40 ? "..." : "" %></h5><br>
       </div>
     </div>
+      <%= render 'shared/comment',  post: post %>
+</div>
