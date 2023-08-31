@@ -29,8 +29,14 @@
       <%= render 'shared/mini-card', post: post %>
     <% end %>
   </div>
-  <div class="arrow-right" data-action="click->scroll#move"><%= image_tag "arrow.svg" %></div>
+  <div class="arrow-right"
+    data-scroll-target="arrow"
+    data-action="click->scroll#move"
+    data-direction="right" data-distance="200">
+    <%= image_tag "arrow.svg" %>
+  </div>
 </div>
+
 
 <div class="title-and-filter">
   <div class="profile-title">

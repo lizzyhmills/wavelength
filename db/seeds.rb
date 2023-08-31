@@ -14,7 +14,7 @@ User.destroy_all
 puts "DB cleaned"
 
 tom = User.new(email: "tom@lw.org", password: "123456", first_name: "Tom", last_name: "Fallis", bio: "Music lover of genres", username: "tom")
-file1 = File.open("app/assets/images/tom profile pic.png")
+file1 = File.open("/app/assets/images/tom-profile-pic.png")
 tom.photo.attach(io: file1, filename: "profile.png", content_type: "image/png")
 tom.save!
 puts " Tom created"

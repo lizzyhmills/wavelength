@@ -160,6 +160,24 @@
   text-decoration: none;
 }
 
+.small-button-white{
+  background-color: var(--BACKGROUND-PRIMARY-TEXT);
+  color:black;
+    font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  font-size: 12px;
+  font-style: normal;
+  width: 70px;
+  height: 23px;
+  flex-shrink: 0;
+  border-radius: 40px;
+  box-shadow: 1px 2px 0px 0px var(--BACKGROUND-SECONDARY-GREEN);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
 button {
   padding: 0;
   border: none;

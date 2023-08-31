@@ -6,6 +6,7 @@ class FriendshipsController < ApplicationController
     @myfollowers = @user.friendships_as_follower.where(accepted: true)
     @followings = @user.friendships_as_followed.where(accepted: true)
     @myrequests = @user.friendships_as_followed.where(accepted: false || nil)
+    @pendings = @user.friendships_as_follower.where(accepted: nil)
 
   end
 
@@ -16,7 +17,7 @@ class FriendshipsController < ApplicationController
     @friendship.follower = @user
     @friendship.followee = @friend
     @friendship.save!
-    redirect_to friendships_path
+    redirect_to posts_path
   end
 
   def destroy
