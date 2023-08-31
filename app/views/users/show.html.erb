@@ -1,18 +1,7 @@
 <div class="top-center-text">
-    <%= image_tag current_user.photo, class: "avatar-largest" %>
-      <h2><%= current_user.username %></h2>
+  <%= image_tag current_user.photo, class: "avatar-largest" %>
+  <h3><%= current_user.username %></h3>
 </div>
-
-<!-- IN CASE WE WANT AN EDIT USER FORM
-<%= simple_form_for [@user] do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :bio %>
-  <%= f.input :avatar_url %>
-  <%= f.submit class: "btn btn-outline-info border-1"%>
-  <% end %>
-</div>
--->
 
 <div class="title-and-filter">
   <div class="profile-title">
@@ -23,79 +12,33 @@
   </div>
 </div>
 
-<div class="show-page-background-pink carousel slide" data-controller="scroll" id="myCarousel">
-  <div class="post-cards carousel-inner">
-      <% @posts.each_with_index do |post, index| %>
-          <% if (index + 2) <= @posts.length - 2 %>
-            <div class="carousel-item active d-flex">
-                <div class="mini-card" data-scroll-target="card">
-                  <img src="<%= post.image_url %>" alt="">
-                  <div class="description-div">
-                    <span><%= post.song_name.truncate(11)%></span>
-                    <p>By <%= post.artist.truncate(20) %></p>
-                  </div>
-                </div>
-          <%# <% if (index + 1) <= @posts.length - 1 %>
-                <div class="mini-card" data-scroll-target="card">
-                  <img src="<%= @posts[index + 1].image_url %>" alt="">
-                  <div class="description-div">
-                    <span><%= @posts[index + 1].song_name.truncate(11)%></span>
-                    <p>By <%= @posts[index + 1].artist.truncate(20) %></p>
-                  </div>
-                </div>
-          <%# <% end %>
-                <div class="mini-card" data-scroll-target="card">
-                  <img src="<%= @posts[index + 2].image_url %>" alt="">
-                  <div class="description-div">
-                    <span><%= @posts[index + 2].song_name.truncate(11)%></span>
-                    <p>By <%= @posts[index + 2].artist.truncate(20) %></p>
-                  </div>
-            </div>
-          <% end %>
-      <% end %>
+<div class="show-page-background-pink">
+  <div class="post-cards">
+    <div id="carouselExample" class="carousel slide" data-bs-interval="false">
+      <div class="carousel-inner">
+        <% @posts.each do |post| %>
+          <div class="carousel-item active">
+            <img src="<%= post.image_url%>" class="d-block w-100 h-50" alt="...">
+            <h3><%= post.song_name %></h3>
+          </div>
+        <% end %>
       </div>
-    <div class="carousel-item"> </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
-  <%# <div class="arrow-right"
-    data-scroll-target="arrow"
-    data-action="click->scroll#move"
-    data-direction="right" data-distance="200">
-    <%= image_tag "arrow.svg" %>
-<%# </div> %>
-
-<%#
-  <div class="swiper-button-next"> <%= image_tag "arrow.svg" %>
-
-<div class="title-and-filter">
-  <div class="profile-title">
-    <h3 class="mt-3">My love list</h3>
-  </div>
-  <div class="profile-filter">
-    <%= image_tag "filter.svg" %>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
   </div>
 </div>
 
-<div class="show-page-background-green">
-  <% if @user == current_user %>
-    <h2>My love list</h2>
-      <% @favourite_posts.each do |post| %>
-         <img src="<%= post.post.image_url %>" alt="" class="album-artwork">
-          <%= post.post.song_name %>
-          <%= post.post.artist %>
-      <% end %>
-  <% end %>
-  <div class="arrow-right"><%= image_tag "arrow.svg" %></div>
-</div>
+
+
+
+
 
 <br>
 <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
