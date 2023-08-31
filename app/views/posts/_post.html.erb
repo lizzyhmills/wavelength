@@ -1,6 +1,6 @@
     <div class="post <%= post.user == current_user ? "current-user-post" : "other-user-post" %>"  data-controller="play-button">
-      <div class="post-top d-flex">
-      <%= cl_image_tag post.user.photo.key, class: "avatar-bordered" %>
+      <div class="post-top d-flex align-items-center mb-2">
+      <%= cl_image_tag post.user.photo.key, class: " me-2 avatar-bordered" %>
         <%= post.user.username.capitalize %>  <audio data-play-button-target="audio" controls src="<%= post.genre %>" class="mx-2 d-none"></audio> <br>
       </div>
       <div class="song-info">
@@ -66,6 +66,5 @@
  filter: drop-shadow(0 0 0.80rem var(--BACKGROUND-SECONDARY-PINK));
     }
   }
-
 
 </style>
