@@ -96,6 +96,20 @@ h5 {
   bottom: -7px;
 }
 
+.play-song{
+    width:100%;
+    position: relative;
+
+    #fa-solid {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size:40px;
+      padding: 40px;
+      filter: drop-shadow(0 0 0.80rem var(--BACKGROUND-SECONDARY-PINK));
+    }
+  }
 
 
 .offset-icon {
