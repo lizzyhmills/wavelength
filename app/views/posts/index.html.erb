@@ -1,13 +1,13 @@
 <div class="container">
   <p class="text-center">My Feed</p>
 
-  <% @posts.each do |post| %>
+  <% @allposts.each do |post| %>
     <%= render "post", post: post   %>
+  <% end %>
 
-  <% end %>
-  <% @myposts.each do |post| %>
-    <%= render "post", post: post   %>
-  <% end %>
+  <%# <% @myposts.each do |post| %>
+    <%# <%= render "post", post: post   %>
+  <%# <% end %>
 
 </div>
 
