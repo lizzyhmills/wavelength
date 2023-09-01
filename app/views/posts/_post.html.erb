@@ -45,7 +45,13 @@
           </div>
         </div>
         <div class="d-flex justify-content-between">
-          <h3><%= post.song_name.slice(0, 20) %></h3>
+          <div class="song-name-container">
+            <% if post.song_name.length < 20 %>
+              <h3><%= post.song_name.slice(0, 20) %></h3>
+            <% else %>
+              <h3 class="scrolling-text"><%= post.song_name.slice(0, 40) %></h3>
+            <% end %>
+          </div>
           <% if current_user == post.user %>
             <%= link_to edit_post_path(post), id: "edit-icon" do %>
               <i class="fa-solid fa-pen"></i>
