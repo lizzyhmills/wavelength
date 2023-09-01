@@ -1,14 +1,13 @@
 <% if current_user %>
   <div class="footer">
     <a href="/posts"><%= image_tag "logo.svg" %> </a>
-    <%= link_to "friends", friendships_path, class: "medium-button-green" %>
-    <%= link_to "charts", "#", class: "medium-button-blue-pink" %>
+      <%= link_to "friends", friendships_path, class: "medium-button-green-footer" %>
+      <%= link_to "charts", "#", class: "medium-button-blue-pink-footer" %>
     <% if current_user.photo.attached? %>
       <a href="/users/<%=current_user.id%>"><%= image_tag current_user.photo %></a>
     <% else %>
      <a href="/users/<%=current_user.id%>"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" alt="avatar" ></a>
-
     <% end %>
   </div>
-  <div style="height: 49px;"></div>
+  <div style="height: 70px;"></div>
 <% end %>
