@@ -2,7 +2,11 @@
 <div class="top-center-text">
 
     <div class="avatar-div">
-    <%= image_tag @user.photo, class: "avatar-largest" %>
+    <% if @user.photo.attached? %>
+      <%= image_tag @user.photo, class: "avatar-largest" %>
+    <% else %>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" alt="avatar" class="me-2 avatar-bordered">
+    <% end %>
     </div>
       <div class="name-div">
       <p class="user-name"><%= @user.username %></p>

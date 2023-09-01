@@ -1,5 +1,9 @@
 <div class="d-flex m-4">
+<% if @user.photo.attached? %>
   <%= cl_image_tag @user.photo.key, class: "avatar-bordered" %>
+<% else %>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" alt="avatar" class="me-2 avatar-bordered">
+<% end %>
   <h3 class="mx-3 text-white"><%= @user.username %></h3>
 </div>
 <div class="friend-options">

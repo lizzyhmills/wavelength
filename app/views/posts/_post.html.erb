@@ -1,6 +1,10 @@
     <div class="post <%= post.user == current_user ? "current-user-post" : "other-user-post" %>"  data-controller="play-button">
       <div class="post-top d-flex align-items-center mb-2">
-      <%= cl_image_tag post.user.photo.key, class: " me-2 avatar-bordered" %>
+      <% if post.user.photo.attached? %>
+        <%= cl_image_tag post.user.photo.key, class: " me-2 avatar-bordered" %>
+      <% else %>
+         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" alt="avatar" class="me-2 avatar-bordered">
+      <% end %>
         <%= post.user.username.capitalize %>  <audio data-play-button-target="audio" controls src="<%= post.genre %>" class="mx-2 d-none"></audio> <br>
       </div>
       <div class="song-info">
