@@ -22,6 +22,7 @@
 .bg-blur {
   /* position: relative; */
   background-image: url("<%= asset_path "share-bckground.png" %> ");
+  -webkit-backdrop-filter: grayscale(100%) blur(10px);
   backdrop-filter: grayscale(100%) blur(10px);
   min-height: 100vh;
   object-fit:fill;
