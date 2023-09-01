@@ -12,12 +12,12 @@ export default class extends Controller {
     this.followersTarget.classList.remove('d-none')
     this.followingTarget.classList.add('d-none')
     this.pendingTarget.classList.add('d-none')
-    this.followersButtonTarget.classList.add('small-button-green')
-    this.followersButtonTarget.classList.remove('small-button-white')
-    this.followingButtonTarget.classList.remove('small-button-green')
-    this.followingButtonTarget.classList.add('small-button-white')
-    this.pendingButtonTarget.classList.remove('small-button-green')
-    this.pendingButtonTarget.classList.add('small-button-white')
+    this.followersButtonTarget.classList.add('small-button-green-follow')
+    this.followersButtonTarget.classList.remove('small-button-white-follow')
+    this.followingButtonTarget.classList.remove('small-button-green-follow')
+    this.followingButtonTarget.classList.add('small-button-white-follow')
+    this.pendingButtonTarget.classList.remove('small-button-green-follow')
+    this.pendingButtonTarget.classList.add('small-button-white-follow')
   }
 
   showFollowing() {
@@ -25,12 +25,12 @@ export default class extends Controller {
     this.followingTarget.classList.remove('d-none')
     this.followersTarget.classList.add('d-none')
     this.pendingTarget.classList.add('d-none')
-    this.followersButtonTarget.classList.remove('small-button-green')
-    this.followersButtonTarget.classList.add('small-button-white')
-    this.followingButtonTarget.classList.add('small-button-green')
-    this.followingButtonTarget.classList.remove('small-button-white')
-    this.pendingButtonTarget.classList.remove('small-button-green')
-    this.pendingButtonTarget.classList.add('small-button-white')
+    this.followersButtonTarget.classList.remove('small-button-green-follow')
+    this.followersButtonTarget.classList.add('small-button-white-follow')
+    this.followingButtonTarget.classList.add('small-button-green-follow')
+    this.followingButtonTarget.classList.remove('small-button-white-follow')
+    this.pendingButtonTarget.classList.remove('small-button-green-follow')
+    this.pendingButtonTarget.classList.add('small-button-white-follow')
   }
 
   showPending() {
@@ -38,11 +38,11 @@ export default class extends Controller {
     this.pendingTarget.classList.remove('d-none')
     this.followersTarget.classList.add('d-none')
     this.followingTarget.classList.add('d-none')
-    this.pendingButtonTarget.classList.add('small-button-green')
-    this.pendingButtonTarget.classList.remove('small-button-white')
-    this.followersButtonTarget.classList.remove('small-button-green')
-    this.followersButtonTarget.classList.add('small-button-white')
-    this.followingButtonTarget.classList.remove('small-button-green')
-    this.followingButtonTarget.classList.add('small-button-white')
+    this.pendingButtonTarget.classList.add('small-button-green-follow')
+    this.pendingButtonTarget.classList.remove('small-button-white-follow')
+    this.followersButtonTarget.classList.remove('small-button-green-follow')
+    this.followersButtonTarget.classList.add('small-button-white-follow')
+    this.followingButtonTarget.classList.remove('small-button-green-follow')
+    this.followingButtonTarget.classList.add('small-button-white-follow')
   }
 }
