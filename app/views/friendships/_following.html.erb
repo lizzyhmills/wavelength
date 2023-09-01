@@ -6,7 +6,11 @@
         <div class="flex-grow-1">
           <div class="d-flex">
             <div class="av">
-              <%= cl_image_tag follower.follower.photo.key, class: "avatar-bordered" %>
+              <% if follower.follower.photo.attached? %>
+                <%= cl_image_tag follower.follower.photo.key, class: "avatar-bordered" %>
+              <% else %>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" alt="avatar" class="me-2 avatar-bordered">
+              <% end %>
             </div>
             <div class="names mx-2 text-white">
               <%= follower.follower.first_name %>
