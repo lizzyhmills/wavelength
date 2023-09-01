@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
+  validate :valid_spotify_link
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :favourite_posts, dependent: :destroy
@@ -23,5 +24,15 @@ class Post < ApplicationRecord
     self.genre = preview
     self.image_url = album_art
     self.post_date = Date.today
+  end
+
+  def valid_spotify_link
+    logger.debug "Inside valid_spotify_link method" # Add this line
+    # Use a regular expression to check if the link matches a Spotify track URL
+    spotify_url_regex = %r{^(spotify:|https:\/\/[a-z]+\.spotify\.com\/)}
+
+    unless link =~ spotify_url_regex
+      errors.add(:link, "must be a valid Spotify track URL")
+    end
   end
 end
