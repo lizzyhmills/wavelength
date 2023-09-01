@@ -99,6 +99,25 @@ h5 {
   bottom: -7px;
 }
 
+.song-name-container {
+  overflow: hidden;
+  width: 80%;
+  white-space: nowrap; /* Prevent text from wrapping to the next line */
+}
+
+.scrolling-text {
+  animation: scrollText 10s linear infinite;
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 
 
 .offset-icon {
