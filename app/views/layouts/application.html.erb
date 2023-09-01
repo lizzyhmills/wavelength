@@ -10,7 +10,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="min-vh-100" style="background-color:#0C0C0C">
+  <body class="min-vh-100 <%= 'bg-blur' if params[:controller] == 'posts' && params[:action] == 'new' %>" style="background-color:#0C0C0C">
     <%# <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
 
