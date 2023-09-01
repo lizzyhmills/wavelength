@@ -12,7 +12,7 @@
         <div class="position-relative mb-3">
           <div class="play-song">
             <% if post.genre %>
-              <div class=" ms-2" data-action="click->play-button#play" ><i class="fa-solid fa-play" style="color: #f5f5f5;" id="play-important"></i></div>
+              <div class=" ms-2" data-action="click->play-button#play" ><i  id="fa-solid"class="fa-solid fa-play" style="color: #f5f5f5;"></i></div>
             <% end %>
              <img src="<%= post.image_url %>" alt="" class="album-artwork">
           </div>
@@ -65,7 +65,7 @@
   .play-song{
   width:100%;
 
-    .fa-solid {
+    #fa-solid {
     position: absolute;
     top: 50%;
     left: 50%;
