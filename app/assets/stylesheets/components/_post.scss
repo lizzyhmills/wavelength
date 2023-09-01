@@ -100,37 +100,40 @@ h5 {
 }
 
 
-.play-song{
-    width:100%;
-    position: relative;
+.play-song {
+  width: 100%;
+  position: relative;
 
-    #fa-solid {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size:40px;
-      padding: 40px;
-      filter: drop-shadow(0 0 0.80rem var(--BACKGROUND-SECONDARY-PINK));
-    }
+  #fa-solid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    padding: 40px;
+    filter: drop-shadow(0 0 0.80rem var(--BACKGROUND-SECONDARY-PINK));
   }
+}
 
 .song-name-container {
   text-align: left;
   overflow: hidden;
   width: 80%;
-  white-space: nowrap; /* Prevent text from wrapping to the next line */
+  white-space: nowrap;
+  /* Prevent text from wrapping to the next line */
 }
 
 .scrolling-text {
   animation: scrollText 10s linear infinite;
-  animation-delay: 1s; /* Delay the animation by 1 second to allow initial alignment */
+  animation-delay: 1s;
+  /* Delay the animation by 1 second to allow initial alignment */
 }
 
 @keyframes scrollText {
   0% {
     transform: translateX(100%);
   }
+
   100% {
     transform: translateX(-100%);
   }

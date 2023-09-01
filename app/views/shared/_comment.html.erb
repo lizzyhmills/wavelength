@@ -1,4 +1,7 @@
-<div class="comments-wrapper d-none <%= post.user == current_user ? "pink-bg" : "green-bg" %>" data-comments-target="commentsDiv">
+<div
+  class="comments-wrapper d-none <%= post.user == current_user ? "pink-bg" : "green-bg" %>"
+  style="box-shadow:6px 0px 0px 0px <%= post.user == current_user ? "#BF2C71;" : "#61A54E;" %>"
+  data-comments-target="commentsDiv">
   <div class="content">
     <div class="comments-title">Comments</div>
     <div class="comments-body">
