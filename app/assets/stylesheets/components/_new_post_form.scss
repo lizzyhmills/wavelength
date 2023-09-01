@@ -1,27 +1,10 @@
-<div class="share-song-page">
-  <div class="text-box">
-    <h6 class="text-post-song">share</h6>
-  </div>
-  <div class="form-box-share">
-    <%= simple_form_for [@post] do |f| %>
-      <%= f.input :link,
-        input_html: { style: "border-radius: 20px; height: 50px;" } %>
 
-      <%= f.input :caption,
-        input_html: { style: "border-radius: 20px; height: 150px;" } %>
 
-      <div class="form-actions btn-center-share-song">
-        <%= f.submit "share", class: "big-button-blue-black" %>
-      </div>
-    <% end %>
-  </div>
-</div>
 
-<style>
-
-.bg-blur {
+.background-image {
   /* position: relative; */
-  background-image: url("<%= asset_path "share-bckground.png" %> ");
+  background-image: url("<%= asset_path 'share-bckground.png' %> ");
+  background-color:#0C0C0C;
   backdrop-filter: grayscale(100%) blur(10px);
   min-height: 100vh;
   object-fit:fill;
@@ -30,7 +13,7 @@
 }
 
 
-.bg-blur {
+.background-image  {
   min-height: 100vh;
   margin: 0;
 
@@ -75,5 +58,3 @@
   padding: 0px 0 20px 0;
 
 }
-
-</style>
