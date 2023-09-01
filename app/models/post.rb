@@ -5,14 +5,14 @@ class Post < ApplicationRecord
   has_many :favourite_posts, dependent: :destroy
   before_save :spotify_call
 
-  def self.friend_posts(user)
+  def self.feed_posts(user)
     friend_ids = user.friendships_as_follower.where(accepted: true).pluck(:followee_id)
-    Post.where(user_id: friend_ids)
+    Post.where(user_id: friend_ids, post_date: Date.today)
   end
 
   def spotify_call
-    link_id = self.link.split('/').last.split('?').first #this should be a method in the model post
-    song = RSpotify::Track.find(link_id) #this can also be in model
+    link_id = self.link.split('/').last.split('?').first # this should be a method in the model post
+    song = RSpotify::Track.find(link_id) # this can also be in model
     song_title = song.name
     song_artists = song.artists
     preview = song.preview_url
@@ -22,5 +22,6 @@ class Post < ApplicationRecord
     self.artist = artist
     self.genre = preview
     self.image_url = album_art
+    self.post_date = Date.today
   end
 end
