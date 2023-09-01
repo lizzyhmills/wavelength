@@ -1,15 +1,17 @@
-<div class="pink-edit">
+<div class="pink-edit d-none" data-edit-user-post-target="editCard">
   <div class="content-edit">
-    <div class="edit-title">Edit</div>
+    <div class="edit-title">edit</div>
     <div class="edit-body">
-      <div class="song-link-div"></div>
-      <div class="caption-div"></div>
-    <a class=small-button-green>submit</a>
+      <%= simple_form_for post, class: "edit-body" do |f| %>
+        <%= f.input :link, class: "song-link-div" %>
+        <%= f.input :caption, class: "caption-div" %>
+        <%= f.submit "submit", class: "small-button-green"%>
+      <% end %>
     </div>
   </div>
 </div>
 
 
+<% #  <%= render 'shared/edit_card',  post: post %>
+ <% # <%= render 'shared/edit_card' %>
 
-<%#  <%= render 'shared/edit_card',  post: post %>
- <%# <%= render 'shared/edit_card'%>

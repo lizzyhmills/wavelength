@@ -22,7 +22,7 @@
 .current-user-post {
   border: 0px solid #BF2C71;
   background: #0E0006;
-  box-shadow: 3px 3px 0px 0px #BF2C71;
+  box-shadow: 6px 6px 0px 0px #BF2C71;
   color: white;
 
 
@@ -33,7 +33,7 @@
   border-radius: 40px;
   border: 0px solid #61A54E;
   background: #030F00;
-  box-shadow: 3px 3px 0px 0px #61A54E;
+  box-shadow: 6px 6px 0px 0px #61A54E;
   color: white;
 }
 
@@ -49,6 +49,9 @@
   margin: 5px;
 }
 
+.inner {
+  position: absolute;
+}
 
 
 
@@ -96,6 +99,7 @@ h5 {
   bottom: -7px;
 }
 
+
 .play-song{
     width:100%;
     position: relative;
@@ -111,11 +115,33 @@ h5 {
     }
   }
 
+.song-name-container {
+  text-align: left;
+  overflow: hidden;
+  width: 80%;
+  white-space: nowrap; /* Prevent text from wrapping to the next line */
+}
+
+.scrolling-text {
+  animation: scrollText 10s linear infinite;
+  animation-delay: 1s; /* Delay the animation by 1 second to allow initial alignment */
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
 
 .offset-icon {
   color: #ffffff;
   font-size: 25px;
-  filter: drop-shadow(2px -3px 3px rgb(51, 51, 51));
+  filter: drop-shadow(1px 1px 1px #333333);
 }
 
 .blue {
@@ -142,4 +168,12 @@ h5 {
 
 .blue {
   color: var(--BACKGROUND-PRIMARY-EMPHASIS);
+}
+
+span p {
+  filter: drop-shadow(1px 1px 1px #333333);
+}
+
+#play-important {
+  filter: drop-shadow(3px 3px 1px #000000);
 }
