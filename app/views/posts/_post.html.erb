@@ -1,4 +1,5 @@
- <div data-controller="comments">
+ <div data-controller="comments" >
+ <div data-controller="edit-user-post">
     <div class="post <%= post.user == current_user ? "current-user-post" : "other-user-post" %>" data-controller="play-button">
       <div class="post-top d-flex">
         <% if post.user.photo.attached? %>
@@ -47,9 +48,9 @@
         <div class="d-flex justify-content-between">
           <h3><%= post.song_name.slice(0, 20) %></h3>
           <% if current_user == post.user %>
-            <%= link_to edit_post_path(post), id: "edit-icon" do %>
-              <i class="fa-solid fa-pen"></i>
-            <% end %>
+
+              <i class="fa-solid fa-pen" data-action="click->edit-user-post#edit"></i>
+
           <% end %>
         </div>
 
@@ -58,6 +59,8 @@
       </div>
     </div>
       <%= render 'shared/comment',  post: post %>
+      <%= render 'shared/edit_card', post: post %>
+  </div>
 </div>
 
 <style>
