@@ -28,7 +28,17 @@
                 </button>
               <% end %>
             <% end %>
-            <span><p><%= post.likes.count %></p></span>
+
+            <span><p data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" title="Likes"
+                     data-bs-content="<ul>
+                      <% post.likes.each do |like| %>
+                        <li><%= like.user.username %></li>
+                      <% end %>
+                    </ul>"
+     data-bs-html="true">
+
+                      <%= post.likes.count %>
+                  </p></span>
             <i class="offset-icon fa-solid fa-comment" id="message-icon" data-action="click->comments#toggle"></i>
             <% if post.favourite_posts.where(user: current_user).any? %>
                 <%= link_to post_favourite_post_path(post, post.favourite_posts.where(user: current_user).first), style:"margin-left: auto;", data: {turbo_method: :delete} do %>
