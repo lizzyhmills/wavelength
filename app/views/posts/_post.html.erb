@@ -38,9 +38,9 @@
                      data-bs-content="<ul>
                       <% post.likes.each do |like| %>
                         <li><%= like.user.username %></li>
-                      <% end %>
-                    </ul>"
-     data-bs-html="true">
+                        <% end %>
+                        </ul>"
+                    data-bs-html="true">
 
                       <%= post.likes.count %>
                   </p></span>
