@@ -3,6 +3,7 @@
       <% @users.each do |user| %>
       <div class="d-flex mb-3">
         <div class="flex-grow-1">
+        <%= link_to user_path(user), class: "custom-link" do %>
           <div class="d-flex">
             <div class="av">
             <% if user.photo.attached? %>
@@ -17,6 +18,7 @@
               <%= user.username %>
             </div>
           </div>
+        <% end %>
         </div>
         <div>
           <%= button_to "follow", user_friendships_path(user), method: :post, class:"small-button-pink mx-2" %>

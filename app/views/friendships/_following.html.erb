@@ -2,6 +2,7 @@
       <% @followings.each do |follower| %>
       <div class="d-flex mb-3">
         <div class="flex-grow-1">
+        <%= link_to user_path(follower.follower), class: "custom-link" do %>
           <div class="d-flex">
             <div class="av">
               <% if follower.follower.photo.attached? %>
@@ -16,6 +17,7 @@
               <%= follower.follower.username %>
             </div>
           </div>
+        <% end %>
         </div>
         <div>
           <%= button_to "remove", reject_friendship_path(follower), method: :patch, class:"small-button-red mx-2"%>
