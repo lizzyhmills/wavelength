@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     @user = current_user
     @posts = Post.feed_posts(current_user)
     @myposts = Post.where(user_id: @user.id, post_date: Date.today)
-    @allposts = @posts + @myposts
+    @allposts = (@posts + @myposts).sort_by(&:created_at).reverse
     @favourites = FavouritePost.all
   end
 
