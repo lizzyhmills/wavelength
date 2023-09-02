@@ -1,14 +1,22 @@
 <div class="container">
   <p class="text-center">Today's Feed</p>
 
-  <% @allposts.each do |post| %>
-    <%= render "post", post: post   %>
+  <% if current_user.posts.where(post_date: Date.today).any? %>
+    <% @allposts.each do |post| %>
+      <%= render "post", post: post   %>
+    <% end %>
+  <% else %>
+    <div class="d-flex align-items-center">
+      <div class="box">
+        <div class="inner-box">
+          <h3 class ="black-text">sharing the music you like with the people you love</h3>
+          <div class="buttons-center">
+            <%= link_to "Post a Song", new_post_path, class: "big-button-pink" %>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
-
-  <%# <% @myposts.each do |post| %>
-    <%# <%= render "post", post: post   %>
-  <%# <% end %>
-
 </div>
 
 <style>
