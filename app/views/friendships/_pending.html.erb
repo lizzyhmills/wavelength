@@ -3,6 +3,7 @@
       <% @pendings.each do |request| %>
       <div class="d-flex mb-3">
         <div class="flex-grow-1">
+        <%= link_to user_path(request.followee), class: "custom-link" do %>
           <div class="d-flex">
             <div class="av">
             <% if request.followee.photo.attached? %>
@@ -17,6 +18,7 @@
               <%= request.followee.username %>
             </div>
           </div>
+        <% end %>
         </div>
         <div>
           <%= button_to "cancel", reject_friendship_path(request), method: :patch, class:"small-button-red mx-2"%>

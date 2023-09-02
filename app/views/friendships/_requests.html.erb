@@ -3,6 +3,7 @@
       <% @myrequests.each do |request| %>
       <div class="d-flex mb-3">
         <div class="flex-grow-1">
+        <%= link_to user_path(request.follower), class: "custom-link" do %>
           <div class="d-flex">
             <div class="av">
               <% if request.follower.photo.attached? %>
@@ -18,6 +19,7 @@
               <%= request.follower.username %>
             </div>
           </div>
+        <% end %>
         </div>
         <div>
           <% if request.accepted != true %>

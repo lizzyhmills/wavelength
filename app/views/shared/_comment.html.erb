@@ -20,10 +20,13 @@
       <div class="friend-comment">
         <% post.comments.each do |comment| %>
           <div class="single-comment">
+
             <% if comment.user.photo.attached? %>
-              <a href="/posts"><%= cl_image_tag comment.user.photo.key %> </a>
+              <a href="/users/<%=comment.user.id%>"><%= cl_image_tag comment.user.photo.key %> </a>
             <% else %>
+            <%= link_to user_path(comment.user) do %>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" alt="avatar" class="me-2 avatar-bordered">
+            <% end %>
             <% end %>
             <span><%= comment.content %></span>
           </div>

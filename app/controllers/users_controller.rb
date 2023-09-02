@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts
+    @userpost = @user.posts.where(post_date: Date.today).first
     @favourite_posts = @user.favourite_posts
     # @favourite_posts = Post.where(user_id: @user.id)
   end
