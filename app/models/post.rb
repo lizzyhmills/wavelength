@@ -14,15 +14,18 @@ class Post < ApplicationRecord
   def spotify_call
     link_id = self.link.split('/').last.split('?').first # this should be a method in the model post
     song = RSpotify::Track.find(link_id) # this can also be in model
+    band = RSpotify::Artist.find(song.artists.first.id)
     song_title = song.name
     song_artists = song.artists
     preview = song.preview_url
     artist = song_artists.map { |artist| artist.name }.join(', ')
     album_art = song.album.images.first["url"]
+    genre = band.genres.first
     self.song_name = song_title
     self.artist = artist
-    self.genre = preview
+    self.preview = preview
     self.image_url = album_art
+    self.genre = genre
     self.post_date = Date.today
   end
 

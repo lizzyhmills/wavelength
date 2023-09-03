@@ -169,7 +169,7 @@
           <div class="song-info">
             <div class="position-relative mb-3">
               <div class="play-song">
-                <% if @userpost.genre %>
+                <% if @userpost.preview %>
                   <div class=" ms-2" data-action="click->play-button#play" ><i  id="fa-solid"class="fa-solid fa-play" style="color: #f5f5f5;"></i></div>
                 <% end %>
                 <img src="<%= @userpost.image_url %>" alt="" class="album-artwork">
