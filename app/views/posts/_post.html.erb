@@ -11,12 +11,12 @@
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" alt="avatar" class="me-2 avatar-bordered">
           <% end %>
         <% end %>
-        <%= post.user.username.capitalize %>  <audio data-play-button-target="audio" controls src="<%= post.genre %>" class="mx-2 d-none"></audio> <br>
+        <%= post.user.username.capitalize %>  <audio data-play-button-target="audio" controls src="<%= post.preview %>" class="mx-2 d-none"></audio> <br>
       </div>
       <div class="song-info">
         <div class="position-relative mb-3">
           <div class="play-song">
-            <% if post.genre %>
+            <% if post.preview %>
               <div class=" ms-2" data-action="click->play-button#play" ><i  id="fa-solid"class="fa-solid fa-play" style="color: #f5f5f5;"></i></div>
             <% end %>
              <img src="<%= post.image_url %>" alt="" class="album-artwork">

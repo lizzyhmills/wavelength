@@ -9,7 +9,9 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    # @song = RSpotify::Track.find('7KA4W4McWYRpgf0fWsJZWB')
+    # @song = RSpotify::Track.find('2pAD0PKMUMtxlMvz33tYzB')
+    # @artist = RSpotify::Artist.find(@song.artists.first.id)
+
   end
 
   def create
