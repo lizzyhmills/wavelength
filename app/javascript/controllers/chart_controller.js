@@ -6,13 +6,13 @@ export default class extends Controller {
     data: Array
   }
   connect() {
-    this.loadChart();
+    this.loadGenre();
     console.log(this.labelsValue);
     console.log(this.dataValue);
 
   }
 
-  loadChart() {
+  loadGenre() {
     // Replace this with your actual data and chart configuration
     const sortedData = this.labelsValue.map((label, index) => ({
       label: label,
@@ -25,12 +25,16 @@ export default class extends Controller {
     const sortedLabels = sortedData.map(item => item.label);
     const sortedDataValues = sortedData.map(item => item.value);
 
+    // Limit the chart to the top 5 genres
+    const top5Labels = sortedLabels.slice(0, 5);
+    const top5DataValues = sortedDataValues.slice(0, 5);
+
     const data = {
-      labels: sortedLabels,
+      labels: top5Labels,
       datasets: [
         {
           label: "Todays top genres",
-          data: sortedDataValues,
+          data: top5DataValues,
           backgroundColor: ["rgba(75, 192, 192, 0.2)", "rgba(255, 99, 132, 0.2)", "rgba(255, 206, 86, 0.2)"],
           borderColor: ["rgba(75, 192, 192, 1)", "rgba(255, 99, 132, 1)", "rgba(255, 206, 86, 1)"],
           borderWidth: 1,
@@ -64,6 +68,7 @@ export default class extends Controller {
     const ctx = document.getElementById("myChart").getContext("2d");
     new Chart(ctx, config);
   }
+
 
 
 }

@@ -14,5 +14,14 @@ class ChartsController < ApplicationController
     @genre_labels = @genre_counts.keys
     @genre_data = @genre_counts.values
 
+    @posts = Post.all
+    @artist_counts = Hash.new(0)
+    @posts.each do |post|
+      @artist_counts[post.artist] += 1
+    end
+
+    @artist_labels = @artist_counts.keys
+    @artist_data = @artist_counts.values
+
   end
 end
