@@ -43,7 +43,7 @@
 
 
 
-<div class="show-page-background-pink carousel slide" data-interval="false" data-bs-ride="carousel" id="myCarousel">
+<div class="show-page-background-pink carousel slide" data-interval="false" id="myCarousel">
   <div class="post-cards carousel-inner">
     <% @posts.each_with_index do |post, index| %>
       <% if index % 3 == 0  %>
@@ -121,7 +121,7 @@
 
 
 
-  <div class="show-page-background-green carousel slide" data-interval="false" data-bs-ride="carousel" id="loveCarousel">
+  <div class="show-page-background-green carousel slide" data-interval="false" id="loveCarousel">
     <div class="post-cards carousel-inner">
       <% @favourite_posts.each_with_index do |favourite, index| %>
         <% if index % 3 == 0  %>
