@@ -33,3 +33,25 @@
 
   /* Add any other custom styling you want here */
 }
+
+.filtering {
+  display: flex;
+  justify-content: space-between;
+
+  .d-flex {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  .form-control {
+    background-color: black;
+    border-color: $red;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    color: white;
+  }
+
+  .border-1 {
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+  }
+}

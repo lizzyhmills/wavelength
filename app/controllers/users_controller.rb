@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
     @userpost = @user.posts.where(post_date: Date.today).first
-    @favourite_posts = @user.favourite_posts
+    # @searched_posts = @user.favourite_posts
 
     # if params[:query].present?
     #   sql_subquery = <<~SQL
@@ -14,8 +13,13 @@ class UsersController < ApplicationController
     #   SQL
     #   @posts = @posts.where(sql_subquery, query: "%#{params[:query]}%")
     # end
-
-    @posts = Post.search_by_artist_and_song(params[:query]) if params[:query].present?
+    if params[:query].present?
+      @posts = Post.where(user: @user).search_by_artist_and_song(params[:query])
+      # @favourite_posts = FavouritePost.includes(:post).where(user: @user).search_by_artist_and_song(params[:query])
+    else
+      @favourite_posts = @user.favourite_posts
+      @posts = @user.posts
+    end
   end
 
   def update

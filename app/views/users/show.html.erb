@@ -27,21 +27,24 @@
 </div>
 
 
-<div class="title-and-filter">
+<div class="title-and-filter mt-4" data-controller="index-filter">
   <div class="profile-title">
-    <h3 class="mt-3">Posts</h3>
+    <h3 data-index-filter-target="posts">Posts</h3>
   </div>
   <div class="profile-filter">
-   <div class="filtering" data-controller="index-filter>
-      <%= image_tag "filter.svg" data: { action: "index-filter#click"} %>
-      <%= form_with url: user_path(current_user), method: :get, class: "d-flex d-none" data: {action: } do %>
-        <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: ""
-          %>
-        <%= submit_tag "Search", name: "", class: "btn btn-outline-info border-1" %>
-      <% end %>
+   <div class="filtering">
+      <%= image_tag "filter.svg", data: {
+          action: "click->index-filter#click"}%>
+      <div>
+        <%= form_with url: user_path(current_user), method: :get, class: "d-flex d-none", data: {index_filter_target: "form"} do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: ""
+            %>
+          <%= submit_tag "Search", name: "", class: "btn btn-danger border-1" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
@@ -104,14 +107,29 @@
 </div>
 
 <% if @user == current_user %>
-<div class="title-and-filter mt-4">
+<div class="title-and-filter mt-4" data-controller="favourite-filter">
   <div class="profile-title">
-    <h3 class="mt-3">Saved</h3>
+    <h3 data-favourite-filter-target="saved">Saved</h3>
   </div>
   <div class="profile-filter">
-    <%= image_tag "filter.svg" %>
+    <%= image_tag "filter.svg", data: {
+          action: "click->favourite-filter#click"}%>
+  </div>
+     <!-- <%= form_with url: user_path(current_user), method: :get, class: "d-flex", data: {index_filter_target: "form"} do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: ""
+            %>
+          <%= submit_tag "Search", name: "", class: "btn btn-success border-1" %>
+        <% end %> -->
+      </div>
+    </div>
   </div>
 </div>
+
+
+
   <div class="show-page-background-green carousel slide" data-interval="false" data-bs-ride="carousel" id="loveCarousel">
     <div class="post-cards carousel-inner">
       <% @favourite_posts.each_with_index do |favourite, index| %>
