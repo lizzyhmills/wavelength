@@ -5,14 +5,14 @@ class UsersController < ApplicationController
     if params[:query].present?
       @posts = Post.where(user: @user).search_by_artist_and_song(params[:query])
     else
-      @posts = @user.posts
+      @posts = @user.posts.reverse
     end
     if params[:query_favourites].present?
       @posts_ids = @user.favourite_posts.pluck(:post_id)
       @favourite_posts = Post.where(id: @posts_ids).search_by_artist_and_song(params[:query_favourites])
     else
       @posts_ids = @user.favourite_posts.pluck(:post_id)
-      @favourite_posts = Post.where(id: @posts_ids)
+      @favourite_posts = Post.where(id: @posts_ids).reverse
     end
   end
 

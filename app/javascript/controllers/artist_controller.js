@@ -1,19 +1,21 @@
 import { Controller } from "@hotwired/stimulus";
+// import { Chart } from "chart.js";
 
 export default class extends Controller {
-  static targets = ["genre"]
+  static targets = ["artist"]
   static values = {
     labels: Array,
     data: Array,
-    artistLabels: Array,
-    artistData: Array
   }
   connect() {
-    this.loadGenre();
+    console.log('hello from artist chart')
+    console.log(this.labelsValue)
+    console.log(this.dataValue)
+    this.loadArtist();
 
   }
 
-  loadGenre() {
+  loadArtist() {
     // Replace this with your actual data and chart configuration
     const sortedData = this.labelsValue.map((label, index) => ({
       label: label,
@@ -52,7 +54,7 @@ export default class extends Controller {
             beginAtZero: true,
             title: {
               display: true,
-              text: "Genres",
+              text: "Artists",
             },
           },
           y: {
@@ -66,7 +68,7 @@ export default class extends Controller {
       },
     };
 
-    const ctx = this.genreTarget
+    const ctx = this.artistTarget
     new Chart(ctx, config);
   }
 
