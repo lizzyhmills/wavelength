@@ -7,13 +7,10 @@ export default class extends Controller {
     console.log("hi")
   }
 
-  toggleComments() {
-    this.commentsDivTarget.classList.remove("d-none");
-    this.editCardTarget.classList.add("d-none");
-  }
+  toggle(e) {
+    e.currentTarget.classList.toggle("fa-regular");
+    e.currentTarget.classList.toggle("fa-solid");
 
-  toggleEdit() {
-    this.editCardTarget.classList.remove("d-none");
-    this.commentsDivTarget.classList.add("d-none");
+    this.commentsDivTarget.classList.toggle("d-none");
   }
 }

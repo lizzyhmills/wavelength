@@ -31,4 +31,21 @@
     color: var(--BACKGROUND-PRIMARY-TEXT);
     font-size: 24px;
   }
+
+  .current-page {
+    color: var(--BACKGROUND-SECONDARY-GREEN);
+  }
+  .charts-page {
+    color: var(--BACKGROUND-SECONDARY-PINK);
+
+  }
+  .pink-border{
+    border: solid 1px var(--BACKGROUND-SECONDARY-PINK);
+
+  }
+  .avatar-border{
+
+  border:3px solid var(--BACKGROUND-SECONDARY-PINK);
+  }
+
 }

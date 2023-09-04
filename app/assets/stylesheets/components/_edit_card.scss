@@ -10,8 +10,9 @@
   padding-bottom: 10px;
   z-index: 1;
   position: relative;
-  top: -10px;
-  transform: translate(3px, -45px);
+  top: -11px;
+  transform: translate(6px, -44px);
+  box-shadow:3px 0px 0px 0px var(--BACKGROUND-SECONDARY-PINK)x;
 
 }
 
@@ -28,11 +29,15 @@
   // border:solid 1px white;
   color: var(--BACKGROUND-PRIMARY-TEXT);
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 23px;
+  font-size: 20px;
   font-weight: 400;
   letter-spacing: -0.094px;
   font-style: normal;
   line-height: normal;
+  display: flex;
+  justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 30px;
 }
 
 .edit-body {
@@ -40,11 +45,17 @@
   padding: 0px 10px 0px 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+
 
   a {
     margin-top: 13px;
   }
+.b-center {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
 }
 
 .song-link-div {
