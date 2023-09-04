@@ -15,6 +15,8 @@ export default class extends Controller {
 
   loadGenre() {
     // Replace this with your actual data and chart configuration
+    Chart.defaults.color = '#FFF';
+
     const sortedData = this.labelsValue.map((label, index) => ({
       label: label,
       value: this.dataValue[index],
@@ -30,6 +32,7 @@ export default class extends Controller {
     const top5Labels = sortedLabels.slice(0, 5);
     const top5DataValues = sortedDataValues.slice(0, 5);
 
+
     const data = {
       labels: top5Labels,
       datasets: [
@@ -40,6 +43,7 @@ export default class extends Controller {
           borderColor: ["rgba(191, 44, 113, 1.0)", "rgba(4, 13, 191, 1.0)", "rgba(97, 165, 78, 1.0)"],
           borderWidth: 5,
           borderRadius: 5,
+          color: ["rgba(191, 44, 113, 1.0)"]
         },
       ],
     };
