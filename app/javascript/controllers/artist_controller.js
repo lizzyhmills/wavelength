@@ -8,14 +8,12 @@ export default class extends Controller {
     data: Array,
   }
   connect() {
-    console.log('hello from artist chart')
-    console.log(this.labelsValue)
-    console.log(this.dataValue)
     this.loadArtist();
 
   }
 
   loadArtist() {
+    Chart.defaults.color = '#FFF';
     // Replace this with your actual data and chart configuration
     const sortedData = this.labelsValue.map((label, index) => ({
       label: label,

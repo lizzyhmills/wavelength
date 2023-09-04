@@ -31,6 +31,13 @@ class PostsController < ApplicationController
   end
 
   def update
+    @post = Post.find(params[:id])
+    if @post.update!(post_params)
+      redirect_to posts_path
+    else
+      @post.link = ""
+      render :new, status: :unprocessable_entity
+    end
         # #https://open.spotify.com/track/1z6WtY7X4HQJvzxC4UgkSf?si=7bed3c6456414f87
         # @post = Post.find(params[:id])
         # @post.update!(post_params)
