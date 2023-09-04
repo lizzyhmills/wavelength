@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'charts/index'
   get "friendships/create"
   get "friendships/destroy"
   # get 'favourite_posts/create'
@@ -33,4 +34,5 @@ Rails.application.routes.draw do
       patch :reject
     end
   end
+  resources :charts, only: [:index]
 end
