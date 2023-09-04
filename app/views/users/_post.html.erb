@@ -1,0 +1,73 @@
+<div data-controller="comments" >
+          <div data-controller="edit-user-post">
+            <div class="post <%= @userpost.user == current_user ? "current-user-post" : "other-user-post" %>" data-controller="play-button">
+              <div class="post-top d-flex">
+                <div class="song-info">
+                  <div class="position-relative mb-3">
+                    <div class="play-song">
+                      <% if @userpost.preview %>
+                        <div class=" ms-2" data-action="click->play-button#play" ><i  id="fa-solid"class="fa-solid fa-play" style="color: #f5f5f5;"></i></div>
+                      <% end %>
+                      <img src="<%= @userpost.image_url %>" alt="" class="album-artwork">
+                    </div>
+                    <div class="offset-song-icons d-flex justify-content-start w-100" style="gap: 1rem;">
+                      <% if @userpost.likes.where(user: current_user).any? %>
+                        <%= link_to post_like_path(@userpost, @userpost.likes.where(user: current_user).first), data: {turbo_method: :delete} do %>
+                          <i class="offset-icon fa-solid fa-heart text-danger" id="heart-icon"></i>
+                        <% end %>
+                      <% else %>
+                        <%= form_with(url: post_likes_path(@userpost), method: :post, local: true, html: { class: "bookmark-form" }) do |form| %>
+                          <button type="submit" class="bookmark-button">
+                            <i class="offset-icon fa-solid fa-heart" id="heart-icon"></i>
+                          </button>
+                        <% end %>
+                      <% end %>
+
+                      <span><p data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" title="Likes"
+                              data-bs-content="<ul>
+                                <% @userpost.likes.each do |like| %>
+                                  <li><%= like.user.username %></li>
+                                <% end %>
+                              </ul>"
+                                data-bs-html="true">
+
+                                <%= @userpost.likes.count %>
+                            </p></span>
+                      <i class="offset-icon fa-solid fa-comment" id="message-icon" data-action="click->comments#toggle"></i>
+                      <% if @userpost.favourite_posts.where(user: current_user).any? %>
+                          <%= link_to post_favourite_post_path(@userpost, @userpost.favourite_posts.where(user: current_user).first), style:"margin-left: auto;", data: {turbo_method: :delete} do %>
+                          <i class="offset-icon fa-solid fa-bookmark blue" ></i>
+                        <% end %>
+
+                      <% else %>
+                        <%= form_with(url: post_favourite_posts_path(@userpost), method: :post, local: true, html: { class: "bookmark-form", style: "margin-left: auto;" }) do |form| %>
+                              <button type="submit" class="bookmark-button">
+                              <i class="offset-icon fa-solid fa-bookmark" id="save-icon" style="margin-left: auto;"></i>
+                              </button>
+                        <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+                <div class="d-flex justify-content-between" >
+                  <div class="song-name-container">
+                    <% if @userpost.song_name.length < 15 %>
+                      <h3><%= @userpost.song_name.slice(0, 15) %></h3>
+                    <% else %>
+                      <h3 class="scrolling-text"><%= @userpost.song_name.slice(0, 40) %></h3>
+                    <% end %>
+                  </div>
+                  <% if current_user == @userpost.user %>
+                      <i class="fa-solid fa-pen" data-action="click->edit-user-post#edit"></i>
+                  <% end %>
+                </div>
+                <div class="d-flex">
+                  <h4 class="flex-grow-1"><%= @userpost.artist %></h4>
+                  <a href="<%= @userpost.link %>" target="_blank"><i class="fa-brands fa-spotify text-success fs-1"></i></a>
+                </div>
+                <h5><%= @userpost.caption.slice(0, 40) %><%= @userpost.caption.length > 40 ? "..." : "" %></h5><br>
+                </div>
+               </div>
+              <%= render 'shared/comment',  post: @userpost %>
+              <%= render 'shared/edit_card', post: @userpost %>
+            </div>
+          </div>
