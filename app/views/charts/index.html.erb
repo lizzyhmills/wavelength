@@ -1,6 +1,14 @@
 <div class="container">
   <h2 class="text-light text-center">Charts</h2>
+
   <div data-controller="chart" data-chart-labels-value="<%= @genre_labels%>" data-chart-data-value="<%= @genre_data%>">
-    <canvas id="myChart" width="400" height="400" data-target="chart.chartCanvas"></canvas>
+    <h3 class="text-light text-center">Top Genres</h3>
+    <canvas data-chart-target="genre" width="400" height="400" ></canvas>
   </div>
+
+    <div data-controller="artist" data-artist-labels-value="<%= @artist_labels%>" data-artist-data-value="<%= @artist_data%>">
+    <h3 class="text-light text-center">Top Artists</h3>
+    <canvas data-artist-target="artist" width="400" height="400" ></canvas>
+  </div>
+
 </div>
