@@ -17,8 +17,8 @@ class UsersController < ApplicationController
       @posts = Post.where(user: @user).search_by_artist_and_song(params[:query])
       # @favourite_posts = FavouritePost.includes(:post).where(user: @user).search_by_artist_and_song(params[:query])
     else
-      @favourite_posts = @user.favourite_posts
-      @posts = @user.posts
+      @favourite_posts = @user.favourite_posts.reverse
+      @posts = @user.posts.reverse
     end
   end
 
