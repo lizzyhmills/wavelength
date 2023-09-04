@@ -1,0 +1,5 @@
+<%= form_with(url: post_likes_path(post), method: :post, local: true, html: { class: "bookmark-form", data: { likes_target: "likeButton" }}) do |form| %>
+
+<button type="submit" class="bookmark-button" data-action="click->likes#likeForm">
+  <i class="offset-icon fa-solid fa-heart" id="heart-icon"></i>
+</button>
