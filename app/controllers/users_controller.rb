@@ -1,10 +1,19 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
     @userpost = @user.posts.where(post_date: Date.today).first
-    @favourite_posts = @user.favourite_posts
-    # @favourite_posts = Post.where(user_id: @user.id)
+    if params[:query].present?
+      @posts = Post.where(user: @user).search_by_artist_and_song(params[:query])
+    else
+      @posts = @user.posts.reverse
+    end
+    if params[:query_favourites].present?
+      @posts_ids = @user.favourite_posts.pluck(:post_id)
+      @favourite_posts = Post.where(id: @posts_ids).search_by_artist_and_song(params[:query_favourites])
+    else
+      @posts_ids = @user.favourite_posts.pluck(:post_id)
+      @favourite_posts = Post.where(id: @posts_ids).reverse
+    end
   end
 
   def update

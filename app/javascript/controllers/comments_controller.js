@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="comments"
 export default class extends Controller {
-  static targets = ["commentsDiv"]
+  static targets = ["commentsDiv", "editCard"]
   connect() {
     console.log("hi")
   }

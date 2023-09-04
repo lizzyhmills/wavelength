@@ -1,19 +1,21 @@
 import { Controller } from "@hotwired/stimulus";
+// import { Chart } from "chart.js";
 
 export default class extends Controller {
-  static targets = ["genre"]
+  static targets = ["artist"]
   static values = {
     labels: Array,
     data: Array,
-    artistLabels: Array,
-    artistData: Array
   }
   connect() {
-    this.loadGenre();
+    console.log('hello from artist chart')
+    console.log(this.labelsValue)
+    console.log(this.dataValue)
+    this.loadArtist();
 
   }
 
-  loadGenre() {
+  loadArtist() {
     // Replace this with your actual data and chart configuration
     const sortedData = this.labelsValue.map((label, index) => ({
       label: label,
@@ -39,7 +41,7 @@ export default class extends Controller {
           backgroundColor: ["rgba(191, 44, 113, 0.2)", "rgba(4, 13, 191, 0.2)", "rgba(97, 165, 78, 0.2)"],
           borderColor: ["rgba(191, 44, 113, 1.0)", "rgba(4, 13, 191, 1.0)", "rgba(97, 165, 78, 1.0)"],
           borderWidth: 5,
-          borderRadius: 5,
+          borderRadius: 5
         },
       ],
     };
@@ -53,7 +55,7 @@ export default class extends Controller {
             beginAtZero: true,
             title: {
               display: true,
-              text: "Genres",
+              text: "Artists",
             },
           },
           y: {
@@ -67,7 +69,7 @@ export default class extends Controller {
       },
     };
 
-    const ctx = this.genreTarget
+    const ctx = this.artistTarget
     new Chart(ctx, config);
   }
 

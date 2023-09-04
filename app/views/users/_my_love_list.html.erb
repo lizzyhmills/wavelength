@@ -1,0 +1,52 @@
+<div class="show-page-background-green carousel slide" data-interval="false" id="loveCarousel">
+    <div class="post-cards carousel-inner">
+      <% @favourite_posts.each_with_index do |favourite, index| %>
+        <% if index % 3 == 0  %>
+          <div class="carousel-item <%= index == 0 ? "active" : "" %>">
+            <div class="d-flex">
+              <a href="<%=favourite.link%>" target="_blank" class="custom-link">
+                <div class="mini-card" data-scroll-target="card">
+                  <img src="<%= favourite.image_url %>" alt="">
+                  <div class="description-div">
+                    <span><%= favourite.song_name.truncate(11)%></span>
+                    <p>By <%= favourite.artist.truncate(20) %></p>
+                  </div>
+                </div>
+              </a>
+              <% if (index + 1) < @favourite_posts.length %>
+              <a href="<%=@favourite_posts[index + 1].link %>" target="_blank" class="custom-link">
+                <div class="mini-card" data-scroll-target="card">
+                  <img src="<%= @favourite_posts[index + 1].image_url %>" alt="">
+                  <div class="description-div">
+                    <span><%= @favourite_posts[index + 1].song_name.truncate(11)%></span>
+                    <p>By <%= @favourite_posts[index + 1].artist.truncate(20) %></p>
+                  </div>
+                </div>
+              </a>
+              <% end %>
+              <% if (index + 2) < @favourite_posts.length %>
+              <a href="<%=@favourite_posts[index + 2].link %>" target="_blank" class="custom-link">
+                <div class="mini-card" data-scroll-target="card">
+                  <img src="<%= @favourite_posts[index + 2].image_url %>" alt="">
+                  <div class="description-div">
+                    <span><%= @favourite_posts[index + 2].song_name.truncate(11)%></span>
+                    <p>By <%= @favourite_posts[index + 2].artist.truncate(20) %></p>
+                  </div>
+                </div>
+              </a>
+              <% end %>
+            </div>
+          </div>
+
+        <% end %>
+      <% end %>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#loveCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#loveCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
