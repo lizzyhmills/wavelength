@@ -1,0 +1,52 @@
+<div class="show-page-background-pink carousel slide" data-interval="false" id="myCarousel">
+  <div class="post-cards carousel-inner">
+    <% @posts.each_with_index do |post, index| %>
+      <% if index % 3 == 0  %>
+        <div class="carousel-item <%= index == 0 ? "active" : "" %>">
+          <div class="d-flex">
+            <a href="<%=post.link%>" target="_blank" class="custom-link">
+              <div class="mini-card" data-scroll-target="card">
+                <img src="<%= post.image_url %>" alt="">
+                <div class="description-div">
+                  <span><%= post.song_name.truncate(11)%></span>
+                  <p>By <%= post.artist.truncate(20) %></p>
+                </div>
+              </div>
+            </a>
+            <% if (index + 1) < @posts.length %>
+            <a href="<%= @posts[index + 1].link %>" target="_blank" class="custom-link">
+              <div class="mini-card" data-scroll-target="card">
+                <img src="<%= @posts[index + 1].image_url %>" alt="">
+                <div class="description-div">
+                  <span><%= @posts[index + 1].song_name.truncate(11)%></span>
+                  <p>By <%= @posts[index + 1].artist.truncate(20) %></p>
+                </div>
+              </div>
+            </a>
+            <% end %>
+            <% if (index + 2) < @posts.length %>
+            <a href="<%= @posts[index + 2].link %>" target="_blank" class="custom-link">
+              <div class="mini-card" data-scroll-target="card">
+                <img src="<%= @posts[index + 2].image_url %>" alt="">
+                <div class="description-div">
+                  <span><%= @posts[index + 2].song_name.truncate(11)%></span>
+                  <p>By <%= @posts[index + 2].artist.truncate(20) %></p>
+                </div>
+              </div>
+             </a>
+            <% end %>
+          </div>
+        </div>
+
+      <% end %>
+    <% end %>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
