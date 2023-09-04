@@ -2,23 +2,17 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @userpost = @user.posts.where(post_date: Date.today).first
-    # @searched_posts = @user.favourite_posts
-
-    # if params[:query].present?
-    #   sql_subquery = <<~SQL
-    #   SELECT * FROM posts
-    #   WHERE song_name @@ :query
-    #   OR artist @@ :query
-    #   OR post_date::text @@ :query;
-    #   SQL
-    #   @posts = @posts.where(sql_subquery, query: "%#{params[:query]}%")
-    # end
     if params[:query].present?
       @posts = Post.where(user: @user).search_by_artist_and_song(params[:query])
-      # @favourite_posts = FavouritePost.includes(:post).where(user: @user).search_by_artist_and_song(params[:query])
     else
-      @favourite_posts = @user.favourite_posts.reverse
       @posts = @user.posts.reverse
+    end
+    if params[:query_favourites].present?
+      @posts_ids = @user.favourite_posts.pluck(:post_id)
+      @favourite_posts = Post.where(id: @posts_ids).search_by_artist_and_song(params[:query_favourites])
+    else
+      @posts_ids = @user.favourite_posts.pluck(:post_id)
+      @favourite_posts = Post.where(id: @posts_ids).reverse
     end
   end
 
