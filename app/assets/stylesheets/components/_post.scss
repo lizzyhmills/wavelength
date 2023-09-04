@@ -1,9 +1,11 @@
 .post {
-  height: 383px;
+  height: auto;
   margin-bottom: 20px;
-  padding: 15px;
+  padding: 15px 15px 0px  ;
+
   border-radius: 40px;
   display: flex;
+
   flex-direction: column;
   z-index: 2;
   position: relative;
@@ -14,9 +16,15 @@
     object-fit: cover;
   }
 
-  h3 {
+  h4 {
     margin-bottom: 0.3rem;
   }
+  .post-top{
+    display: flex;
+    align-items: center;
+    margin: 5px;
+  }
+
 }
 
 .current-user-post {
@@ -95,8 +103,14 @@ h5 {
 }
 
 .offset-song-icons {
-  position: absolute;
-  bottom: -7px;
+  // position: relative;
+  // bottom: -10px;
+  gap: 0.5rem;
+  margin-top: 8px;
+}
+
+.like-count{
+  position:relative;
 }
 
 
@@ -121,6 +135,7 @@ h5 {
   width: 80%;
   white-space: nowrap;
   /* Prevent text from wrapping to the next line */
+  margin-top: 2%;
 }
 
 .scrolling-text {
@@ -142,39 +157,54 @@ h5 {
 
 
 .offset-icon {
+  padding-left: 10px;
   color: #ffffff;
-  font-size: 25px;
+  font-size: 24px;
   filter: drop-shadow(1px 1px 1px #333333);
+
 }
 
 .blue {
   color: $blue;
 }
+.pink{
+  color: var(--BACKGROUND-PRIMARY-TEXT) !important;
+}
+
+
 
 #heart-icon {
   color: #fafcff;
-  font-size: 25px;
+  font-size: 24px;
 }
 
 #save-icon {
   color: #fafcff;
-  font-size: 25px;
+  font-size: 21px;
 
 }
 
 #edit-icon {
   color: #fafcff;
-  font-size: 20px;
+  font-size: 24px;
 }
+.fa-pen{
+  font-size: 20px;
+  color:#515151
+
+
+}
+
 
 // COLORS
 
-.blue {
-  color: var(--BACKGROUND-PRIMARY-EMPHASIS);
+.fill-color {
+  color: #fafcff;
 }
 
-span p {
+.like-count {
   filter: drop-shadow(1px 1px 1px #333333);
+      margin-top: 5 !important;
 }
 
 #play-important {

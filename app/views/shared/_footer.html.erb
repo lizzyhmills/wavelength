@@ -1,19 +1,20 @@
 <% if current_user %>
   <div class="footer">
-    <a href="/posts"><%= image_tag "logo.svg" %> </a>
-     <div class="icon-link-container">
-  <%= link_to friendships_path, class: "" do %>
-    <i class="fa-solid fa-user-group"></i>
-  <% end %>
-
-</div>
-      <%= link_to charts_path, class: "" do %>
-      <i class="fa-solid fa-chart-simple"></i>
-       <% end %>
+    <%= link_to posts_path do %>
+      <%= image_tag current_page?(posts_path) ?  "pink-logo.svg" : "logo.svg"  %>
+    <% end %>
+    <div class="icon-link-container">
+      <%= link_to friendships_path, class: "" do %>
+        <i class="fa-solid fa-user-group <%= "current-page" if current_page?(friendships_path) %>"></i>
+      <% end %>
+    </div>
+    <%= link_to charts_path, class: "" do %>
+      <i class="fa-solid fa-chart-simple <%= "charts-page" if current_page?(charts_path) %>"></i>
+    <% end %>
     <% if current_user.photo.attached? %>
-      <a href="/users/<%=current_user.id%>"><%= image_tag current_user.photo %></a>
+      <a href="/users/<%=current_user.id%>"><%= image_tag current_user.photo, class: "#{"avatar-border" if current_page?(user_path(current_user))}" %></a>
     <% else %>
-     <a href="/users/<%=current_user.id%>"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" alt="avatar" ></a>
+      <a href="/users/<%=current_user.id%>"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" alt="avatar" class=<%="avatar-border" if current_page?(user_path(current_user)) %> ></a>
     <% end %>
   </div>
   <div style="height: 70px;"></div>

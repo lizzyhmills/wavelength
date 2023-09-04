@@ -36,9 +36,10 @@ export default class extends Controller {
         {
           label: "Number of posts",
           data: top5DataValues,
-          backgroundColor: ["rgba(75, 192, 192, 0.2)", "rgba(255, 99, 132, 0.2)", "rgba(255, 206, 86, 0.2)"],
-          borderColor: ["rgba(75, 192, 192, 1)", "rgba(255, 99, 132, 1)", "rgba(255, 206, 86, 1)"],
-          borderWidth: 1,
+          backgroundColor: ["rgba(191, 44, 113, 0.2)", "rgba(4, 13, 191, 0.2)", "rgba(97, 165, 78, 0.2)"],
+          borderColor: ["rgba(191, 44, 113, 1.0)", "rgba(4, 13, 191, 1.0)", "rgba(97, 165, 78, 1.0)"],
+          borderWidth: 5,
+          borderRadius: 5,
         },
       ],
     };
