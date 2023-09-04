@@ -14,16 +14,6 @@
       <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "medium-button-blue-pink"%>
 </div>
 
-
-<!-- IN CASE WE WANT AN EDIT USER FORM
-<%= simple_form_for [@user] do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :bio %>
-  <%= f.input :avatar_url %>
-  <%= f.submit class: "btn btn-outline-info border-1"%>
-  <% end %> -->
-
 </div>
 
 
@@ -33,9 +23,6 @@
   </div>
   <div class="profile-filter">
    <div class="filtering">
-      <%= image_tag "filter.svg", data: {
-          action: "click->index-filter#click"}%>
-      <div>
         <%= form_with url: user_path(current_user), method: :get, class: "d-flex d-none", data: {index_filter_target: "form"} do %>
           <%= text_field_tag :query,
                 params[:query],
@@ -44,6 +31,9 @@
             %>
           <%= submit_tag "Search", name: "", class: "btn btn-danger border-1" %>
         <% end %>
+      <%= image_tag "filter.svg", data: {
+          action: "click->index-filter#click"}%>
+      <div>
       </div>
     </div>
   </div>
@@ -111,18 +101,19 @@
   <div class="profile-title">
     <h3 data-favourite-filter-target="saved">Saved</h3>
   </div>
+  <div class="favourite-filter">
   <div class="profile-filter">
-    <%= image_tag "filter.svg", data: {
-          action: "click->favourite-filter#click"}%>
-  </div>
-     <!-- <%= form_with url: user_path(current_user), method: :get, class: "d-flex", data: {index_filter_target: "form"} do %>
-          <%= text_field_tag :query,
-                params[:query],
+     <%= form_with url: user_path(current_user), method: :get, class: "d-flex d-none favourite-form", data: {favourite_filter_target: "form"} do %>
+          <%= text_field_tag :query_favourites,
+                params[:query_favourites],
                 class: "form-control",
                 placeholder: ""
             %>
           <%= submit_tag "Search", name: "", class: "btn btn-success border-1" %>
-        <% end %> -->
+        <% end %>
+    <%= image_tag "filter.svg", data: {
+          action: "click->favourite-filter#click"}%>
+        </div>
       </div>
     </div>
   </div>
@@ -136,33 +127,33 @@
         <% if index % 3 == 0  %>
           <div class="carousel-item <%= index == 0 ? "active" : "" %>">
             <div class="d-flex">
-              <a href="<%=favourite.post.link%>" target="_blank" class="custom-link">
+              <a href="<%=favourite.link%>" target="_blank" class="custom-link">
                 <div class="mini-card" data-scroll-target="card">
-                  <img src="<%= favourite.post.image_url %>" alt="">
+                  <img src="<%= favourite.image_url %>" alt="">
                   <div class="description-div">
-                    <span><%= favourite.post.song_name.truncate(11)%></span>
-                    <p>By <%= favourite.post.artist.truncate(20) %></p>
+                    <span><%= favourite.song_name.truncate(11)%></span>
+                    <p>By <%= favourite.artist.truncate(20) %></p>
                   </div>
                 </div>
               </a>
               <% if (index + 1) < @favourite_posts.length %>
-              <a href="<%=@favourite_posts[index + 1].post.link %>" target="_blank" class="custom-link">
+              <a href="<%=@favourite_posts[index + 1].link %>" target="_blank" class="custom-link">
                 <div class="mini-card" data-scroll-target="card">
-                  <img src="<%= @favourite_posts[index + 1].post.image_url %>" alt="">
+                  <img src="<%= @favourite_posts[index + 1].image_url %>" alt="">
                   <div class="description-div">
-                    <span><%= @favourite_posts[index + 1].post.song_name.truncate(11)%></span>
-                    <p>By <%= @favourite_posts[index + 1].post.artist.truncate(20) %></p>
+                    <span><%= @favourite_posts[index + 1].song_name.truncate(11)%></span>
+                    <p>By <%= @favourite_posts[index + 1].artist.truncate(20) %></p>
                   </div>
                 </div>
               </a>
               <% end %>
               <% if (index + 2) < @favourite_posts.length %>
-              <a href="<%=@favourite_posts[index + 2].post.link %>" target="_blank" class="custom-link">
+              <a href="<%=@favourite_posts[index + 2].link %>" target="_blank" class="custom-link">
                 <div class="mini-card" data-scroll-target="card">
-                  <img src="<%= @favourite_posts[index + 2].post.image_url %>" alt="">
+                  <img src="<%= @favourite_posts[index + 2].image_url %>" alt="">
                   <div class="description-div">
-                    <span><%= @favourite_posts[index + 2].post.song_name.truncate(11)%></span>
-                    <p>By <%= @favourite_posts[index + 2].post.artist.truncate(20) %></p>
+                    <span><%= @favourite_posts[index + 2].song_name.truncate(11)%></span>
+                    <p>By <%= @favourite_posts[index + 2].artist.truncate(20) %></p>
                   </div>
                 </div>
               </a>
@@ -221,7 +212,7 @@
                             <li><%= like.user.username %></li>
                           <% end %>
                         </ul>"
-        data-bs-html="true">
+                          data-bs-html="true">
 
                           <%= @userpost.likes.count %>
                       </p></span>
