@@ -17,7 +17,7 @@
           <i class="fa-solid fa-check"></i>
         <% end %>
       <% end %>
-      <div class="friend-comment">
+      <div class="friend-comment <%= post.comments.length == 0 ? "collapsed" : "expanded" %>">
         <% post.comments.each do |comment| %>
           <div class="single-comment">
 

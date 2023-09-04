@@ -174,7 +174,7 @@
                 <% end %>
                 <img src="<%= @userpost.image_url %>" alt="" class="album-artwork">
               </div>
-              <div class="offset-song-icons d-flex justify-content-start w-100" style="gap: 1rem;">
+              <div class="offset-song-icons d-flex justify-content-start w-100">
                 <% if @userpost.likes.where(user: current_user).any? %>
                   <%= link_to post_like_path(@userpost, @userpost.likes.where(user: current_user).first), data: {turbo_method: :delete} do %>
                     <i class="offset-icon fa-solid fa-heart text-danger" id="heart-icon"></i>

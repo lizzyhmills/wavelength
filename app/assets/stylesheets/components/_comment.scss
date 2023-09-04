@@ -1,6 +1,6 @@
 .comments-wrapper {
   width: 100%;
-  height: 260px;
+  height: auto;
   // height: 383px;
   flex-shrink: 0;
   border-radius: 0px 0px 30px 30px;
@@ -13,6 +13,7 @@
   z-index: 1;
   position: relative;
   top: -15px;
+  padding: 40px 0 20px
 }
 
 .pink-bg {
@@ -26,7 +27,7 @@
 .content {
   // border:solid 1px white;
   width: 88.71%;
-  height: 170px;
+  // height: 170px;
   display: flex;
   flex-direction: column;
 
@@ -39,12 +40,13 @@
 .comments-title {
   color: var(--BACKGROUND-PRIMARY-TEXT);
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 23px;
+  font-size: 20px;
   font-weight: 400;
   letter-spacing: -0.094px;
   font-style: normal;
   line-height: normal;
   margin-top: 10px;
+  text-align: center;
 }
 
 .white-bar {
@@ -74,12 +76,19 @@
 }
 
 .friend-comment {
-  height: 110px;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 16px;
   overflow-y: scroll;
+}
+
+.collapsed {
+  height: 0;
+}
+
+.expanded {
+  height: 110px;
 }
 
 .single-comment {

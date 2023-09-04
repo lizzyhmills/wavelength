@@ -1,11 +1,16 @@
-<div class="pink-edit d-none" data-edit-user-post-target="editCard">
+<div class="pink-edit d-none" data-edit-user-post-target="editCard" >
   <div class="content-edit">
-    <div class="edit-title">edit</div>
+    <div class="edit-title" >Edit song link</div>
     <div class="edit-body">
-      <%= simple_form_for post, class: "edit-body" do |f| %>
-        <%= f.input :link, class: "song-link-div" %>
-        <%= f.input :caption, class: "caption-div" %>
-        <%= f.submit "submit", class: "small-button-green"%>
+      <%= simple_form_for post, class: "edit-body",style: "border-radius: 0px; height: auto;"  do |f| %>
+
+         <%= f.input :link, class: "song-link-div",input_html: { style: "border-radius: 15px; height: 45px;" }%>
+        <%= f.input :caption, class: "caption-div",input_html: { style: "border-radius: 15px; height: 55px;" } %>
+        <div class="b-center">
+        <%= f.submit "submit", class: "  medium-button-green"%>
+          </div>
+
+
       <% end %>
     </div>
   </div>
@@ -14,4 +19,3 @@
 
 <% #  <%= render 'shared/edit_card',  post: post %>
  <% # <%= render 'shared/edit_card' %>
-

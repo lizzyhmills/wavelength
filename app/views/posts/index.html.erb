@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container gutter-3">
   <p class="text-center">Today's Feed</p>
 
   <% if current_user.posts.where(post_date: Date.today).any? %>
@@ -25,7 +25,7 @@
 .text-center{
   margin: 5%;
   color: var(--BACKGROUND-PRIMARY-TEXT);
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'IBM Plex Mono', monospace;
   font-weight: 400;
   font-size: 28px;
 

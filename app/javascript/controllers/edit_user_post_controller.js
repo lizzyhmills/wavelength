@@ -8,9 +8,12 @@ export default class extends Controller {
     console.log("edit comment")
   }
 
-  edit() {
+  edit(e) {
     console.log("action fired")
     this.editCardTarget.classList.toggle("d-none");
-  }
 
+    // e.currentTarget.classList.toggle("fa-solid");
+    e.currentTarget.classList.toggle("pink");
+
+  }
 }
