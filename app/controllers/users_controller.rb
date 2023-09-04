@@ -4,7 +4,18 @@ class UsersController < ApplicationController
     @posts = @user.posts
     @userpost = @user.posts.where(post_date: Date.today).first
     @favourite_posts = @user.favourite_posts
-    # @favourite_posts = Post.where(user_id: @user.id)
+
+    # if params[:query].present?
+    #   sql_subquery = <<~SQL
+    #   SELECT * FROM posts
+    #   WHERE song_name @@ :query
+    #   OR artist @@ :query
+    #   OR post_date::text @@ :query;
+    #   SQL
+    #   @posts = @posts.where(sql_subquery, query: "%#{params[:query]}%")
+    # end
+
+    @posts = Post.search_by_artist_and_song(params[:query]) if params[:query].present?
   end
 
   def update
