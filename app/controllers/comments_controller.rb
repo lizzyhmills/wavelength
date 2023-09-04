@@ -5,10 +5,19 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment.post = @post
     @comment.user = current_user
-    if @comment.save!
-      redirect_to posts_path
-    else
-      render posts_path, status: :unprocessable_entity
+    # if @comment.save!
+    #   redirect_to posts_path
+    # else
+    #   render posts_path, status: :unprocessable_entity
+    # end
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to posts_path }
+        format.json # Follows the classic Rails flow and look for a create.json view
+      else
+        format.html { render "posts/index", status: :unprocessable_entity }
+        format.json # Follows the classic Rails flow and look for a create.json view
+      end
     end
   end
 
