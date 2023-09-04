@@ -6,6 +6,13 @@ class Post < ApplicationRecord
   has_many :favourite_posts, dependent: :destroy
   before_save :spotify_call
 
+  include PgSearch::Model
+  pg_search_scope :search_by_artist_and_song,
+    against: [ :song_name, :artist ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   def self.feed_posts(user)
     friend_ids = user.friendships_as_follower.where(accepted: true).pluck(:followee_id)
     Post.where(user_id: friend_ids, post_date: Date.today)
