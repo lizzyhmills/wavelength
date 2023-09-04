@@ -1,179 +1,166 @@
 <div class="container gutter-3">
-  <p class="text-center">Today's Feed</p>
-
-  <% if current_user.posts.where(post_date: Date.today).any? %>
-    <% @allposts.each do |post| %>
-
-
-      <%# partial post inside %>
-
- <div data-controller="comments" >
- <div data-controller="edit-user-post">
-    <div class="post <%= post.user == current_user ? "current-user-post" : "other-user-post" %>" data-controller="play-button">
-      <div class="post-top d-flex">
-        <% if post.user.photo.attached? %>
-         <%= link_to user_path(post.user) do %>
-          <%= cl_image_tag post.user.photo.key, class: "me-2 avatar-bordered" %>
-          <% end %>
-        <% else %>
-          <%= link_to user_path(post.user) do %>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" alt="avatar" class="me-2 avatar-bordered">
-          <% end %>
-        <% end %>
-        <%= post.user.username.capitalize %>  <audio data-play-button-target="audio" controls src="<%= post.preview %>" class="mx-2 d-none"></audio> <br>
-      </div>
-      <div class="song-info">
-        <div class="position-relative mb-3">
-          <div class="play-song">
-            <% if post.preview %>
-              <div class=" ms-2" data-action="click->play-button#play" ><i  id="fa-solid"class="fa-solid fa-play" style="color: #f5f5f5;"></i></div>
-            <% end %>
-             <img src="<%= post.image_url %>" alt="" class="album-artwork">
-          </div>
-          <div class="offset-song-icons d-flex justify-content-start w-100" style="gap: 1rem;">
-            <% if post.likes.where(user: current_user).any? %>
-              <%= link_to post_like_path(post, post.likes.where(user: current_user).first), data: {turbo_method: :delete} do %>
-                <i class="offset-icon fa-solid fa-heart text-danger" id="heart-icon"></i>
-              <% end %>
-            <% else %>
-              <%= form_with(url: post_likes_path(post), method: :post, local: true, html: { class: "bookmark-form" }) do |form| %>
-                <button type="submit" class="bookmark-button">
-                  <i class="offset-icon fa-solid fa-heart" id="heart-icon"></i>
-                </button>
-              <% end %>
-            <% end %>
-
-            <span><p data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" title="Likes"
-                     data-bs-content="<ul>
-                      <% post.likes.each do |like| %>
+   <p class="text-center">Today's Feed</p>
+   <% if current_user.posts.where(post_date: Date.today).any? %>
+   <% @allposts.each do |post| %>
+   <%# partial post inside %>
+   <div data-controller="comments" >
+      <div data-controller="edit-user-post">
+         <div class="post <%= post.user == current_user ? "current-user-post" : "other-user-post" %>" data-controller="play-button">
+            <div class="post-top d-flex">
+               <% if post.user.photo.attached? %>
+               <%= link_to user_path(post.user) do %>
+               <%= cl_image_tag post.user.photo.key, class: "me-2 avatar-bordered" %>
+               <% end %>
+               <% else %>
+               <%= link_to user_path(post.user) do %>
+               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" alt="avatar" class="me-2 avatar-bordered">
+               <% end %>
+               <% end %>
+               <%= post.user.username.capitalize %>
+               <audio data-play-button-target="audio" controls src="<%= post.preview %>" class="mx-2 d-none"></audio>
+               <br>
+            </div>
+         <div class="song-info">
+            <div class="position-relative">
+               <div class="play-song">
+                  <% if post.preview %>
+                  <div class=" ms-2" data-action="click->play-button#play" ><i  id="fa-solid"class="fa-solid fa-play" style="color: #f5f5f5;"></i></div>
+                  <% end %>
+                  <img src="<%= post.image_url %>" alt="" class="album-artwork">
+               </div>
+               <div class="offset-song-icons d-flex justify-content-start w-100">
+                  <% if post.likes.where(user: current_user).any? %>
+                  <%= link_to post_like_path(post, post.likes.where(user: current_user).first), data: {turbo_method: :delete} do %>
+                  <i class="offset-icon fa-solid fa-heart text-danger" id="heart-icon"></i>
+                  <% end %>
+                  <% else %>
+                  <%= form_with(url: post_likes_path(post), method: :post, local: true, html: { class: "bookmark-form" }) do |form| %>
+                  <button type="submit" class="bookmark-button">
+                  <i class="offset-icon fa-regular fa-heart" id="heart-icon"></i>
+                  </button>
+                  <% end %>
+                  <% end %>
+                  <span >
+                     <p class="like-count" data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" title="Likes"
+                        data-bs-content="<ul>
+                        <% post.likes.each do |like| %>
                         <li><%= like.user.username %></li>
                         <% end %>
                         </ul>"
-                    data-bs-html="true">
+                        data-bs-html="true">
+                        <%= post.likes.count %>
+                     </p>
+                  </span>
+                  <i class="offset-icon fa-regular  fa-comment" id="message-icon" data-action="click->comments#toggle"></i>
+                  <% if post.favourite_posts.where(user: current_user).any? %>
+                  <%= link_to post_favourite_post_path(post, post.favourite_posts.where(user: current_user).first), style:"margin-left: auto;", data: {turbo_method: :delete} do %>
+                  <i class="offset-icon fa-solid fa-bookmark fill-color" ></i>
+                  <% end %>
+                  <% else %>
+                  <%= form_with(url: post_favourite_posts_path(post), method: :post, local: true, html: { class: "bookmark-form", style: "margin-left: auto;" }) do |form| %>
+                  <button type="submit" class="bookmark-button">
+                  <i class="offset-icon fa-regular fa-bookmark" id="save-icon" style="margin-left: auto;"></i>
+                  </button>
+                  <% end %>
+                  <% end %>
+               </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center" >
+               <div class="song-name-container">
+                  <% if post.song_name.length < 15 %>
+                  <h3><%= post.song_name.slice(0, 15) %></h3>
+                  <% else %>
+                  <h3 class="scrolling-text"><%= post.song_name.slice(0, 40) %></h3>
+                  <% end %>
+               </div>
+               <% if current_user == post.user %>
+               <i class="fa-solid fa-pen"   data-action="click->edit-user-post#edit"></i>
+               <% end %>
+            </div>
+            <div class="d-flex">
+               <h4 class="flex-grow-1"><%= post.artist %></h4>
+               <a href="<%= post.link %>" target="_blank"><i class="fa-brands fa-spotify text-success fs-1"></i></a>
+            </div>
+            <h5><%= post.caption.slice(0, 40) %><%= post.caption.length > 40 ? "..." : "" %></h5>
+            <br>
+         </div>
+         </div>
+         <%# finishing partial post inside%>
+         <%# partial comment inside %>
+         <div
+            class="comments-wrapper d-none <%= post.user == current_user ? "pink-bg" : "green-bg" %>"
+            style="box-shadow:6px 0px 0px 0px <%= post.user == current_user ? "#BF2C71;" : "#61A54E;" %>"
+            data-comments-target="commentsDiv" data-controller="commentsajax">
+            <div class="content">
+               <div class="comments-title">Comments</div>
+               <div class="comments-body">
+                  <div class="">
+                     <%= simple_form_for [post, Comment.new],
+                        html: { class: "d-flex white-bar", data: { commentsajax_target: "form", action: "submit->commentsajax#send"} } do |f| %>
+                     <%= f.input :content,
+                        as: :string,
+                        label: false,
+                        placeholder: "Leave your Comment",
+                        wrapper_html: { class: "flex-grow-1", style: "margin-bottom: 0 !important; margin-left: 16px; border: none;" },
+                        input_html: { class: "h-100 bg-white" } %>
+                     <%= f.button :button do %>
+                     <i class="fa-solid fa-check"></i>
+                     <% end %>
+                     <% end %>
+                  </div>
+                  <div class="friend-comment" data-commentsajax-target="container">
+                     <% post.comments.each do |comment| %>
+                     <%= render "shared/comment", comment: comment %>
+                     <% end %>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <%# finishing partial comment  %>
+         <%# partial edit inside %>
+          <div class="pink-edit d-none" data-edit-user-post-target="editCard" >
+            <div class="content-edit">
+              <div class="edit-title" >Edit song link</div>
+              <div class="edit-body">
+                <%= simple_form_for post, class: "edit-body",style: "border-radius: 0px; height: auto;"  do |f| %>
 
-                      <%= post.likes.count %>
-                  </p></span>
-            <i class="offset-icon fa-solid fa-comment" id="message-icon" data-action="click->comments#toggleComments"></i>
-            <% if post.favourite_posts.where(user: current_user).any? %>
-                <%= link_to post_favourite_post_path(post, post.favourite_posts.where(user: current_user).first), style:"margin-left: auto;", data: {turbo_method: :delete} do %>
-                <i class="offset-icon fa-solid fa-bookmark blue" ></i>
-              <% end %>
-
-            <% else %>
-              <%= form_with(url: post_favourite_posts_path(post), method: :post, local: true, html: { class: "bookmark-form", style: "margin-left: auto;" }) do |form| %>
-                    <button type="submit" class="bookmark-button">
-                    <i class="offset-icon fa-solid fa-bookmark" id="save-icon" style="margin-left: auto;"></i>
-                    </button>
-              <% end %>
-            <% end %>
+                  <%= f.input :link, class: "song-link-div",input_html: { style: "border-radius: 15px; height: 45px;" }%>
+                  <%= f.input :caption, class: "caption-div",input_html: { style: "border-radius: 15px; height: 55px;" } %>
+                  <div class="b-center">
+                  <%= f.submit "submit", class: "  medium-button-green"%>
+                    </div>
+                <% end %>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="d-flex justify-content-between" >
 
-          <div class="song-name-container">
-            <% if post.song_name.length < 15 %>
-              <h3><%= post.song_name.slice(0, 15) %></h3>
-            <% else %>
-              <h3 class="scrolling-text"><%= post.song_name.slice(0, 40) %></h3>
-            <% end %>
-          </div>
-          <% if current_user == post.user %>
-              <i class="fa-solid fa-pen" data-action="click->comments#toggleEdit"></i>
-          <% end %>
-        </div>
-        <div class="d-flex">
-          <h4 class="flex-grow-1"><%= post.artist %></h4>
-          <a href="<%= post.link %>" target="_blank"><i class="fa-brands fa-spotify text-success fs-1"></i></a>
-        </div>
-        <h5><%= post.caption.slice(0, 40) %><%= post.caption.length > 40 ? "..." : "" %></h5><br>
+         <%# finish partial edit  %>
       </div>
-    </div>
-<%# finishing partial post inside%>
-    <%# partial comment inside %>
-<div
-  class="comments-wrapper d-none <%= post.user == current_user ? "pink-bg" : "green-bg" %>"
-  style="box-shadow:6px 0px 0px 0px <%= post.user == current_user ? "#BF2C71;" : "#61A54E;" %>"
-  data-comments-target="commentsDiv" data-controller="commentsajax">
-  <div class="content">
-    <div class="comments-title">Comments</div>
-    <div class="comments-body">
-      <div class="">
-        <%= simple_form_for [post, Comment.new],
-                            html: { class: "d-flex white-bar", data: { commentsajax_target: "form", action: "submit->commentsajax#send"} } do |f| %>
-        <%= f.input :content,
-                      as: :string,
-                      label: false,
-                      placeholder: "Leave your Comment",
-                      wrapper_html: { class: "flex-grow-1", style: "margin-bottom: 0 !important; margin-left: 16px; border: none;" },
-                      input_html: { class: "h-100 bg-white" } %>
-          <%= f.button :button do %>
-            <i class="fa-solid fa-check"></i>
-          <% end %>
-        <% end %>
+   </div>
+   <style>
+   </style>
+   <% end %>
+   <% else %>
+   <div class="popup-box gutter-3">
+      <div class="d-flex align-items-center">
+         <div class="box">
+            <div class="inner-box">
+               <h3 class ="black-text">You cannot access the feed without posting a song for the day</h3>
+               <div class="buttons-center">
+                  <%= link_to "Post a Song", new_post_path, class: "big-button-pink m-3" %>
+               </div>
+            </div>
+         </div>
       </div>
-      <div class="friend-comment" data-commentsajax-target="container">
-        <% post.comments.each do |comment| %>
-<%= render "shared/comment", comment: comment %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-
-      <%# finishing partial comment  %>
-
-      <%# partial edit inside %>
-      <div class="pink-edit d-none" data-comments-target="editCard">
-  <div class="content-edit">
-    <div class="edit-title">edit</div>
-    <div class="edit-body">
-      <%= simple_form_for post, class: "edit-body" do |f| %>
-        <%= f.input :link, class: "song-link-div" %>
-        <%= f.input :caption, class: "caption-div" %>
-        <%= f.submit "submit", class: "small-button-green"%>
       <% end %>
-    </div>
-  </div>
+   </div>
 </div>
-      <%# finish partial edit  %>
-  </div>
-</div>
-
 <style>
-
-
-
-
-</style>
-
-
-    <% end %>
-  <% else %>
-  <div class="popup-box gutter-3">
-    <div class="d-flex align-items-center">
-      <div class="box">
-        <div class="inner-box">
-          <h3 class ="black-text">You cannot access the feed without posting a song for the day</h3>
-          <div class="buttons-center">
-            <%= link_to "Post a Song", new_post_path, class: "big-button-pink m-3" %>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
-  </div>
-</div>
-
-
-
-<style>
-.text-center{
-  margin: 5%;
-  color: var(--BACKGROUND-PRIMARY-TEXT);
-  font-family: 'IBM Plex Mono', monospace;
-  font-weight: 400;
-  font-size: 28px;
-
-
-}
+   .text-center{
+   margin: 5%;
+   color: var(--BACKGROUND-PRIMARY-TEXT);
+   font-family: 'IBM Plex Mono', monospace;
+   font-weight: 400;
+   font-size: 28px;
+   }
 </style>
