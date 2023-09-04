@@ -17,7 +17,7 @@ class Post < ApplicationRecord
     band = RSpotify::Artist.find(song.artists.first.id)
     song_title = song.name
     song_artists = song.artists
-    preview = song.preview_url
+    preview = song.preview_url unless song.nil?
     artist = song_artists.map { |artist| artist.name }.join(', ')
     album_art = song.album.images.first["url"]
     genre = band.genres.first
