@@ -90,38 +90,30 @@
     </div>
 <%# finishing partial post inside%>
     <%# partial comment inside %>
-      <div
+<div
   class="comments-wrapper d-none <%= post.user == current_user ? "pink-bg" : "green-bg" %>"
   style="box-shadow:6px 0px 0px 0px <%= post.user == current_user ? "#BF2C71;" : "#61A54E;" %>"
-  data-comments-target="commentsDiv">
+  data-comments-target="commentsDiv" data-controller="commentsajax">
   <div class="content">
     <div class="comments-title">Comments</div>
     <div class="comments-body">
-      <%= simple_form_for [post, Comment.new],
-                          html: { class: "d-flex white-bar" } do |f| %>
+      <div class="">
+        <%= simple_form_for [post, Comment.new],
+                            html: { class: "d-flex white-bar", data: { commentsajax_target: "form", action: "submit->commentsajax#send"} } do |f| %>
         <%= f.input :content,
-                    as: :string,
-                    label: false,
-                    placeholder: "Leave your Comment",
-                    wrapper_html: { class: "flex-grow-1", style: "margin-bottom: 0 !important; margin-left: 16px; border: none;" },
-                    input_html: { class: "h-100 bg-white" } %>
-        <%= f.button :button do %>
-          <i class="fa-solid fa-check"></i>
+                      as: :string,
+                      label: false,
+                      placeholder: "Leave your Comment",
+                      wrapper_html: { class: "flex-grow-1", style: "margin-bottom: 0 !important; margin-left: 16px; border: none;" },
+                      input_html: { class: "h-100 bg-white" } %>
+          <%= f.button :button do %>
+            <i class="fa-solid fa-check"></i>
+          <% end %>
         <% end %>
-      <% end %>
-      <div class="friend-comment">
+      </div>
+      <div class="friend-comment" data-commentsajax-target="container">
         <% post.comments.each do |comment| %>
-          <div class="single-comment">
-
-            <% if comment.user.photo.attached? %>
-              <a href="/users/<%=comment.user.id%>"><%= cl_image_tag comment.user.photo.key %> </a>
-            <% else %>
-            <%= link_to user_path(comment.user) do %>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" alt="avatar" class="me-2 avatar-bordered">
-            <% end %>
-            <% end %>
-            <span><%= comment.content %></span>
-          </div>
+<%= render "shared/comment", comment: comment %>
         <% end %>
       </div>
     </div>
