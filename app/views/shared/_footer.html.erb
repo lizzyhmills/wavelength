@@ -2,7 +2,7 @@
   <div class="footer">
     <a href="/posts"><%= image_tag "logo.svg" %> </a>
       <%= link_to "friends", friendships_path, class: "medium-button-green-footer" %>
-      <%= link_to "charts", "#", class: "medium-button-blue-pink-footer" %>
+      <%= link_to "charts", charts_path, class: "medium-button-blue-pink-footer" %>
     <% if current_user.photo.attached? %>
       <a href="/users/<%=current_user.id%>"><%= image_tag current_user.photo %></a>
     <% else %>
