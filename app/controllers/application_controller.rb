@@ -9,4 +9,12 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :bio, :username, :avatar_url, :photo])
   end
+
+  def after_sign_in_path_for(resource)
+    if current_user.posts.where(post_date: Date.today).any?
+      posts_path
+    else
+      root_path
+    end
+  end
 end
