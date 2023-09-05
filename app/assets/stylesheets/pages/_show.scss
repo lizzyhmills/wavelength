@@ -83,3 +83,14 @@
     color: white;
   }
 }
+
+.name-div {
+  display: flex;
+  align-items: center;
+
+  i {
+    margin-left: 10px;
+    margin-bottom: 17px;
+    font-size: 20px;
+  }
+}

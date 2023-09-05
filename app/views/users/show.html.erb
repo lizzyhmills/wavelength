@@ -8,6 +8,11 @@
   </div>
   <div class="name-div">
     <p class="user-name"><%= @user.username %></p>
+    <% if @user == current_user %>
+      <%= link_to notifications_path, class: "" do %>
+        <i class="fa-regular fa-bell" style="color: #ffffff;"></i>
+      <% end %>
+    <% end %>
   </div>
 <% if current_user == @user %>
       <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "medium-button-blue-pink"%>
