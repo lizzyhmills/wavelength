@@ -1,0 +1,3 @@
+<%= link_to post_like_path(post, post.likes.where(user: current_user).first), data: { turbo_method: :delete, action: "click->likes#unlikeForm", likes_target: "unlikeButton" } do %>
+    <i class="offset-icon fa-solid fa-heart text-danger" id="heart-icon"></i>
+<% end %>
