@@ -1,0 +1,8 @@
+<% if current_user %>
+  <% @unread.each do |notification| %>
+    <%= link_to notification.to_notification.message, notification.to_notification.url %>
+  <% end %>
+  <% @read.each do |notification| %>
+    <%= link_to notification.to_notification.message, notification.to_notification.url %>
+  <% end %>
+<% end %>

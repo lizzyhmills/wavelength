@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :notifications, only: [:index]
   resources :posts, except: :show do
     resources :comments
     resources :likes, only: [:create, :destroy]
