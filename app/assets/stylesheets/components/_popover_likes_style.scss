@@ -1,22 +1,12 @@
 .popover-shape {
   border-radius: 10px; /* Add a border radius */
-  padding: 10px; /* Add padding for spacing */
+  padding: 7px; /* Add padding for spacing */
 }
 
-.popover-shape ul {
-  list-style-type: none; /* Remove bullet points */
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
-}
-
-.popover-shape ul li {
-  margin: 5px 0; /* Adjust margin for better alignment */
-  font-size: 14px; /* Change the font size as needed */
-}
 
 /* Apply styles to the like count element */
 .popover-shape p {
-  font-size: 14px; /* Change the font size as needed */
+  font-size: 16px; /* Change the font size as needed */
   margin: 0; /* Remove any margin for better alignment */
 }
 
@@ -39,7 +29,7 @@
   }
   border-radius: 10px !important;
   h3 {
-    font-size: 12px !important;
+    font-size: 14px !important;
   }
   body{
      padding: 0px !important;
