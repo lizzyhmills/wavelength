@@ -66,7 +66,7 @@
 <% else %>
   <h4 class="text-light"> Bio</h4>
   <p class="text-light"><%= @user.bio %></p>
-    <% if current_user.friendships_as_follower.where(followee_id: @user, accepted: true).any? %>
+    <% if current_user.friendships_as_follower.where(followee_id: @user, accepted: true).any? && current_user.posts.where(post_date: Date.today).present?%>
       <% if @userpost.present? %>
         <%= render partial: 'post' %>
         <% else %>
@@ -74,6 +74,8 @@
         <% end %>
       <% elsif current_user.friendships_as_follower.where(followee_id: @user, accepted: nil).any? %>
         <p class="text-light">Waiting to accept request</p>
+      <% elsif current_user.friendships_as_follower.where(followee_id: @user, accepted: true).any? %>
+        <p class="text-light">Please post your song to see your friends post</p>
       <% else %>
       <%= button_to "follow", user_friendships_path(@user), method: :post, class:"small-button-pink mx-2" %>
       <% end %>

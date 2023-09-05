@@ -165,7 +165,7 @@ h5 {
 }
 
 .blue {
-  color: $blue;
+  color: var(--BACKGROUND-PRIMARY-TEXT)
 }
 .pink{
   color: var(--BACKGROUND-PRIMARY-TEXT) !important;
