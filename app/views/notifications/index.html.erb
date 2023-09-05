@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container mx-3 my-3 mt-4">
   <% if current_user %>
     <% if @unread.count <= 0 && @read.count <=0 %>
-      <h4 class="mx-3 mt-1">You have no notifications</h4>
+      <h3 class="mx-3 mt-1">You have no notifications</h3>
     <% else %>
       <h3 class="mt-3">Unread Notifications</h3>
       <% if @unread.count <= 0 %>
@@ -9,7 +9,7 @@
       <% else%>
         <ul>
           <% @unread.each do |notification| %>
-            <i class="fa-regular fa-comment-dots" style="color: #ffffff;"></i><%= link_to notification.to_notification.message, notification.to_notification.url %>
+            <i class="fa-regular fa-comment-dots mx-3" style="color: #ffffff;"></i><%= link_to notification.to_notification.message, notification.to_notification.url %>
           <% end %>
         </ul>
         <% end %>
