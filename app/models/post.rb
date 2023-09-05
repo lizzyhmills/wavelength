@@ -5,6 +5,8 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :favourite_posts, dependent: :destroy
   before_save :spotify_call
+  has_noticed_notifications model_name: 'Notification'
+  has_many :notifications, through: :user, dependent: :destroy
 
   include PgSearch::Model
   pg_search_scope :search_by_artist_and_song,

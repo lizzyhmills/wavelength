@@ -5,6 +5,10 @@ class PostsController < ApplicationController
     @myposts = Post.where(user_id: @user.id, post_date: Date.today)
     @allposts = (@posts + @myposts).sort_by(&:created_at).reverse
     @favourites = FavouritePost.all
+    if current_user
+      @notifications = current_user.notifications.reverse
+      current_user.notifications.mark_as_read!
+    end
   end
 
   def new
