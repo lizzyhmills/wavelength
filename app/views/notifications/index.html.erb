@@ -9,14 +9,14 @@
       <% else%>
         <ul>
           <% @unread.each do |notification| %>
-            <i class="fa-regular fa-comment-dots mx-3" style="color: #ffffff;"></i><%= link_to notification.to_notification.message, notification.to_notification.url %>
+            <i class="fa-regular fa-bell mx-3" style="color: #ffffff;"></i><%= link_to notification.to_notification.message, notification.to_notification.url %>
           <% end %>
         </ul>
         <% end %>
       <h3 class="mt-3">Read Notifications</h3>
       <ul>
         <% @read.each do |notification| %>
-          <i class="fa-solid fa-comment-dots mx-3" style="color: #ffffff;"></i><%= link_to notification.to_notification.message, notification.to_notification.url %>
+           <i class="fa-solid fa-check mx-3" style="color: #ffffff;"></i><%= link_to notification.to_notification.message, notification.to_notification.url %>
         <% end %>
       </ul>
     <% end %>
