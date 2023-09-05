@@ -24,3 +24,9 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+
+
+:root {
+  --bs-popover-body-padding-y: 0px !important;
+  --bs-popover-body-padding-x: 0px !important;
+}
