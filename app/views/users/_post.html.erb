@@ -1,4 +1,5 @@
-<div data-controller="comments" >
+<div class="container gutter-3">
+ <div data-controller="comments" >
           <div data-controller="edit-user-post">
             <div class="post <%= @userpost.user == current_user ? "current-user-post" : "other-user-post" %>" data-controller="play-button">
               <div class="post-top d-flex">
@@ -71,3 +72,4 @@
               <%= render 'shared/edit_card', post: @userpost %>
             </div>
           </div>
+</div>
