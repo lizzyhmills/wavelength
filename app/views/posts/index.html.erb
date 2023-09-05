@@ -135,18 +135,20 @@
             </div>
          </div>
          <%# finish partial edit  %>
+
       </div>
    </div>
    <style>
    </style>
    <% end %>
    <% else %>
-   <div class="popup-box gutter-3">
-      <div class="d-flex align-items-center">
-         <div class="box">
-            <div class="inner-box">
-               <h3 class ="black-text">You cannot access the feed without posting a song for the day</h3>
-               <div class="buttons-center">
+   <%# post song partial start %>
+   <div class="popup-box ">
+      <div class="d-flex align-items-center gutter-3">
+         <div class="box-shape">
+            <div class="inner-box-text">
+               <h3 class ="inner-text">You cannot access the feed without posting a song for the day</h3>
+               <div class="button-center">
                   <%= link_to "Post a Song", new_post_path, class: "big-button-pink m-3" %>
                </div>
             </div>
@@ -154,10 +156,11 @@
       </div>
       <% end %>
    </div>
+   <%# post song partial end %>
 </div>
 <style>
    .text-center{
-   margin: 5%;
+   margin: 3rem;
    color: var(--BACKGROUND-PRIMARY-TEXT);
    font-family: 'IBM Plex Mono', monospace;
    font-weight: 400;

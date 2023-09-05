@@ -1,0 +1,54 @@
+// Specific CSS for your home-page
+
+body {
+
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  height: 100%;
+
+}
+
+.image-box {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 80px 55px 0px 55px;
+}
+.popup-box{
+  margin-top: 8em;
+}
+.box-shape {
+  background-color: #E2E2E2;
+  box-shadow: 4px 4px 0px 0px var(--BACKGROUND-SECONDARY-PINK);
+  border-radius: 30px;
+  color:#0c0c0c;
+  width: 340px;
+  min-height: 280px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+
+.button-center{
+   display: flex;
+    align-content: center;
+    justify-content: space-evenly;
+}
+
+.inner-text{
+  color: #000;
+  text-align: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 20px;
+  font-weight: 400;
+     padding: 43px 44px 11px 44px;
+
+
+}
+
+
+
+// Specific CSS for your home-page
