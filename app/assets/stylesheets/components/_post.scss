@@ -1,7 +1,7 @@
 .post {
   height: auto;
   margin-bottom: 20px;
-  padding: 15px 15px 0px  ;
+  padding: 15px 15px 0px;
 
   border-radius: 40px;
   display: flex;
@@ -19,7 +19,8 @@
   h4 {
     margin-bottom: 0.3rem;
   }
-  .post-top{
+
+  .post-top {
     display: flex;
     align-items: center;
     margin: 5px;
@@ -109,8 +110,8 @@ h5 {
   margin-top: 8px;
 }
 
-.like-count{
-  position:relative;
+.like-count {
+  position: relative;
 }
 
 
@@ -166,7 +167,7 @@ h5 {
 
 
 
-.white{
+.white {
   color: var(--BACKGROUND-PRIMARY-TEXT) !important;
 }
 
@@ -187,11 +188,10 @@ h5 {
   color: #fafcff;
   font-size: 24px;
 }
-.fa-pen{
+
+.fa-pen {
   font-size: 20px;
-  color:#515151
-
-
+  color: #515151
 }
 
 
@@ -203,9 +203,20 @@ h5 {
 
 .like-count {
   filter: drop-shadow(1px 1px 1px #333333);
-      margin-top: 5 !important;
+  margin-top: 5 !important;
 }
 
 #play-important {
   filter: drop-shadow(3px 3px 1px #000000);
+}
+
+// BUTTON
+
+.btn-likes {
+  display: flex;
+  padding: 0;
+
+  i {
+    margin-right: 5px;
+  }
 }
