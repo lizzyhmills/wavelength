@@ -12,9 +12,6 @@ class CommentsController < ApplicationController
     # end
     respond_to do |format|
       if @comment.save
-        # notification = CommentNotification.with(comment: "#{@comment.user} left a comment on your post: '#{@comment.content.first(20)}'...")
-        # Deliver notification immediately
-        notification.deliver(@comment.post.user)
         format.html { redirect_to posts_path }
         format.json # Follows the classic Rails flow and look for a create.json view
       else

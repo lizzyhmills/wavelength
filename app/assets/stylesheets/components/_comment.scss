@@ -80,7 +80,9 @@
   flex-direction: column;
   align-items: center;
   margin-top: 16px;
-  overflow-y: scroll;
+  overflow: scroll;
+  max-height: 100px;
+
 }
 
 .collapsed {
@@ -95,13 +97,22 @@
   width: 100%;
   display: flex;
   margin-top: 5px;
+  word-break: break-all;
+  margin-bottom: 15px;
 
   img {
     width: 33px;
     height: 33px;
     border-radius: 50%;
     margin-right: 9px;
+    margin-bottom: 2px;
     box-shadow: 3px 3px 0px var(--BACKGROUND-PRIMARY-COLOR);
+  }
+
+  i {
+    margin-left: 15px;
+    margin-top: 5px;
+    color: darkgray;
   }
 
   span {

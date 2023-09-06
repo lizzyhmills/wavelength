@@ -1,6 +1,6 @@
 if @like.persisted?
-  json.form render(partial: 'posts/post', formats: :html, locals: { post: @post })
-  json.inserted_item render(partial: "posts/post", formats: :html, locals: { post: @post })
-else
+  json.inserted_item @post.likes.count
   # json.form render(partial: "posts/post", formats: :html, locals: { post: @post } )
+  json.delete_url post_like_path(@post, @like)
+
 end
