@@ -16,7 +16,9 @@ class ApplicationController < ActionController::Base
   def set_notifications
    notifications = Notification.where(recipient: current_user).newest_first.limit(9)
    @unread = notifications.unread
+   p @unread
    @read = notifications.read
+   p @read
   end
 
   def after_sign_in_path_for(resource)
