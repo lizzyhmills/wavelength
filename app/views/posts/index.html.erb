@@ -32,6 +32,7 @@
                      <img src="<%= post.image_url %>" alt="" class="album-artwork">
                   </div>
 
+
                   <div class="offset-song-icons d-flex justify-content-start w-100" style="gap: 0.5rem;">
                       <% if !current_user.likes.map(&:post_id).include?(post.id) %>
                         <%= link_to post_likes_path(post), data: { turbo_method: :post, action: "click->likes#likeAction", likes_target: "button" } do %>

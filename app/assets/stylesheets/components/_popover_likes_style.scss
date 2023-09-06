@@ -1,0 +1,57 @@
+.popover-shape {
+  border-radius: 10px; /* Add a border radius */
+  padding: 9px; /* Add padding for spacing */
+}
+
+
+/* Apply styles to the like count element */
+.popover-shape p {
+  font-size: 16px; /* Change the font size as needed */
+  margin: 0; /* Remove any margin for better alignment */
+}
+
+.popover-header {
+    padding: var(--bs-popover-header-padding-y) var(--bs-popover-header-padding-x);
+    margin-bottom: 0;
+    font-size: var(--bs-popover-header-font-size);
+    color: var(--bs-popover-header-color);
+    background-color: var(--bs-popover-header-bg);
+    border-bottom: var(--bs-popover-border-width) solid var(--bs-popover-border-color);
+    border-top-left-radius: var(--bs-popover-inner-border-radius);
+    border-top-right-radius: var(--bs-popover-inner-border-radius);
+}
+
+.popover {
+
+  .popover-header{
+    border-radius: 10px !important;
+    border:none !important;
+  }
+  border-radius: 10px !important;
+  h3 {
+    font-size: 14px !important;
+  }
+  body{
+     padding: 0px !important;
+        padding: var(--bs-popover-body-padding-y) var(--bs-popover-body-padding-x);
+  }
+  ul{
+    list-style-type: none !important;
+         display: block;
+
+    margin-block-start: 0px !important;
+    margin-block-end: 0px !important;
+    margin-inline-start: 0px !important;
+    margin-inline-end: 0px !important;
+    padding-inline-start: 0px !important;
+
+  }
+  li {
+    margin: 0 !important;
+  }
+
+
+
+
+
+}
