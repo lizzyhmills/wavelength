@@ -1,24 +1,36 @@
-<div class="container mx-3 my-3 mt-4">
+<div class="page-container-notification ">
+<div class="center-align">
   <% if current_user %>
+  <%# <div class="no-notifications" style="color: #ffffff; background: orange"> %>
     <% if @unread.count <= 0 && @read.count <=0 %>
-      <h3 class="mx-3 mt-1">You have no notifications</h3>
+      <div class="no-notifications" style="color: #ffffff;">
+        <h3 class="notifications-text">You have no Notifications</h3>
+      </div>
     <% else %>
-      <h3 class="mt-3">Unread Notifications</h3>
-      <% if @unread.count <= 0 %>
-        <h4 class="mx-3 mt-1">You have no new notifications</h4>
-      <% else%>
+      <div class="no-notifications" style="color: #ffffff;">
+
+        <h3 class="notifications-text">Unread Notifications</h3>
+        <% if @unread.count <= 0 %>
+          <h4 class="">You have no new notifications</h4>
+        <% else%>
+          <ul>
+            <% @unread.each do |notification| %>
+              <li><i class="fa-regular fa-bell" style="color: #ffffff;"></i><%= link_to notification.to_notification.message, notification.to_notification.url %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+
+      <div class="yes-notifications" style="color: #ffffff; ">
+        <h3 class="mt-3">Read Notifications</h3>
         <ul>
-          <% @unread.each do |notification| %>
-            <i class="fa-regular fa-bell mx-3" style="color: #ffffff;"></i><%= link_to notification.to_notification.message, notification.to_notification.url %>
+
+          <% @read.each do |notification| %>
+            <li><i class="fa-solid fa-check " style="color: #ffffff;"></i><%= link_to notification.to_notification.message, notification.to_notification.url %></li>
           <% end %>
         </ul>
-        <% end %>
-      <h3 class="mt-3">Read Notifications</h3>
-      <ul>
-        <% @read.each do |notification| %>
-           <i class="fa-solid fa-check mx-3" style="color: #ffffff;"></i><%= link_to notification.to_notification.message, notification.to_notification.url %>
-        <% end %>
-      </ul>
+      </div>
     <% end %>
   <% end %>
+  </div>
 </div>
