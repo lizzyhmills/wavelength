@@ -22,7 +22,7 @@
             </div>
 
 
-            <div class="song-info" data-controller="likes">
+            <div class="song-info" data-controller="likes" >
                <div class="position-relative mb-3">
 
                   <div class="play-song">
@@ -33,7 +33,7 @@
                   </div>
 
 
-                  <div class="offset-song-icons d-flex justify-content-start w-100" style="gap: 0.5rem;">
+                  <div class="offset-song-icons d-flex justify-content-start w-100" style="gap: 0.5rem;" data-controller="favourites">
                       <% if !current_user.likes.map(&:post_id).include?(post.id) %>
                         <%= link_to post_likes_path(post), data: { turbo_method: :post, action: "click->likes#likeAction", likes_target: "button" } do %>
                           <i class="offset-icon fa-regular fa-heart" id="heart-icon" ></i>
@@ -59,14 +59,15 @@
                      <i class="offset-icon fa-regular fa-comment" id="message-icon" data-action="click->comments#toggleComments"></i>
 
                      <% if post.favourite_posts.where(user: current_user).any? %>
-                      <%= link_to post_favourite_post_path(post, post.favourite_posts.where(user: current_user).first), style:"margin-left: auto;", data: {turbo_method: :delete, action: "click->favourtieFilter#favAction", favourite_filter_target: "button"} do %>
+                      <%= link_to post_favourite_post_path(post, post.favourite_posts.where(user: current_user).first), style:"margin-left: auto;", data: {turbo_method: :delete, action: "click->favourites#favAction", favourites_target: "fav"} do %>
                       <i class="offset-icon fa-solid fa-bookmark" ></i>
                       <% end %>
                      <% else %>
-                        <%= link_to post_favourite_posts_path(post), style:"margin-left: auto;", data: {turbo_method: :post, action: "click->favourtieFilter#favAction", favourite_filter_target: "button"} do %>
+                        <%= link_to post_favourite_posts_path(post), style:"margin-left: auto;", data: {turbo_method: :post, action: "click->favourites#favAction", favourites_target: "fav"} do %>
                       <i class="offset-icon fa-regular fa-bookmark" ></i>
                       <% end %>
                      <% end %>
+
                   </div>
                </div>
                <div class="d-flex align-items-center justify-content-between" >
