@@ -76,6 +76,9 @@
         <p class="text-light">Waiting to accept request</p>
       <% elsif current_user.friendships_as_follower.where(followee_id: @user, accepted: true).any? %>
         <p class="text-light">Please post your song to see your friends post</p>
+        <div class="button-center">
+          <%= link_to "Post a Song", new_post_path, class: "big-button-pink m-3" %>
+        </div>
       <% else %>
       <%= button_to "follow", user_friendships_path(@user), method: :post, class:"small-button-pink mx-2" %>
       <% end %>

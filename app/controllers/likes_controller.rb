@@ -18,6 +18,7 @@ class LikesController < ApplicationController
 
   def destroy
     @like = Like.find(params[:id])
+    @post = @like.post
     @like.destroy
     respond_to do |format|
       format.html { redirect_to posts_path }

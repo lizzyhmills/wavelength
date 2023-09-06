@@ -5,10 +5,12 @@ class FavouritePostsController < ApplicationController
     @post = Post.find(params[:post_id])
     @favourite_post.post = @post
     @favourite_post.user = @user
-    if @favourite_post.save!
-      redirect_to posts_path
-    else
-      render :posts_path, status: :unprocessable_entity
+
+    respond_to do |format|
+      if @favourite_post.save
+        format.html { redirect_to posts_path }
+        format.json # Follow rails convention and go to create.json
+      end
     end
   end
 
