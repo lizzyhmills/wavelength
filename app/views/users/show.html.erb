@@ -1,7 +1,4 @@
 <br>
-<% if current_user == @user %>
-      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "logout-button"%>
-
 
 <div class="top-center-text">
   <div class="avatar-div">
@@ -19,6 +16,7 @@
       <% end %>
     <% end %>
   </div>
+<% if current_user == @user %>
 </div>
 
 
@@ -91,3 +89,13 @@
       <%= button_to "follow", user_friendships_path(@user), method: :post, class:"small-button-pink mx-2" %>
       <% end %>
 <% end %>
+
+<br>
+<br>
+<br>
+<% if current_user == @user %>
+
+      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "logout-button"%>
+<% end %>
+<br>
+<br>
