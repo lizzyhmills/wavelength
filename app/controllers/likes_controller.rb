@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  skip_before_action :verify_authenticity_token
 
   def create
     @like = Like.new
@@ -17,7 +18,11 @@ class LikesController < ApplicationController
 
   def destroy
     @like = Like.find(params[:id])
+    @post = @like.post
     @like.destroy
-    redirect_to posts_path
+    respond_to do |format|
+      format.html { redirect_to posts_path }
+      format.json
+    end
   end
 end

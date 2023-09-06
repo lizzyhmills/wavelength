@@ -21,50 +21,51 @@
                <br>
             </div>
 
-            <div class="song-info">
-               <div class="position-relative mb-1">
+
+            <div class="song-info" data-controller="likes">
+               <div class="position-relative mb-3">
+
                   <div class="play-song">
                      <% if post.preview %>
                      <div class=" ms-2" data-action="click->play-button#play" ><i  id="fa-solid"class="fa-solid fa-play" style="color: #f5f5f5;"></i></div>
                      <% end %>
                      <img src="<%= post.image_url %>" alt="" class="album-artwork">
                   </div>
-                  <div class="offset-song-icons d-flex justify-content-start w-100" style="">
-                     <% if post.likes.where(user: current_user).any? %>
-                     <%= link_to post_like_path(post, post.likes.where(user: current_user).first), data: {turbo_method: :delete} do %>
-                     <i class="offset-icon fa-solid fa-heart text-danger" id="heart-icon"></i>
+
+
+                  <div class="offset-song-icons d-flex justify-content-start w-100" style="gap: 0.5rem;">
+                      <% if !current_user.likes.map(&:post_id).include?(post.id) %>
+                        <%= link_to post_likes_path(post), data: { turbo_method: :post, action: "click->likes#likeAction", likes_target: "button" } do %>
+                          <i class="offset-icon fa-regular fa-heart" id="heart-icon" ></i>
+                        <% end %>
+                      <% else %>
+                        <%= link_to post_like_path(post, post.likes.where(user: current_user).first), data: { turbo_method: :delete, action: "click->likes#likeAction", likes_target: "button"  } do %>
+                          <i class="offset-icon fa-solid fa-heart text-danger" id="heart-icon"></i>
+                        <% end %>
+                      <% end  %>
+
+                          <span data-likes-target="likeCount">
+                              <p data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" title="Likes"
+                                data-bs-content="<ul>
+                                <% post.likes.each do |like| %>
+                                <li><%= like.user.username %>d</li>
+                                <% end %>
+                                </ul>"
+                                data-bs-html="true">
+                                <%= post.likes.count %>
+                              </p>
+                          </span>
+
+                     <i class="offset-icon fa-regular fa-comment" id="message-icon" data-action="click->comments#toggleComments"></i>
+
+                     <% if post.favourite_posts.where(user: current_user).any? %>
+                      <%= link_to post_favourite_post_path(post, post.favourite_posts.where(user: current_user).first), style:"margin-left: auto;", data: {turbo_method: :delete, action: "click->favourtieFilter#favAction", favourite_filter_target: "button"} do %>
+                      <i class="offset-icon fa-solid fa-bookmark" ></i>
                       <% end %>
                      <% else %>
-                     <%= form_with(url: post_likes_path(post), method: :post, local: true, html: { class: "bookmark-form" }) do |form| %>
-                     <button type="submit" class="bookmark-button">
-                     <i class="offset-icon fa-regular fa-heart" id="heart-icon"></i>
-                     </button>
-                     <% end %>
-                     <% end %>
-                     <span>
-                     <div class="popover-shape">
-                        <p data-controller="popover" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="right" title="Likes"
-                           data-bs-content="<ul>
-                           <% post.likes.each do |like| %>
-                           <li><%= like.user.username %></li>
-                           <% end %>
-                           </ul>"
-                           data-bs-html="true">
-                           <%= post.likes.count %>
-                        </p>
-                      </div>
-                     </span>
-                     <i class="offset-icon fa-regular fa-comment" id="message-icon" data-action="click->comments#toggleComments"></i>
-                     <% if post.favourite_posts.where(user: current_user).any? %>
-                     <%= link_to post_favourite_post_path(post, post.favourite_posts.where(user: current_user).first), style:"margin-left: auto;", data: {turbo_method: :delete} do %>
-                     <i class="offset-icon fa-solid fa-bookmark blue" ></i>
-                     <% end %>
-                     <% else %>
-                     <%= form_with(url: post_favourite_posts_path(post), method: :post, local: true, html: { class: "bookmark-form", style: "margin-left: auto;" }) do |form| %>
-                     <button type="submit" class="bookmark-button">
-                     <i class="offset-icon fa-regular fa-bookmark" id="save-icon" style="margin-left: auto;"></i>
-                     </button>
-                     <% end %>
+                        <%= link_to post_favourite_posts_path(post), style:"margin-left: auto;", data: {turbo_method: :post, action: "click->favourtieFilter#favAction", favourite_filter_target: "button"} do %>
+                      <i class="offset-icon fa-regular fa-bookmark" ></i>
+                      <% end %>
                      <% end %>
                   </div>
                </div>
@@ -110,6 +111,7 @@
                      <i class="fa-solid fa-check"></i>
                      <% end %>
                      <% end %>
+
                   </div>
                   <div class="friend-comment" data-commentsajax-target="container">
                      <% post.comments.each do |comment| %>
