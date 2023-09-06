@@ -39,9 +39,9 @@ export default class extends Controller {
       })
   }
 
-  // click() {
-  //   console.log("hello")
-  //   this.formTarget.classList.toggle("d-none")
-  //   this.savedTarget.classList.toggle("d-none")
-  // }
+  click() {
+    console.log("hello")
+    this.formTarget.classList.toggle("d-none")
+    this.savedTarget.classList.toggle("d-none")
+  }
 }
