@@ -10,7 +10,7 @@
     <p class="user-name"><%= @user.username %></p>
     <% if @user == current_user %>
       <%= link_to notifications_path, class: "" do %>
-        <i class="fa-regular fa-bell" mx-4 style="color: #ffffff;"></i>
+        <i class="fa-regular fa-bell mx-3" style="color: #ffffff;"></i>
       <% end %>
     <% end %>
   </div>
