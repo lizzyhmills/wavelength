@@ -12,7 +12,11 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    if current_user.posts.where(post_date: Date.today).any?
+      redirect_to posts_path
+    else
+      @post = Post.new
+    end
     # @song = RSpotify::Track.find('2pAD0PKMUMtxlMvz33tYzB')
     # @artist = RSpotify::Artist.find(@song.artists.first.id)
 
