@@ -5,7 +5,7 @@
    <%# partial post inside %>
    <div data-controller="comments" >
       <div data-controller="edit-user-post">
-         <div class="post <%= post.user == current_user ? "current-user-post" : "other-user-post" %>" data-controller="play-button">
+         <div id="post_<%= post.id %>" class="post <%= post.user == current_user ? "current-user-post" : "other-user-post" %>" data-controller="play-button">
             <div class="post-top d-flex">
                <% if post.user.photo.attached? %>
                 <%= link_to user_path(post.user) do %>
