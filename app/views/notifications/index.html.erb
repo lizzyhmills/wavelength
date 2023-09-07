@@ -15,7 +15,7 @@
         <% else%>
           <ul>
             <% @unread.each do |notification| %>
-              <li><i class="fa-regular fa-bell  mx-3" style="color: ;"></i><%= link_to notification.to_notification.message, notification.to_notification.url %></li>
+              <li><i class="fa-regular fa-bell mx-3" style="color: ;"></i><%= link_to notification.to_notification.message, notification.to_notification.url, data: {turbo: false} %></li>
             <% end %>
           </ul>
         <% end %>
@@ -26,7 +26,7 @@
         <ul>
 
           <% @read.each do |notification| %>
-            <li><i class="fa-solid fa-check mx-3 " style="color: ;"></i><%= link_to notification.to_notification.message, notification.to_notification.url %></li>
+            <li><i class="fa-solid fa-check mx-3 " style="color: ;"></i><%= link_to notification.to_notification.message, notification.to_notification.url, data: {turbo: false} %></li>
           <% end %>
         </ul>
       </div>

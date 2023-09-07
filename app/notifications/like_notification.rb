@@ -19,6 +19,6 @@ class LikeNotification < Noticed::Base
   end
 
   def url
-    posts_path
+    posts_path(anchor: "post_#{@post.id}")
   end
 end
