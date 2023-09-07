@@ -13,7 +13,8 @@
               <% end %>
             </div>
             <div class="names mx-2 text-white">
-              <p class="text-truncate" style="max-width: 180px"><%= follower.followee.first_name %><%= follower.followee.last_name %></p>
+              <span class="text-truncate" style="max-width: 180px"><%= follower.followee.first_name %><%= follower.followee.last_name %></span>
+              <br>
               <%= follower.followee.username %>
             </div>
           </div>
