@@ -12,6 +12,7 @@
     <p class="user-name"><%= @user.username %></p>
     <% if @user == current_user %>
       <%= link_to notifications_path, class: "" do %>
+
         <% if @unread.count < 1 %>
         <i class="fa-regular fa-bell mx-3" style="color: #ffffff;"></i>
         <% else %>
@@ -19,6 +20,7 @@
             <div class="child"><%= @unread.count %> </div>
           </div>
         <% end %>
+
       <% end %>
     <% end %>
   </div>
@@ -28,7 +30,7 @@
 
     <div class="title-and-filter mt-4" data-controller="index-filter">
       <div class="profile-title">
-        <h3 data-index-filter-target="posts">Posts</h3>
+        <h3 data-index-filter-target="posts">My posted songs</h3>
       </div>
       <div class="profile-filter">
       <div class="filtering">
@@ -53,7 +55,7 @@
 
     <div class="title-and-filter mt-4" data-controller="favourite-filter">
       <div class="profile-title">
-        <h3 data-favourite-filter-target="saved">Saved</h3>
+        <h3 data-favourite-filter-target="saved">Saved songs</h3>
       </div>
       <div class="favourite-filter">
       <div class="profile-filter">
