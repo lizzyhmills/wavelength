@@ -41,8 +41,13 @@ class Post < ApplicationRecord
   def valid_spotify_link
     logger.debug "Inside valid_spotify_link method" # Add this line
     # Use a regular expression to check if the link matches a Spotify track URL
+    if link.include?("spotify.link")
+      p "Contains Link!"
+      redirect_url = Net::HTTP.get_response(URI(link))
+      self.link = redirect_url["location"]
+    end
+    p link
     spotify_url_regex = %r{^(spotify:|https:\/\/[a-z]+\.spotify\.com\/)}
-
     unless link =~ spotify_url_regex
       errors.add(:link, "must be a valid Spotify track URL")
     end
