@@ -1,3 +1,4 @@
+<% if @myrequests.empty? %>
  <div class="mt-3 container" data-friends-target="suggestions">
     <div>
       <% @users.each do |user| %>
@@ -26,4 +27,35 @@
       </div>
       <% end %>
     </div>
-</div>
+  </div>
+<% else %>
+   <div class="mt-3 container d-none" data-friends-target="suggestions">
+    <div>
+      <% @users.each do |user| %>
+      <div class="d-flex mb-3">
+        <div class="flex-grow-1">
+        <%= link_to user_path(user), class: "custom-link" do %>
+          <div class="d-flex">
+            <div class="av">
+            <% if user.photo.attached? %>
+              <%= cl_image_tag user.photo.key, class: "avatar-bordered" %>
+            <% else %>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" alt="avatar" class="me-2 avatar-bordered">
+            <% end %>
+            </div>
+            <div class="names mx-2 text-white">
+              <%= user.first_name %>
+              <%= user.last_name %> <br>
+              <%= user.username %>
+            </div>
+          </div>
+        <% end %>
+        </div>
+        <div>
+          <%= button_to "follow", user_friendships_path(user), method: :post, class:"small-button-pink mx-2" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
