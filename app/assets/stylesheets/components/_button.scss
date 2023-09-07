@@ -145,8 +145,8 @@ background-color: #ffffff;
 }
 
 .small-button-pink{
-  background-color: var(--BACKGROUND-SECONDARY-PINK);
-  color:var(--BACKGROUND-PRIMARY-TEXT);
+ background-color: #1e1e1e ;
+  color:whitesmoke;
     font-family: 'IBM Plex Mono', monospace;
   font-weight: 400;
   font-size: 12px;
@@ -155,7 +155,7 @@ background-color: #ffffff;
   height: 23px;
   flex-shrink: 0;
   border-radius: 40px;
-  box-shadow: 1px 2px 0px 0px var(--BACKGROUND-PRIMARY-TEXT);
+  box-shadow: 1px 2px 0px 0px #2d2d2d;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -173,7 +173,7 @@ background-color: #ffffff;
   height: 23px;
   flex-shrink: 0;
   border-radius: 40px;
-  box-shadow: 1px 2px 0px 0px var(--BACKGROUND-PRIMARY-TEXT);
+  box-shadow: 1px 2px 0px 0px #2d2d2d;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -181,9 +181,9 @@ background-color: #ffffff;
 }
 
 .small-button-red{
-  background-color: var(--BACKGROUND-SECONDARY-RED);
-  color:var(--BACKGROUND-PRIMARY-TEXT);
-    font-family: 'IBM Plex Mono', monospace;
+  background-color: #1e1e1e ;
+  color:whitesmoke;
+  font-family: 'IBM Plex Mono', monospace;
   font-weight: 400;
   font-size: 12px;
   font-style: normal;
@@ -191,7 +191,7 @@ background-color: #ffffff;
   height: 23px;
   flex-shrink: 0;
   border-radius: 40px;
-  box-shadow: 1px 2px 0px 0px var(--BACKGROUND-PRIMARY-TEXT);
+  box-shadow: 1px 2px 0px 0px #2d2d2d;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -200,7 +200,7 @@ background-color: #ffffff;
 
 .small-button-white{
   background-color: var(--BACKGROUND-PRIMARY-TEXT);
-  color:black;
+  color:white;
     font-family: 'IBM Plex Mono', monospace;
   font-weight: 400;
   font-size: 12px;
