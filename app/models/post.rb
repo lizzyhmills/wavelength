@@ -1,9 +1,13 @@
 class Post < ApplicationRecord
   belongs_to :user
   validate :valid_spotify_link
+  # validates :content, presence: true
+  # validate :one_post_a_day
+  validates :post_date, uniqueness: { scope: :user_id, message: 'One post a day' }
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :favourite_posts, dependent: :destroy
+  before_validation :set_post_date
   before_save :spotify_call
   has_noticed_notifications model_name: 'Notification'
   has_many :notifications, through: :user, dependent: :destroy
@@ -18,6 +22,10 @@ class Post < ApplicationRecord
   def self.feed_posts(user)
     friend_ids = user.friendships_as_follower.where(accepted: true).pluck(:followee_id)
     Post.where(user_id: friend_ids, post_date: Date.today)
+  end
+
+  def set_post_date
+    self.post_date = Date.today
   end
 
   def spotify_call
@@ -35,7 +43,6 @@ class Post < ApplicationRecord
     self.preview = preview
     self.image_url = album_art
     self.genre = genre
-    self.post_date = Date.today
   end
 
   def valid_spotify_link
@@ -52,4 +59,9 @@ class Post < ApplicationRecord
       errors.add(:link, "must be a valid Spotify track URL")
     end
   end
+
+  # def one_post_a_day
+
+  # end
+
 end
