@@ -16,7 +16,7 @@
         <% if @unread.count < 1 %>
         <i class="fa-regular fa-bell mb-3 mx-3" style="color: #ffffff;"></i>
         <% else %>
-          <div class="parent"><i class="fa-regular fa-bell mx-3" style="color: #ffffff;"></i>
+          <div class="parent"><i class="fa-regular fa-bell mx-3 mb-3" style="color: #ffffff;"></i>
             <div class="child"><%= @unread.count %> </div>
           </div>
         <% end %>
