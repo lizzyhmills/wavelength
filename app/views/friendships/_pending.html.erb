@@ -1,7 +1,7 @@
  <div class="d-none mt-3 container" data-follow-target="pending">
     <div>
       <% @pendings.each do |request| %>
-      <div class="d-flex mb-3">
+      <div class="d-flex mb-3" style="padding: 0 18px;">
         <div class="flex-grow-1">
         <%= link_to user_path(request.followee), class: "custom-link" do %>
           <div class="d-flex">
@@ -13,15 +13,16 @@
             <% end %>
             </div>
             <div class="names mx-2 text-white">
-              <%= request.followee.first_name %>
-              <%= request.followee.last_name %> <br>
+             <span class="text-truncate" style="max-width: 180px"> <%= request.followee.first_name %>
+              <%= request.followee.last_name %></span>
+              <br>
               <%= request.followee.username %>
             </div>
           </div>
         <% end %>
         </div>
         <div>
-          <%= button_to "cancel", reject_friendship_path(request), method: :patch, class:"small-button-red mx-2"%>
+          <%= button_to "cancel", reject_friendship_path(request), method: :patch, class:"small-button-red ms-2"%>
 
         </div>
       </div>

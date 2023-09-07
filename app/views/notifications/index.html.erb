@@ -15,7 +15,7 @@
         <% else%>
           <ul>
             <% @unread.each do |notification| %>
-              <li><i class="fa-regular fa-bell mx-3" style="color: ;"></i><%= link_to notification.to_notification.message, notification.to_notification.url %></li>
+              <li><i class="fa-regular fa-bell  mx-3" style="color: ;"></i><%= link_to notification.to_notification.message, notification.to_notification.url %></li>
             <% end %>
           </ul>
         <% end %>
