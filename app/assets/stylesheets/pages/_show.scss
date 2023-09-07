@@ -101,3 +101,21 @@
   text-decoration: none;
   font-size: 14px;
 }
+
+.parent{
+  position: relative;
+}
+
+.child {
+  position: absolute;
+  bottom: 25px;
+  right:15%;
+  background-color: red;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+}
