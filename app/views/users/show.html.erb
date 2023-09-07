@@ -12,7 +12,15 @@
     <p class="user-name"><%= @user.username %></p>
     <% if @user == current_user %>
       <%= link_to notifications_path, class: "" do %>
-        <i class="fa-regular fa-bell mb-3 mx-3" style="color: #ffffff;"></i>
+
+        <% if @unread.count < 1 %>
+        <i class="fa-regular fa-bell mx-3" style="color: #ffffff;"></i>
+        <% else %>
+          <div class="parent"><i class="fa-regular fa-bell mx-3" style="color: #ffffff;"></i>
+            <div class="child"><%= @unread.count %> </div>
+          </div>
+        <% end %>
+
       <% end %>
     <% end %>
   </div>
